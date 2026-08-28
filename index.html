@@ -1,689 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OmniRead — Knowledge Hub: Science, History, AI Tips, Books & News</title>
-  <meta name="description" content="Explore curated articles, books, PDFs, and news across Science & Technology, History, General Knowledge, Computer & AI Tips, and Books. Read documents in-page with our embedded viewer." />
-  <meta name="keywords" content="general knowledge, science, history, AI tips, books, PDFs, news articles, quiz" />
-  <meta name="author" content="OmniRead" />
-  <meta name="robots" content="index, follow" />
-
-  <!-- OpenGraph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="OmniRead — Knowledge Hub" />
-  <meta property="og:description" content="Curated articles, books, PDFs, and news across Science, History, AI Tips, Books, and more. Read in-page with our embedded viewer." />
-  <meta property="og:site_name" content="OmniRead" />
-  <meta property="og:url" content="https://omniread.example.com/" />
-  <meta property="og:image" content="https://images.pexels.com/photos/256541/pexels-photo-256541.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630&fit=crop" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="OmniRead — Knowledge Hub" />
-  <meta name="twitter:description" content="Curated articles, books, PDFs, and news. Read in-page with our embedded viewer." />
-  <meta name="twitter:image" content="https://images.pexels.com/photos/256541/pexels-photo-256541.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630&fit=crop" />
-
-  <!-- JSON-LD Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "OmniRead",
-    "url": "https://omniread.example.com/",
-    "description": "Curated articles, books, PDFs, and news across Science, History, AI Tips, Books, and more.",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://omniread.example.com/?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "OmniRead",
-    "url": "https://omniread.example.com/",
-    "logo": "https://omniread.example.com/logo.png",
-    "sameAs": []
-  }
-  </script>
-
-  <link rel="canonical" href="https://omniread.example.com/" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>" />
-
-  <!-- Tailwind CSS via CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'brand-slate': { bg: '#F8FAFC', ink: '#0F172A' },
-            'cat-science': '#2563EB',
-            'cat-history': '#D97706',
-            'cat-general': '#059669',
-            'cat-computer': '#7C3AED',
-            'cat-books':   '#DC2626',
-          },
-          fontFamily: {
-            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-            serif: ['Lora', 'Georgia', 'serif'],
-          },
-        },
-      },
-    };
-  </script>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
-
-  <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', system-ui, sans-serif; }
-    .font-serif-display { font-family: 'Lora', Georgia, serif; }
-    /* Subtle entrance animation for cards */
-    .card-enter { opacity: 0; transform: translateY(12px); }
-    .card-enter.show { opacity: 1; transform: translateY(0); transition: opacity .4s ease, transform .4s ease; }
-    /* Modal backdrop blur */
-    .modal-backdrop { backdrop-filter: blur(6px); }
-    /* Hide scrollbar for filter bar on mobile while keeping scroll */
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    /* Line clamp helper */
-    .clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-    .clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OmniRead – Knowledge Hub: Science, History, AI Tips, Books & News</title>
+    <meta name="description" content="Explore curated articles, books, PDFs, and news across Science & Technology, History, General Knowledge, Computer & AI Tips, and quiz." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-serif-display { font-family: 'Merriweather', serif; }
+    </style>
 </head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
 
-<body class="bg-brand-slate-bg text-brand-slate-ink antialiased min-h-screen flex flex-col">
-
-  <!-- ============ HEADER ============ -->
-  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <!-- Top row: logo + search -->
-      <div class="flex items-center gap-3 sm:gap-6 py-3">
-        <a href="#" class="flex items-center gap-2 shrink-0" aria-label="OmniRead home">
-          <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-slate-900 text-white text-lg font-bold">O</span>
-          <span class="font-serif-display text-xl font-semibold tracking-tight hidden sm:inline">OmniRead</span>
-        </a>
-
-        <!-- Search -->
-        <div class="flex-1 max-w-xl mx-auto">
-          <label for="search" class="sr-only">Search articles, books, PDFs, news</label>
-          <div class="relative">
-            <svg class="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-            <input id="search" type="search" placeholder="Search articles, books, PDFs, news…" autocomplete="off"
-              class="w-full rounded-full border border-slate-300 bg-slate-50 pl-10 pr-4 py-2.5 text-sm focus:border-cat-science focus:bg-white focus:ring-2 focus:ring-cat-science/30 outline-none transition" />
-          </div>
+    <!-- HEADER -->
+    <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white text-slate-900 font-bold text-xl">O</span>
+                <a href="#" class="font-serif-display text-xl font-semibold tracking-tight text-white">OmniRead</a>
+            </div>
+            <div class="flex-1 max-w-md mx-6">
+                <input type="text" placeholder="Search articles, books, PDFs, news..." class="w-full bg-slate-800 text-slate-100 text-sm rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-slate-400 border border-slate-700">
+            </div>
         </div>
+    </header>
 
-        <button id="openMenu" class="md:hidden p-2 rounded-lg hover:bg-slate-100" aria-label="Open menu">
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-        </button>
-      </div>
+    <!-- MAIN CONTAINER -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8 flex-1 w-full">
+        
+        <!-- FEATURED PUBLISHED ARTICLE -->
+        <article class="bg-white rounded-xl border border-slate-200 p-6 md:p-8 shadow-sm mb-8">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 mb-4">Computer & AI</span>
+            <h1 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6 font-serif-display">The AI Revolution in Human Life</h1>
+            
+            <div class="prose prose-slate max-w-none space-y-4 text-slate-700 leading-relaxed">
+                <h2 class="text-xl font-semibold text-slate-900 mt-6 mb-2">Understanding Artificial Intelligence</h2>
+                <p>Artificial intelligence has transitioned from theoretical computer science into an inescapable reality of daily existence. At its core, the technology involves machine systems programmed to simulate cognitive tasks once reserved exclusively for human minds. These systems process vast streams of information, recognize subtle patterns, and make reasoned decisions with remarkable speed. Rather than functioning as simple automation tools, modern algorithms adapt to user behavior, learning continually from new inputs to refine their performance across diverse environments.</p>
 
-      <!-- Header Ad Slot -->
-      <div class="ad-slot header-ad mb-2" aria-label="Advertisement">
-        <div class="h-[90px] w-full rounded-lg border border-dashed border-slate-300 bg-slate-100 flex items-center justify-center text-slate-400 text-xs uppercase tracking-widest">
-          Header Ad · 728×90
+                <p>The ubiquity of this technology is visible across modern infrastructure. From subtle algorithms managing urban traffic grids to personalized recommendations on personal devices, automated intelligence operates quietly in the background. It represents a fundamental shift in how human civilization processes information, reorganizes labor, and solves complex systemic problems.</p>
+
+                <h2 class="text-xl font-semibold text-slate-900 mt-6 mb-2">Efficiency and Time Reclaim</h2>
+                <p>The primary advantage of automated systems lies in their capacity for rapid execution. Tasks that traditionally demanded hours of painstaking manual labor, such as organizing unstructured files or cross-referencing complex archives, now occur instantaneously. By absorbing repetitive administrative burdens, smart software acts as a productivity multiplier across every technical discipline.</p>
+
+                <p>Reclaiming this time allows professionals to redirect their energy toward higher-level strategic thinking and genuine problem-solving. In field environments and corporate settings alike, the elimination of routine friction accelerates workflows, allowing teams to accomplish ambitious projects with significantly reduced overhead and administrative delay.</p>
+
+                <h2 class="text-xl font-semibold text-slate-900 mt-6 mb-2">Transformation in Content Creation</h2>
+                <p>The creative landscape has experienced a profound shift due to the arrival of generative software tools. Content creators, writers, and visual designers now utilize these algorithms as collaborative partners rather than competitors. The technology assists in brainstorming conceptual outlines, refining draft material, and generating preliminary visual assets, effectively removing the creative barrier known as writer block.</p>
+
+                <p>However, human oversight remains indispensable in this digital synthesis. While algorithms excel at rapidly synthesizing existing media, they lack genuine emotional depth, lived experience, and nuanced cultural understanding. The most effective digital media today emerges from a symbiotic relationship where human writers guide, refine, and infuse soul into raw algorithmic output.</p>
+
+                <h2 class="text-xl font-semibold text-slate-900 mt-6 mb-2">Data Management and Strategic Insight</h2>
+                <p>Modern organizations generate massive volumes of information daily, creating an analytical challenge that exceeds human processing limits. Automated data architecture solves this issue by continuously ingesting, categorizing, and interpreting massive datasets without fatigue. This continuous processing reveals hidden trends and predictive indicators that would otherwise remain undetected.</p>
+
+                <p>In decision-making contexts, this rapid synthesis proves vital. Strategic planners no longer need to rely solely on delayed historical reports or intuition. Instead, they access real-time diagnostic metrics that inform policy, optimize supply chains, and predict operational bottlenecks long before they manifest in physical systems.</p>
+
+                <h2 class="text-xl font-semibold text-slate-900 mt-6 mb-2">Critical Drawbacks and Ethical Concerns</h2>
+                <p>Despite these extensive benefits, the rapid expansion of automated systems presents significant challenges. The most pressing concern involves workplace displacement, as routine technical roles become redundant faster than workforce retraining programs can adapt. This disruption creates economic uncertainty for millions of workers transitioning through changing labor markets.</p>
+
+                <p>Furthermore, data privacy and algorithmic bias remain persistent vulnerabilities. Machine learning models require vast amounts of personal information to train effectively, raising serious concerns regarding consent, surveillance, and systemic unfairness embedded within training sets. Addressing these ethical drawbacks requires strict regulatory frameworks to ensure technological advancement does not erode basic human rights.</p>
+
+                <h2 class="text-xl font-semibold text-slate-900 mt-6 mb-2">Harmonizing Innovation with Human Purpose</h2>
+                <p>The ongoing integration of artificial intelligence represents a pivotal moment in human history. The technology offers unprecedented tools for expanding efficiency, streamlining complex data, and accelerating creative output across all fields. However, long-term success depends on maintaining human agency, critical thinking, and ethical stewardship over the tools we construct.</p>
+            </div>
+        </article>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-300 py-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center text-sm text-slate-400">
+            <p>© 2026 OmniRead — Knowledge Hub for Curious Readers.</p>
         </div>
-      </div>
+    </footer>
 
-      <!-- Sticky nav / category filter bar -->
-      <nav id="filterBar" class="flex gap-2 overflow-x-auto no-scrollbar py-3 -mx-1 px-1" aria-label="Category filters">
-        <button data-filter="all" class="filter-btn shrink-0 px-4 py-1.5 rounded-full text-sm font-medium border border-slate-300 bg-white hover:bg-slate-100 transition active:scale-95">All</button>
-        <button data-filter="science"  class="filter-btn shrink-0 px-4 py-1.5 rounded-full text-sm font-medium border border-slate-300 bg-white hover:bg-cat-science/10 hover:border-cat-science/40 transition active:scale-95">Science &amp; Tech</button>
-        <button data-filter="history"  class="filter-btn shrink-0 px-4 py-1.5 rounded-full text-sm font-medium border border-slate-300 bg-white hover:bg-cat-history/10 hover:border-cat-history/40 transition active:scale-95">History</button>
-        <button data-filter="general" class="filter-btn shrink-0 px-4 py-1.5 rounded-full text-sm font-medium border border-slate-300 bg-white hover:bg-cat-general/10 hover:border-cat-general/40 transition active:scale-95">General &amp; Quiz</button>
-        <button data-filter="computer" class="filter-btn shrink-0 px-4 py-1.5 rounded-full text-sm font-medium border border-slate-300 bg-white hover:bg-cat-computer/10 hover:border-cat-computer/40 transition active:scale-95">Computer &amp; AI</button>
-        <button data-filter="books"    class="filter-btn shrink-0 px-4 py-1.5 rounded-full text-sm font-medium border border-slate-300 bg-white hover:bg-cat-books/10 hover:border-cat-books/40 transition active:scale-95">Books &amp; News</button>
-      </nav>
-    </div>
-  </header>
-
-  <!-- ============ MOBILE MENU DRAWER ============ -->
-  <div id="menuDrawer" class="fixed inset-0 z-50 hidden">
-    <div class="absolute inset-0 bg-slate-900/50 modal-backdrop" data-close-menu></div>
-    <aside class="absolute right-0 top-0 h-full w-72 bg-white shadow-xl p-5 flex flex-col">
-      <div class="flex items-center justify-between mb-6">
-        <span class="font-serif-display text-lg font-semibold">Menu</span>
-        <button id="closeMenu" class="p-2 rounded-lg hover:bg-slate-100" aria-label="Close menu">
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M6 18L18 6"/></svg>
-        </button>
-      </div>
-      <nav class="flex flex-col gap-1 text-sm" aria-label="Mobile navigation">
-        <a href="#content" class="px-3 py-2 rounded-lg hover:bg-slate-100" data-close-menu>Browse</a>
-        <a href="#content" class="px-3 py-2 rounded-lg hover:bg-slate-100" data-close-menu data-open-modal="about">About Us</a>
-        <a href="#content" class="px-3 py-2 rounded-lg hover:bg-slate-100" data-close-menu data-open-modal="contact">Contact</a>
-        <a href="#content" class="px-3 py-2 rounded-lg hover:bg-slate-100" data-close-menu data-open-modal="privacy">Privacy Policy</a>
-        <a href="#content" class="px-3 py-2 rounded-lg hover:bg-slate-100" data-close-menu data-open-modal="terms">Terms of Service</a>
-      </nav>
-    </aside>
-  </div>
-
-  <!-- ============ MAIN ============ -->
-  <main id="content" class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-8">
-    <!-- Hero -->
-    <section class="mb-8">
-      <h1 class="font-serif-display text-3xl sm:text-4xl font-semibold tracking-tight">
-        Read across every field of knowledge.
-      </h1>
-      <p class="mt-2 text-slate-600 max-w-2xl">
-        Curated <strong>articles</strong>, <strong>books</strong>, <strong>PDFs</strong>, and <strong>news</strong> — read documents directly on the page with our embedded viewer. Filter by category or search to dive in.
-      </p>
-    </section>
-
-    <div class="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-8">
-      <!-- Article grid -->
-      <section aria-label="Articles">
-        <div class="flex items-center justify-between mb-4">
-          <h2 id="resultsLabel" class="text-sm font-semibold text-slate-500 uppercase tracking-wider">All Articles · <span id="resultCount">0</span></h2>
-          <span id="emptyHint" class="text-sm text-slate-400 hidden">No results found.</span>
-        </div>
-        <div id="grid" class="grid grid-cols-1 sm:grid-cols-2 gap-5"></div>
-      </section>
-
-      <!-- Sidebar -->
-      <aside class="hidden lg:block space-y-6">
-        <div class="ad-slot sidebar-ad sticky top-44">
-          <div class="h-[600px] w-[300px] rounded-lg border border-dashed border-slate-300 bg-slate-100 flex items-center justify-center text-slate-400 text-xs uppercase tracking-widest">
-            Sidebar Ad · 300×600
-          </div>
-        </div>
-      </aside>
-    </div>
-    <article class="article-container">
-    <h1>The AI Revolution in Human Life</h1>
-
-    <h2>Understanding Artificial Intelligence</h2>
-    <p>Artificial intelligence has transitioned from theoretical computer science into an inescapable reality of daily existence. At its core, the technology involves machine systems programmed to simulate cognitive tasks once reserved exclusively for human minds. These systems process vast streams of information, recognize subtle patterns, and make reasoned decisions with remarkable speed. Rather than functioning as simple automation tools, modern algorithms adapt to user behavior, learning continually from new inputs to refine their performance across diverse environments.</p>
-
-    <p>The ubiquity of this technology is visible across modern infrastructure. From subtle algorithms managing urban traffic grids to personalized recommendations on personal devices, automated intelligence operates quietly in the background. It represents a fundamental shift in how human civilization processes information, reorganizes labor, and solves complex systemic problems.</p>
-
-    <h2>Efficiency and Time Reclaim</h2>
-    <p>The primary advantage of automated systems lies in their capacity for rapid execution. Tasks that traditionally demanded hours of painstaking manual labor, such as organizing unstructured files or cross-referencing complex archives, now occur instantaneously. By absorbing repetitive administrative burdens, smart software acts as a productivity multiplier across every technical discipline.</p>
-
-    <p>Reclaiming this time allows professionals to redirect their energy toward higher-level strategic thinking and genuine problem-solving. In field environments and corporate settings alike, the elimination of routine friction accelerates workflows, allowing teams to accomplish ambitious projects with significantly reduced overhead and administrative delay.</p>
-
-    <h2>Transformation in Content Creation</h2>
-    <p>The creative landscape has experienced a profound shift due to the arrival of generative software tools. Content creators, writers, and visual designers now utilize these algorithms as collaborative partners rather than competitors. The technology assists in brainstorming conceptual outlines, refining draft material, and generating preliminary visual assets, effectively removing the creative barrier known as writer block.</p>
-
-    <p>However, human oversight remains indispensable in this digital synthesis. While algorithms excel at rapidly synthesizing existing media, they lack genuine emotional depth, lived experience, and nuanced cultural understanding. The most effective digital media today emerges from a symbiotic relationship where human writers guide, refine, and infuse soul into raw algorithmic output.</p>
-
-    <h2>Data Management and Strategic Insight</h2>
-    <p>Modern organizations generate massive volumes of information daily, creating an analytical challenge that exceeds human processing limits. Automated data architecture solves this issue by continuously ingesting, categorizing, and interpreting massive datasets without fatigue. This continuous processing reveals hidden trends and predictive indicators that would otherwise remain undetected.</p>
-
-    <p>In decision-making contexts, this rapid synthesis proves vital. Strategic planners no longer need to rely solely on delayed historical reports or intuition. Instead, they access real-time diagnostic metrics that inform policy, optimize supply chains, and predict operational bottlenecks long before they manifest in physical systems.</p>
-
-    <h2>Critical Drawbacks and Ethical Concerns</h2>
-    <p>Despite these extensive benefits, the rapid expansion of automated systems presents significant challenges. The most pressing concern involves workplace displacement, as routine technical roles become redundant faster than workforce retraining programs can adapt. This disruption creates economic uncertainty for millions of workers transitioning through changing labor markets.</p>
-
-    <p>Furthermore, data privacy and algorithmic bias remain persistent vulnerabilities. Machine learning models require vast amounts of personal information to train effectively, raising serious concerns regarding consent, surveillance, and systemic unfairness embedded within training sets. Addressing these ethical drawbacks requires strict regulatory frameworks to ensure technological advancement does not erode basic human rights.</p>
-
-    <h2>Harmonizing Innovation with Human Purpose</h2>
-    <p>The ongoing integration of artificial intelligence represents a pivotal moment in human history. The technology offers unprecedented tools for expanding efficiency, streamlining complex data, and accelerating creative output across all fields. However, long-term success depends on maintaining human agency, critical thinking, and ethical stewardship over the tools we construct.</p>
-</article>
-  </main>
-
-  <!-- ============ FOOTER ============ -->
-  <footer class="bg-slate-900 text-slate-300 mt-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
-      <div class="col-span-2 md:col-span-1">
-        <div class="flex items-center gap-2 mb-3">
-          <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white text-slate-900 font-bold">O</span>
-          <span class="font-serif-display text-lg font-semibold text-white">OmniRead</span>
-        </div>
-        <p class="text-sm text-slate-400">A general knowledge hub for curious readers.</p>
-      </div>
-      <div>
-        <h3 class="text-white font-semibold text-sm mb-3">Company</h3>
-        <ul class="space-y-2 text-sm">
-          <li><button class="hover:text-white transition" data-open-modal="about">About Us</button></li>
-          <li><button class="hover:text-white transition" data-open-modal="contact">Contact Us</button></li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="text-white font-semibold text-sm mb-3">Legal</h3>
-        <ul class="space-y-2 text-sm">
-          <li><button class="hover:text-white transition" data-open-modal="privacy">Privacy Policy</button></li>
-          <li><button class="hover:text-white transition" data-open-modal="terms">Terms of Service</button></li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="text-white font-semibold text-sm mb-3">Browse</h3>
-        <ul class="space-y-2 text-sm">
-          <li><a class="hover:text-white transition" href="#content">All Articles</a></li>
-          <li><a class="hover:text-white transition" href="#content" data-jump-filter="science">Science &amp; Tech</a></li>
-          <li><a class="hover:text-white transition" href="#content" data-jump-filter="books">Books &amp; News</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="border-t border-slate-800">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-5 text-xs text-slate-500 flex flex-col sm:flex-row gap-2 justify-between">
-        <span>© 2026 OmniRead. All rights reserved.</span>
-        <span>Built for curious minds.</span>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ============ DOCUMENT VIEWER MODAL ============ -->
-  <div id="docModal" class="fixed inset-0 z-50 hidden">
-    <div class="absolute inset-0 bg-slate-900/60 modal-backdrop" data-close-doc></div>
-    <div class="absolute inset-0 sm:inset-6 md:inset-10 bg-white rounded-none sm:rounded-2xl shadow-2xl flex flex-col overflow-hidden">
-      <!-- Viewer header -->
-      <div class="flex items-center gap-3 px-4 sm:px-5 py-3 border-b border-slate-200 bg-white">
-        <span id="docBadge" class="shrink-0 inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full"></span>
-        <h3 id="docTitle" class="font-semibold text-sm sm:text-base truncate flex-1"></h3>
-        <button data-close-doc class="p-2 rounded-lg hover:bg-slate-100" aria-label="Close viewer">
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M6 18L18 6"/></svg>
-        </button>
-      </div>
-
-      <!-- Viewer body: sidebar ad + content -->
-      <div class="flex-1 overflow-hidden grid grid-cols-1 md:grid-cols-[1fr_200px]">
-        <div id="docBody" class="overflow-y-auto p-5 sm:p-8 prose prose-slate max-w-none prose-headings:font-serif-display prose-strong:text-slate-900 prose-a:text-cat-science"></div>
-        <aside class="hidden md:block border-l border-slate-200 p-3 bg-slate-50">
-          <div class="ad-slot viewer-ad h-[400px] w-full rounded-lg border border-dashed border-slate-300 bg-white flex items-center justify-center text-slate-400 text-[10px] uppercase tracking-widest">
-            Viewer Ad · 200×400
-          </div>
-        </aside>
-      </div>
-    </div>
-  </div>
-
-  <!-- ============ PAGE MODAL (Privacy/Terms/About/Contact) ============ -->
-  <div id="pageModal" class="fixed inset-0 z-50 hidden">
-    <div class="absolute inset-0 bg-slate-900/60 modal-backdrop" data-close-page></div>
-    <div class="absolute inset-0 sm:inset-8 md:inset-16 lg:inset-24 bg-white rounded-none sm:rounded-2xl shadow-2xl flex flex-col overflow-hidden">
-      <div class="flex items-center justify-between px-5 py-3 border-b border-slate-200">
-        <h3 id="pageModalTitle" class="font-serif-display text-lg font-semibold"></h3>
-        <button data-close-page class="p-2 rounded-lg hover:bg-slate-100" aria-label="Close">
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M6 18L18 6"/></svg>
-        </button>
-      </div>
-      <div id="pageModalBody" class="overflow-y-auto p-6 sm:p-8 prose prose-slate max-w-none prose-headings:font-serif-display"></div>
-    </div>
-  </div>
-
-  <!-- ============ TOAST ============ -->
-  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[60] hidden">
-    <div class="bg-slate-900 text-white text-sm px-4 py-2.5 rounded-full shadow-lg"></div>
-  </div>
-
-  <!-- ============ DATA + APP ============ -->
-  <script>
-    // ---- Category meta ----
-    const CATEGORIES = {
-      science:  { label: 'Science & Tech',  color: '#2563EB', badge: 'bg-cat-science/10  text-cat-science  ring-cat-science/20'  },
-      history:  { label: 'History',         color: '#D97706', badge: 'bg-cat-history/10  text-cat-history  ring-cat-history/20'  },
-      general:  { label: 'General & Quiz',  color: '#059669', badge: 'bg-cat-general/10 text-cat-general ring-cat-general/20' },
-      computer: { label: 'Computer & AI',   color: '#7C3AED', badge: 'bg-cat-computer/10 text-cat-computer ring-cat-computer/20' },
-      books:    { label: 'Books & News',    color: '#DC2626', badge: 'bg-cat-books/10   text-cat-books   ring-cat-books/20'   },
-    };
-
-    // ---- Articles (hard-coded content) ----
-    const ARTICLES = [
-      {
-        id: 'a1', cat: 'science', title: 'How Quantum Computing Breaks Classical Limits',
-        excerpt: 'A plain-language tour of <strong>superposition</strong>, <strong>entanglement</strong>, and why quantum machines could reshape cryptography and drug discovery.',
-        read: 8, views: 14200, type: 'Article',
-        body: `<h2>Why quantum, why now?</h2>
-<p>Classical computers store information as bits that are either <strong>0</strong> or <strong>1</strong>. A quantum computer uses <strong>qubits</strong>, which can exist in a <em>superposition</em> of both states at once. This isn't magic — it's a property of quantum mechanics that lets certain problems be explored in parallel.</p>
-<h3>Superposition &amp; entanglement</h3>
-<p>When qubits become <strong>entangled</strong>, the state of one is tied to another, no matter the distance. Entanglement is the engine behind quantum speed-ups: operations on one qubit can influence many, multiplying the effective compute.</p>
-<blockquote>“Nature isn't classical, dammit, and if you want to make a simulation of nature, you'd better make it quantum mechanical.” — Richard Feynman</blockquote>
-<h3>Where it helps</h3>
-<ul><li><strong>Cryptography</strong>: factoring large numbers exponentially faster (Shor's algorithm).</li><li><strong>Chemistry</strong>: simulating molecules that are intractable classically.</li><li><strong>Optimization</strong>: logistics, finance, and machine-learning training.</li></ul>
-<p>The field is still noisy and error-prone, but <strong>error correction</strong> is advancing fast. The next decade will decide which problems quantum actually wins.</p>`
-      },
-      {
-        id: 'a2', cat: 'science', title: 'Fusion Energy: Inside the Race for a Star on Earth',
-        excerpt: 'Magnetic confinement vs. inertial confinement — the two paths to <strong>net-positive fusion</strong> and a near-limitless clean power source.',
-        read: 10, views: 9800, type: 'Article',
-        body: `<h2>The promise of fusion</h2>
-<p>Fusion powers the sun by fusing light atoms into heavier ones, releasing enormous energy. Replicate that on Earth and you get a <strong>carbon-free</strong>, nearly <strong>limitless</strong> energy source with no long-lived radioactive waste.</p>
-<h3>Two main approaches</h3>
-<ul><li><strong>Magnetic confinement</strong> (tokamaks &amp; stellarators): a doughnut-shaped magnetic cage holds a 100-million-degree plasma. ITER is the flagship project.</li><li><strong>Inertial confinement</strong>: high-power lasers compress a fuel pellet until it ignites. The National Ignition Facility first crossed <strong>breakeven</strong> in 2022.</li></ul>
-<h3>The hard part</h3>
-<p>Sustaining the reaction, managing heat, and making it <em>economical</em> remain enormous engineering challenges. Private startups are racing to shrink the timeline from decades to years.</p>`
-      },
-      {
-        id: 'a3', cat: 'history', title: 'The Library of Alexandria: Knowledge Lost to Time',
-        excerpt: 'How the ancient world’s greatest archive rose — and what was really lost when it fell. A story of <strong>scholarship</strong>, fire, and myth.',
-        read: 7, views: 21500, type: 'Article',
-        body: `<h2>A city built around knowledge</h2>
-<p>Founded in the 3rd century BCE in <strong>Alexandria, Egypt</strong>, the Great Library was part of the Musaeum — a research institution that drew scholars from across the Hellenistic world.</p>
-<h3>What it held</h3>
-<p>Estimates suggest hundreds of thousands of scrolls covering <strong>philosophy</strong>, <strong>astronomy</strong>, <strong>medicine</strong>, and <strong>poetry</strong>. Librarians reportedly confiscated scrolls from arriving ships, copied them, and returned the copies.</p>
-<blockquote>The loss of the library has become a symbol for the fragility of human knowledge.</blockquote>
-<h3>The many “deaths”</h3>
-<p>Contrary to legend, there was no single fire. The decline played out over centuries — civil war, budget cuts under Roman rule, and conflicts in late antiquity all contributed. What was truly lost may be less dramatic than myth, but no less a caution.</p>`
-      },
-      {
-        id: 'a4', cat: 'history', title: 'The Silk Road: The First Global Network',
-        excerpt: 'A 6,000-mile web of routes that moved <strong>silk</strong>, <strong>ideas</strong>, and <strong>religions</strong> between East and West for over a millennium.',
-        read: 9, views: 13400, type: 'Article',
-        body: `<h2>More than silk</h2>
-<p>The Silk Road wasn't a single road but a network of <strong>overland and maritime routes</strong> linking China to the Mediterranean. Along with silk went spices, glass, paper, and — crucially — <em>ideas</em>.</p>
-<h3>Cultural exchange</h3>
-<ul><li><strong>Buddhism</strong> traveled from India to China along these routes.</li><li><strong>Papermaking</strong> reached the Islamic world and later Europe.</li><li><strong>The Black Death</strong> likely followed the same paths.</li></ul>
-<h3>Legacy</h3>
-<p>The Silk Road shaped civilizations on three continents and remains a metaphor for the connective power of trade.</p>`
-      },
-      {
-        id: 'a5', cat: 'general', title: 'Quiz: 20 Trivia Questions to Test Your World Knowledge',
-        excerpt: 'From capital cities to space facts — a quick <strong>20-question quiz</strong> to stretch your brain. Answers at the end.',
-        read: 5, views: 33200, type: 'Quiz',
-        body: `<h2>Round 1: Geography</h2>
-<ol><li>What is the capital of Australia? <em>(a) Sydney (b) Canberra (c) Melbourne</em></li>
-<li>Which river is the longest in the world? <em>(a) Nile (b) Amazon (c) Yangtze</em></li>
-<li>Mount Everest sits on the border of Nepal and which country?</li></ol>
-<h2>Round 2: Science</h2>
-<ol start="4"><li>What gas do plants absorb from the atmosphere?</li>
-<li>How many bones are in the adult human body?</li>
-<li>What is the chemical symbol for gold?</li></ol>
-<h2>Answers</h2>
-<ol><li>Canberra</li><li>Nile (traditional answer)</li><li>China (Tibet)</li><li>Carbon dioxide</li><li>206</li><li>Au</li></ol>
-<p>Score yourself: 5–6 = genius, 3–4 = solid, under 3 = time to read more on OmniRead!</p>`
-      },
-      {
-        id: 'a6', cat: 'general', title: 'The Science of Habit: How Routines Stick',
-        excerpt: 'Why <strong>21 days</strong> is a myth, and what psychology actually says about building habits that last.',
-        read: 6, views: 18700, type: 'Article',
-        body: `<h2>The 21-day myth</h2>
-<p>The idea that habits form in 21 days comes from a 1960s self-help book. Research by Phillippa Lally found the real average is closer to <strong>66 days</strong>, with wide variation.</p>
-<h3>The habit loop</h3>
-<p>Every habit follows a loop: <strong>cue → routine → reward</strong>. Change the routine while keeping the cue and reward, and the habit shifts.</p>
-<h3>Practical tips</h3>
-<ul><li><strong>Stack habits</strong>: attach a new behavior to an existing one.</li><li><strong>Start tiny</strong>: two minutes of a habit beats an ambitious plan you skip.</li><li><strong>Track visibly</strong>: a streak you can see is a streak you keep.</li></ul>`
-      },
-      {
-        id: 'a7', cat: 'computer', title: '10 Prompt Patterns That Get Better Answers from AI',
-        excerpt: 'Concrete <strong>prompt engineering</strong> patterns — role, examples, chain-of-thought, and more — that measurably improve LLM output.',
-        read: 8, views: 41000, type: 'AI Tips',
-        body: `<h2>Why prompts matter</h2>
-<p>Large language models are <strong>next-token predictors</strong>. The shape of your prompt steers which tokens are likely. Better structure → better answers.</p>
-<h3>Patterns that work</h3>
-<ul><li><strong>Role prompting</strong>: “You are a senior copy editor…” sets tone and expertise.</li><li><strong>Few-shot examples</strong>: show 2–3 input/output pairs to define the format.</li><li><strong>Chain-of-thought</strong>: ask the model to reason step-by-step before answering.</li><li><strong>Constraints</strong>: word limits, banned phrases, or output as JSON.</li><li><strong>Self-critique</strong>: have the model review its own answer before returning it.</li></ul>
-<h3>A template</h3>
-<pre>Role: [persona]
-Task: [verb + object]
-Audience: [who reads this]
-Constraints: [length, format, tone]
-Examples:
-- input: ...
-- output: ...</pre>
-<p>Iterate. Prompts are software — expect to debug them.</p>`
-      },
-      {
-        id: 'a8', cat: 'computer', title: 'Keyboard Shortcuts That Save Hours Every Week',
-        excerpt: 'The <strong>30 shortcuts</strong> power users actually use — for Windows, macOS, browsers, and editors.',
-        read: 4, views: 27600, type: 'AI Tips',
-        body: `<h2>Universal</h2>
-<ul><li><strong>Ctrl/Cmd + S</strong> — save (always)</li><li><strong>Ctrl/Cmd + Z</strong> — undo</li><li><strong>Ctrl/Cmd + Shift + T</strong> — reopen a closed tab</li></ul>
-<h2>Browser</h2>
-<ul><li><strong>Ctrl/Cmd + L</strong> — jump to address bar</li><li><strong>Ctrl/Cmd + W</strong> — close tab</li><li><strong>Ctrl/Cmd + Tab</strong> — next tab</li></ul>
-<h2>Text editing</h2>
-<ul><li><strong>Ctrl/Cmd + ←/→</strong> — jump by word</li><li><strong>Home / End</strong> — line start/end</li><li><strong>Ctrl/Cmd + F</strong> — find</li></ul>
-<p>Learn three this week. Muscle memory compounds.</p>`
-      },
-      {
-        id: 'a9', cat: 'books', title: 'A Short History of Nearly Everything — Book Summary',
-        excerpt: 'Bill Bryson’s whirlwind tour of <strong>science</strong>, from the Big Bang to cells. Read the full summary in the viewer.',
-        read: 12, views: 52100, type: 'Book PDF',
-        body: `<h2>Overview</h2>
-<p>Bill Bryson's <em>A Short History of Nearly Everything</em> explains how we came to understand the world — from the scale of the universe to the machinery inside a cell.</p>
-<h3>Key ideas</h3>
-<ul><li><strong>The Big Bang</strong> and the scale of cosmic time.</li><li><strong>Plate tectonics</strong> and the slow reshaping of continents.</li><li><strong>Cells &amp; DNA</strong> as the shared language of life.</li><li><strong>How science actually works</strong> — luck, rivalry, and the slow accumulation of evidence.</li></ul>
-<h3>Why read it</h3>
-<p>It's the rare science book that's as entertaining as it is accurate — a gateway to curiosity.</p>`
-      },
-      {
-        id: 'a10', cat: 'books', title: 'AI Weekly: This Week in Artificial Intelligence',
-        excerpt: 'A roundup of the latest <strong>AI news</strong>, research papers, and product launches — updated weekly.',
-        read: 6, views: 38900, type: 'News',
-        body: `<h2>This week's headlines</h2>
-<ul><li><strong>New model release</strong>: a frontier lab shipped a multimodal update with improved reasoning benchmarks.</li><li><strong>Open research</strong>: a paper on efficient attention claims 3× training speedups.</li><li><strong>Policy</strong>: regulators in two regions advanced draft AI transparency rules.</li></ul>
-<h3>What to watch</h3>
-<p>Watch for <strong>agent frameworks</strong> moving from demos to production, and for <strong>on-device models</strong> narrowing the gap with cloud ones.</p>
-<p><em>This summary is a sample news article. Real headlines update weekly.</em></p>`
-      },
-      {
-        id: 'a11', cat: 'science', title: 'CRISPR Gene Editing: A Beginner’s Guide',
-        excerpt: 'How <strong>CRISPR-Cas9</strong> acts as molecular scissors — and the diseases it may soon cure.',
-        read: 7, views: 16400, type: 'Article',
-        body: `<h2>What is CRISPR?</h2>
-<p>CRISPR-Cas9 is a tool adapted from a bacterial immune system. It uses a <strong>guide RNA</strong> to find a matching DNA sequence, and the Cas9 enzyme cuts that DNA precisely.</p>
-<h3>Why it matters</h3>
-<ul><li><strong>Therapy</strong>: treating sickle-cell disease and beta-thalassemia in approved treatments.</li><li><strong>Agriculture</strong>: disease-resistant and drought-tolerant crops.</li><li><strong>Research</strong>: faster, cheaper studies of gene function.</li></ul>
-<h3>Ethics</h3>
-<p>Editing <strong>somatic</strong> cells (body cells) is widely accepted. Editing <strong>germline</strong> cells (inheritable changes) remains deeply controversial and is restricted in most countries.</p>`
-      },
-      {
-        id: 'a12', cat: 'history', title: 'The Fall of Rome: Not a Single Event',
-        excerpt: 'The Western Empire didn’t collapse in a day. It eroded over <strong>centuries</strong> — here’s how.',
-        read: 11, views: 19800, type: 'Article',
-        body: `<h2>A slow unraveling</h2>
-<p>The “fall of Rome” in 476 CE was a headline, not the whole story. The Western Empire had been thinning for generations under <strong>economic strain</strong>, <strong>leadership turnover</strong>, and <strong>military pressure</strong> from migrating peoples.</p>
-<h3>Contributing factors</h3>
-<ul><li><strong>Overextension</strong>: borders too long to defend.</li><li><strong>Tax base erosion</strong>: declining revenue and elite tax avoidance.</li><li><strong>Army transformation</strong>: reliance on mercenaries with thin loyalty.</li></ul>
-<h3>The East continued</h3>
-<p>The Eastern (Byzantine) Empire survived another <strong>thousand years</strong>, reminding us that “Rome” was never a single moment.</p>`
-      },
-    ];
-
-    // ---- Page modal content ----
-    const PAGES = {
-      about: {
-        title: 'About OmniRead',
-        body: `<p><strong>OmniRead</strong> is a general-knowledge hub bringing together articles, books, PDFs, and news across five core categories: Science &amp; Technology, History &amp; Civilizations, General Knowledge &amp; Quiz, Computer &amp; AI Tips, and Books &amp; News.</p>
-<p>Our mission is simple: make it easy to <em>discover</em> and <em>read</em> quality content in one place — without bouncing between tabs. Use the embedded document viewer to read full pieces right on the page.</p>
-<h3>What you can do</h3>
-<ul><li>Filter by category with one click.</li><li>Search across all content live.</li><li>Read full documents in the in-page viewer.</li></ul>`
-      },
-      contact: {
-        title: 'Contact Us',
-        body: `<p>We'd love to hear from you. For partnerships, corrections, or feedback, reach out:</p>
-<ul><li><strong>Email:</strong> hello@omniread.example.com</li><li><strong>Press:</strong> press@omniread.example.com</li></ul>
-<p>You can also use the form below (a sample — wire it to your backend to make it live).</p>
-<form class="not-prose space-y-3 mt-4" onsubmit="event.preventDefault(); showToast('Thanks! Your message has been recorded.');">
-  <input class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" placeholder="Your name" required />
-  <input type="email" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" placeholder="Your email" required />
-  <textarea class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" rows="4" placeholder="Your message" required></textarea>
-  <button class="bg-slate-900 text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-slate-700 transition">Send message</button>
-</form>`
-      },
-      privacy: {
-        title: 'Privacy Policy',
-        body: `<p><strong>Last updated:</strong> August 2026</p>
-<p>OmniRead respects your privacy. This policy explains what we collect and why.</p>
-<h3>Information we collect</h3>
-<ul><li><strong>Usage data</strong>: aggregated, anonymous view counts to improve content.</li><li><strong>Search queries</strong>: processed in your browser to filter content; not stored on our servers.</li></ul>
-<h3>Cookies &amp; ads</h3>
-<p>We may display ads via Google AdSense. AdSense and its partners may use cookies to serve ads based on your prior visits to this and other websites. You can opt out of personalized advertising in your Google Ads Settings.</p>
-<h3>Your choices</h3>
-<p>You can clear cookies at any time in your browser settings. We do not sell personal data.</p>
-<h3>Contact</h3>
-<p>Questions? Email privacy@omniread.example.com.</p>`
-      },
-      terms: {
-        title: 'Terms of Service',
-        body: `<p><strong>Last updated:</strong> August 2026</p>
-<p>By using OmniRead, you agree to these terms.</p>
-<h3>Use of content</h3>
-<p>Content on OmniRead is provided for personal, non-commercial reading. Summaries and articles are original or used under fair use for commentary; book titles and covers belong to their respective owners.</p>
-<h3>Acceptable use</h3>
-<ul><li>Don't scrape or republish content at scale.</li><li>Don't attempt to disrupt or overload the site.</li></ul>
-<h3>Disclaimer</h3>
-<p>Content is provided “as is” without warranty. We don't guarantee the accuracy of every article — always verify critical information from primary sources.</p>
-<h3>Changes</h3>
-<p>We may update these terms; continued use after changes constitutes acceptance.</p>`
-      },
-    };
-
-    // ---- Helpers ----
-    const $ = (s, r = document) => r.querySelector(s);
-    const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
-
-    function fmtViews(n) {
-      if (n >= 1000) return (n / 1000).toFixed(1).replace('.0', '') + 'k';
-      return String(n);
-    }
-
-    function cardHTML(a) {
-      const c = CATEGORIES[a.cat];
-      return `
-      <article class="card-enter group bg-white rounded-2xl border border-slate-200 hover:border-slate-300 hover:shadow-lg transition overflow-hidden flex flex-col" data-cat="${a.cat}" data-id="${a.id}">
-        <div class="h-28 w-full" style="background: linear-gradient(135deg, ${c.color}22, ${c.color}55);"></div>
-        <div class="p-5 flex flex-col flex-1">
-          <div class="flex items-center gap-2 mb-3 flex-wrap">
-            <span class="inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full ring-1 ring-inset ${c.badge}">${c.label}</span>
-            <span class="text-xs font-medium text-slate-500 bg-slate-100 px-2 py-1 rounded-full">${a.type}</span>
-          </div>
-          <h3 class="font-serif-display text-lg font-semibold leading-snug mb-2 group-hover:text-slate-700 transition">${a.title}</h3>
-          <p class="text-sm text-slate-600 clamp-3 mb-4">${a.excerpt}</p>
-          <div class="mt-auto flex items-center justify-between text-xs text-slate-500">
-            <span class="inline-flex items-center gap-1"><svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>${a.read} min read</span>
-            <span class="inline-flex items-center gap-1"><svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>${fmtViews(a.views)} views</span>
-          </div>
-          <button class="mt-4 w-full text-sm font-medium py-2 rounded-lg text-white transition active:scale-95" style="background:${c.color}" data-read="${a.id}">Read now</button>
-        </div>
-      </article>`;
-    }
-
-    // ---- Render ----
-    const grid = $('#grid');
-    function render(list) {
-      grid.innerHTML = list.map(cardHTML).join('');
-      $('#resultCount').textContent = list.length;
-      $('#resultsLabel').firstChild.textContent = (currentFilter === 'all' ? 'All Articles' : CATEGORIES[currentFilter].label) + ' · ';
-      $('#emptyHint').classList.toggle('hidden', list.length > 0);
-      // animate in
-      requestAnimationFrame(() => {
-        $$('.card-enter', grid).forEach((el, i) => {
-          setTimeout(() => el.classList.add('show'), i * 40);
-        });
-      });
-      // bind read buttons
-      $$('[data-read]', grid).forEach(btn => {
-        btn.addEventListener('click', () => openDoc(btn.dataset.read));
-      });
-    }
-
-    // ---- State ----
-    let currentFilter = 'all';
-    let currentQuery = '';
-
-    function applyFilters() {
-      const q = currentQuery.trim().toLowerCase();
-      const list = ARTICLES.filter(a => {
-        const matchCat = currentFilter === 'all' || a.cat === currentFilter;
-        const matchQ = !q || (a.title + ' ' + a.excerpt + ' ' + a.type + ' ' + CATEGORIES[a.cat].label).toLowerCase().includes(q);
-        return matchCat && matchQ;
-      });
-      render(list);
-    }
-
-    // ---- Filters ----
-    $$('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        currentFilter = btn.dataset.filter;
-        $$('.filter-btn').forEach(b => {
-          const active = b === btn;
-          b.setAttribute('aria-pressed', active);
-          b.classList.toggle('bg-slate-900', active);
-          b.classList.toggle('text-white', active);
-          b.classList.toggle('border-slate-900', active);
-        });
-        applyFilters();
-      });
-    });
-    // default active
-    $('.filter-btn[data-filter="all"]').click();
-
-    // ---- Search ----
-    const searchInput = $('#search');
-    searchInput.addEventListener('input', () => {
-      currentQuery = searchInput.value;
-      applyFilters();
-    });
-
-    // ---- Document viewer ----
-    const docModal = $('#docModal');
-    function openDoc(id) {
-      const a = ARTICLES.find(x => x.id === id);
-      if (!a) return;
-      const c = CATEGORIES[a.cat];
-      const badge = $('#docBadge');
-      badge.textContent = c.label;
-      badge.className = 'shrink-0 inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full ring-1 ring-inset ' + c.badge;
-      $('#docTitle').textContent = a.title;
-      $('#docBody').innerHTML = a.body;
-      docModal.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-      // bump view count locally
-      a.views += 1;
-      applyFilters();
-    }
-    function closeDoc() {
-      docModal.classList.add('hidden');
-      document.body.style.overflow = '';
-    }
-    $$('[data-close-doc]').forEach(el => el.addEventListener('click', closeDoc));
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') { closeDoc(); closePageModal(); closeMenu(); }
-    });
-
-    // ---- Page modal ----
-    const pageModal = $('#pageModal');
-    function openPageModal(key) {
-      const p = PAGES[key];
-      if (!p) return;
-      $('#pageModalTitle').textContent = p.title;
-      $('#pageModalBody').innerHTML = p.body;
-      pageModal.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-    }
-    function closePageModal() {
-      pageModal.classList.add('hidden');
-      document.body.style.overflow = '';
-    }
-    $$('[data-close-page]').forEach(el => el.addEventListener('click', closePageModal));
-    $$('[data-open-modal]').forEach(el => el.addEventListener('click', () => openPageModal(el.dataset.openModal)));
-
-    // ---- Mobile menu ----
-    const menu = $('#menuDrawer');
-    function openMenu() { menu.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
-    function closeMenu() { menu.classList.add('hidden'); document.body.style.overflow = ''; }
-    $('#openMenu').addEventListener('click', openMenu);
-    $('#closeMenu').addEventListener('click', closeMenu);
-    $$('[data-close-menu]').forEach(el => el.addEventListener('click', closeMenu));
-
-    // ---- Footer jump-to-filter ----
-    $$('[data-jump-filter]').forEach(el => el.addEventListener('click', () => {
-      const f = el.dataset.jumpFilter;
-      const btn = $(`.filter-btn[data-filter="${f}"]`);
-      if (btn) btn.click();
-    }));
-
-    // ---- Toast ----
-    let toastTimer;
-    function showToast(msg) {
-      const t = $('#toast');
-      t.querySelector('div').textContent = msg;
-      t.classList.remove('hidden');
-      clearTimeout(toastTimer);
-      toastTimer = setTimeout(() => t.classList.add('hidden'), 2500);
-    }
-  </script>
-
-  <!-- Google AdSense (placeholder; replace ca-pub-XXXX with your publisher ID) -->
-  <!--
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-  -->
 </body>
 </html>
