@@ -3,36 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="OmniRead Master Knowledge Hub - English Grammar, Literature, Articles, and Universal Knowledge.">
+    <meta name="description" content="OmniRead Master Knowledge Hub - Python 3 Complete Starter Kit, English Grammar, Literature, Articles, and Universal Knowledge.">
     <meta name="google-site-verification" content="ylHU3G6BY6K9un-ROM_c2fwJd9w_cW0HXBgFU__nBgl" />
-    <title>OmniRead | Universal Knowledge & English Learning Hub</title>
+    <title>OmniRead | Universal Knowledge & Learning Hub</title>
     
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "DigitalDocumentRepository",
-      "name": "OmniRead Master Library & Economic Insights",
+      "name": "OmniRead Master Library & Learning Hub",
       "url": "https://akhunzadaaliabbas86-max.github.io/knowledge-hub/",
-      "description": "Digital library containing economic research, inflation analysis, English language learning, and literature series."
+      "description": "Digital library containing Python learning materials, economic research, English language learning, and literature series."
     }
     </script>
 
-    <!-- Google Fonts & FontAwesome Icons -->
+    <!-- Google Fonts & FontAwesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Merriweather:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
         :root {
-            --bg-dark: #0f172a;
-            --card-bg: #1e293b;
+            --bg-dark: #0b0f19;
+            --card-bg: #111827;
             --accent-indigo: #6366f1;
             --accent-cyan: #06b6d4;
             --accent-emerald: #10b981;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --border-color: #334155;
+            --accent-amber: #f59e0b;
+            --text-main: #f9fafb;
+            --text-muted: #9ca3af;
+            --border-color: #1f2937;
         }
 
         * {
@@ -49,44 +50,29 @@
             min-height: 100vh;
         }
 
-        /* Hero Banner */
         header {
-            background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
-            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #1e1b4b 0%, #0b0f19 100%);
+            padding: 3.5rem 2rem 2.5rem;
             text-align: center;
             border-bottom: 1px solid var(--border-color);
-            position: relative;
-            overflow: hidden;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, rgba(0,0,0,0) 70%);
-            pointer-events: none;
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 2.8rem;
             font-weight: 800;
             background: linear-gradient(to right, var(--accent-cyan), var(--accent-indigo));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
 
         p.subtitle {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             color: var(--text-muted);
-            max-width: 700px;
+            max-width: 750px;
             margin: 0 auto 2rem;
         }
 
-        /* Search Bar */
         .search-box {
             max-width: 600px;
             margin: 0 auto;
@@ -97,8 +83,8 @@
             width: 100%;
             padding: 1rem 1.5rem 1rem 3rem;
             border-radius: 50px;
-            border: 2px solid var(--border-color);
-            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid var(--border-color);
+            background: rgba(17, 24, 39, 0.8);
             color: var(--text-main);
             font-size: 1rem;
             outline: none;
@@ -107,7 +93,7 @@
 
         .search-box input:focus {
             border-color: var(--accent-cyan);
-            box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.25);
         }
 
         .search-box i {
@@ -118,121 +104,128 @@
             color: var(--text-muted);
         }
 
-        /* Section Category Filters */
         .category-nav {
             display: flex;
             justify-content: center;
-            gap: 1rem;
-            padding: 2rem;
+            gap: 0.8rem;
+            padding: 1.8rem 1rem;
             flex-wrap: wrap;
         }
 
         .cat-btn {
-            padding: 0.6rem 1.5rem;
+            padding: 0.5rem 1.25rem;
             border-radius: 30px;
             border: 1px solid var(--border-color);
             background: var(--card-bg);
             color: var(--text-main);
             cursor: pointer;
             font-weight: 600;
+            font-size: 0.9rem;
             transition: all 0.3s;
         }
 
         .cat-btn:hover, .cat-btn.active {
             background: var(--accent-indigo);
             border-color: var(--accent-indigo);
-            transform: translateY(-2px);
         }
 
-        /* Main Grid Layout */
         main {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 1rem 2rem 3rem;
         }
 
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
+            gap: 1.8rem;
         }
 
-        /* Knowledge Object Cards */
         .card {
             background: var(--card-bg);
-            border-radius: 16px;
+            border-radius: 14px;
             border: 1px solid var(--border-color);
-            padding: 1.8rem;
+            padding: 1.6rem;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 0 15px rgba(99, 102, 241, 0.2);
+            transform: translateY(-4px);
+            border-color: var(--accent-indigo);
         }
 
         .card-header {
             display: flex;
             align-items: center;
             gap: 1rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
 
         .card-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
         }
 
-        .icon-grammar { background: rgba(99, 102, 241, 0.2); color: var(--accent-indigo); }
-        .icon-article { background: rgba(6, 182, 212, 0.2); color: var(--accent-cyan); }
-        .icon-knowledge { background: rgba(16, 185, 129, 0.2); color: var(--accent-emerald); }
+        .icon-python { background: rgba(245, 158, 11, 0.15); color: var(--accent-amber); }
+        .icon-grammar { background: rgba(99, 102, 241, 0.15); color: var(--accent-indigo); }
+        .icon-article { background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan); }
+        .icon-knowledge { background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); }
 
         .card-title {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 700;
         }
 
         .card-desc {
             color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
+            font-size: 0.92rem;
+            margin-bottom: 1.2rem;
         }
 
         .card-tag {
             display: inline-block;
-            padding: 0.2rem 0.6rem;
-            font-size: 0.75rem;
+            padding: 0.2rem 0.5rem;
+            font-size: 0.72rem;
             font-weight: 600;
-            border-radius: 6px;
+            border-radius: 5px;
             text-transform: uppercase;
             margin-bottom: 0.8rem;
         }
 
-        .tag-grammar { background: rgba(99, 102, 241, 0.3); color: #a5b4fc; }
-        .tag-article { background: rgba(6, 182, 212, 0.3); color: #67e8f9; }
-        .tag-knowledge { background: rgba(16, 185, 129, 0.3); color: #6ee7b7; }
+        .tag-python { background: rgba(245, 158, 11, 0.2); color: #fde047; }
+        .tag-grammar { background: rgba(99, 102, 241, 0.2); color: #a5b4fc; }
+        .tag-article { background: rgba(6, 182, 212, 0.2); color: #67e8f9; }
+        .tag-knowledge { background: rgba(16, 185, 129, 0.2); color: #6ee7b7; }
+
+        .card-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: auto;
+        }
 
         .btn-action {
+            flex: 1;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
-            width: 100%;
-            padding: 0.75rem;
+            gap: 0.4rem;
+            padding: 0.65rem;
             border-radius: 8px;
             background: rgba(255, 255, 255, 0.05);
             color: var(--text-main);
             text-decoration: none;
             font-weight: 600;
+            font-size: 0.88rem;
             border: 1px solid var(--border-color);
+            cursor: pointer;
             transition: background 0.2s;
         }
 
@@ -241,12 +234,136 @@
             border-color: var(--accent-indigo);
         }
 
+        .btn-amber:hover {
+            background: var(--accent-amber);
+            border-color: var(--accent-amber);
+            color: #000;
+        }
+
+        /* MODAL (Viewer overlay for PDF & Presentation Slides) */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            width: 100%;
+            max-width: 900px;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+        }
+
+        .modal-header {
+            padding: 1.2rem 1.8rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #1f2937;
+        }
+
+        .modal-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .close-btn:hover { color: var(--text-main); }
+
+        .modal-body {
+            padding: 2rem;
+            overflow-y: auto;
+            color: #d1d5db;
+        }
+
+        /* Slide View Engine */
+        .slide-container {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .slide-card {
+            background: #1f2937;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .slide-card h3 {
+            font-size: 1.6rem;
+            color: var(--accent-cyan);
+            margin-bottom: 1rem;
+        }
+
+        .slide-card p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .slide-card pre {
+            background: #0b0f19;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Fira Code', monospace;
+            text-align: left;
+            width: 100%;
+            max-width: 500px;
+            color: #38bdf8;
+        }
+
+        .slide-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Printable Book Style inside Modal */
+        .printable-book h2 { color: var(--accent-amber); margin-top: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.4rem; }
+        .printable-book h3 { color: var(--accent-cyan); margin-top: 1rem; }
+        .printable-book code { font-family: 'Fira Code', monospace; background: #1f2937; padding: 0.2rem 0.4rem; border-radius: 4px; color: #fde047; }
+        .printable-book pre { background: #0b0f19; padding: 1rem; border-radius: 8px; border-left: 4px solid var(--accent-amber); margin: 1rem 0; overflow-x: auto; }
+
         footer {
             text-align: center;
-            padding: 3rem 2rem;
+            padding: 2.5rem 2rem;
             border-top: 1px solid var(--border-color);
             color: var(--text-muted);
-            margin-top: 4rem;
+            margin-top: 3rem;
+            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -254,34 +371,53 @@
 
     <header>
         <h1>OmniRead Knowledge Hub</h1>
-        <p class="subtitle">Explore English Language Mastery, Analytical Articles, and Universal Human Knowledge</p>
+        <p class="subtitle">Explore Universal Human Knowledge, Python Programming, English Grammar, and Analytical Literature</p>
         <div class="search-box">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" id="searchInput" placeholder="Search grammar rules, articles, economics, literature..." onkeyup="filterCards()">
+            <input type="text" id="searchInput" placeholder="Search Python, grammar rules, economics, literature..." onkeyup="filterCards()">
         </div>
     </header>
 
     <div class="category-nav">
         <button class="cat-btn active" onclick="filterCategory('all')">All Knowledge</button>
+        <button class="cat-btn" onclick="filterCategory('python')">Python Starter Kit</button>
         <button class="cat-btn" onclick="filterCategory('grammar')">English & Grammar</button>
-        <button class="cat-btn" onclick="filterCategory('article')">Articles & Essays</button>
-        <button class="cat-btn" onclick="filterCategory('knowledge')">Universal Knowledge</button>
+        <button class="cat-btn" onclick="filterCategory('article')">Articles & Literature</button>
+        <button class="cat-btn" onclick="filterCategory('knowledge')">Universal Tech</button>
     </div>
 
     <main>
         <div class="grid" id="cardGrid">
 
+            <!-- Python Starter Module (Integrated Book & Slides) -->
+            <div class="card" data-category="python">
+                <div>
+                    <span class="card-tag tag-python">Interactive Course</span>
+                    <div class="card-header">
+                        <div class="card-icon icon-python"><i class="fa-brands fa-python"></i></div>
+                        <div class="card-title">Python 3 Starter Kit</div>
+                    </div>
+                    <p class="card-desc">Complete beginner's starter guide covering core syntax, variables, and control flow. Includes both full PDF book & presentation slides.</p>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-action btn-amber" onclick="openBookModal()"><i class="fa-solid fa-book-open"></i> Read Book</button>
+                    <button class="btn-action" onclick="openSlideModal()"><i class="fa-solid fa-presentation-screen"></i> Presentation</button>
+                </div>
+            </div>
+
             <!-- English & Grammar Section -->
             <div class="card" data-category="grammar">
                 <div>
-                    <span class="card-tag tag-grammar">Language & Grammar</span>
+                    <span class="card-tag tag-grammar">Language & Rules</span>
                     <div class="card-header">
                         <div class="card-icon icon-grammar"><i class="fa-solid fa-font"></i></div>
                         <div class="card-title">English Sentence Structure</div>
                     </div>
                     <p class="card-desc">Master Subject-Verb Agreement, Clause Structures, and Advanced Tenses with clear rules and practical examples.</p>
                 </div>
-                <a href="#" class="btn-action"><i class="fa-solid fa-book-open"></i> Start Learning</a>
+                <div class="card-actions">
+                    <button class="btn-action"><i class="fa-solid fa-book"></i> Study Grammar</button>
+                </div>
             </div>
 
             <div class="card" data-category="grammar">
@@ -289,96 +425,137 @@
                     <span class="card-tag tag-grammar">Vocabulary</span>
                     <div class="card-header">
                         <div class="card-icon icon-grammar"><i class="fa-solid fa-spell-check"></i></div>
-                        <div class="card-title">Competitive Exam Vocabulary</div>
+                        <div class="card-title">Competitive Vocabulary</div>
                     </div>
-                    <p class="card-desc">High-frequency words, contextual usages, antonyms, and synonyms curated for CSS, PMS, and GRE tests.</p>
+                    <p class="card-desc">High-frequency words, contextual usages, antonyms, and synonyms curated for competitive exams (CSS/PMS).</p>
                 </div>
-                <a href="#" class="btn-action"><i class="fa-solid fa-list-check"></i> Open Word List</a>
+                <div class="card-actions">
+                    <button class="btn-action"><i class="fa-solid fa-list-check"></i> Word List</button>
+                </div>
             </div>
 
             <!-- Articles Section -->
             <div class="card" data-category="article">
                 <div>
-                    <span class="card-tag tag-article">Analytical Essay</span>
+                    <span class="card-tag tag-article">Economic Analysis</span>
                     <div class="card-header">
-                        <div class="card-icon icon-article"><i class="fa-solid fa-newspaper"></i></div>
-                        <div class="card-title">Inflation & Economic Dynamics</div>
+                        <div class="card-icon icon-article"><i class="fa-solid fa-chart-line"></i></div>
+                        <div class="card-title">Inflation & Market Dynamics</div>
                     </div>
                     <p class="card-desc">Comprehensive economic breakdown analyzing global trade, monetary policy, market trends, and currency behavior.</p>
                 </div>
-                <a href="#" class="btn-action"><i class="fa-solid fa-file-pdf"></i> Read Full Article</a>
-            </div>
-
-            <div class="card" data-category="article">
-                <div>
-                    <span class="card-tag tag-article">Literature</span>
-                    <div class="card-header">
-                        <div class="card-icon icon-article"><i class="fa-solid fa-book-journal-whills"></i></div>
-                        <div class="card-title">OmniRead 3-Volume Series</div>
-                    </div>
-                    <p class="card-desc">Explore curated digital volumes covering philosophy, governance structures, and historical evolution.</p>
+                <div class="card-actions">
+                    <button class="btn-action"><i class="fa-solid fa-file-pdf"></i> Read Article</button>
                 </div>
-                <a href="#" class="btn-action"><i class="fa-solid fa-layer-group"></i> Access Volumes</a>
             </div>
 
             <!-- Universal Knowledge Section -->
             <div class="card" data-category="knowledge">
                 <div>
-                    <span class="card-tag tag-knowledge">Computer & AI</span>
+                    <span class="card-tag tag-knowledge">Systems & IT</span>
                     <div class="card-header">
-                        <div class="card-icon icon-knowledge"><i class="fa-solid fa-microchip"></i></div>
-                        <div class="card-title">Computer Systems & Networking</div>
+                        <div class="card-icon icon-knowledge"><i class="fa-solid fa-terminal"></i></div>
+                        <div class="card-title">Command Line & OS Routines</div>
                     </div>
-                    <p class="card-desc">Guides covering operating system routines, command-line shortcuts, database design, and network protocols.</p>
+                    <p class="card-desc">Essential diagnostic commands, script utilities, disk administration, and operating system optimizations.</p>
                 </div>
-                <a href="#" class="btn-action"><i class="fa-solid fa-code"></i> Explore Tech Notes</a>
-            </div>
-
-            <div class="card" data-category="knowledge">
-                <div>
-                    <span class="card-tag tag-knowledge">General Science</span>
-                    <div class="card-header">
-                        <div class="card-icon icon-knowledge"><i class="fa-solid fa-globe"></i></div>
-                        <div class="card-title">Universal Science & Physics</div>
-                    </div>
-                    <p class="card-desc">Core concepts in physical sciences, environmental changes, space exploration, and human discovery.</p>
+                <div class="card-actions">
+                    <button class="btn-action"><i class="fa-solid fa-code"></i> System Commands</button>
                 </div>
-                <a href="#" class="btn-action"><i class="fa-solid fa-atom"></i> Discover Science</a>
             </div>
 
         </div>
     </main>
+
+    <!-- MODAL 1: PYTHON STARTER PDF BOOK -->
+    <div class="modal" id="bookModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title"><i class="fa-brands fa-python"></i> Python 3: The Complete Starter's Field Guide</div>
+                <button class="close-btn" onclick="closeModal('bookModal')">&times;</button>
+            </div>
+            <div class="modal-body printable-book">
+                <h2>Chapter 1: Getting Started with Python</h2>
+                <p>Python is an interpreted, high-level, general-purpose programming language. Its design philosophy emphasizes code readability through significant indentation.</p>
+                
+                <h3>Your First Program: Hello World</h3>
+                <p>Execute this code block in your interpreter or editor:</p>
+                <pre><code>print("Hello, World!")</code></pre>
+
+                <h2>Chapter 2: Core Data Types & Variables</h2>
+                <p>Python automatically assigns variable types based on the assigned data value.</p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li><code>int</code> - Whole numbers (e.g., <code>age = 25</code>)</li>
+                    <li><code>float</code> - Decimals (e.g., <code>price = 19.99</code>)</li>
+                    <li><code>str</code> - Strings of text (e.g., <code>name = "Alice"</code>)</li>
+                    <li><code>bool</code> - Truth conditions (<code>True</code> or <code>False</code>)</li>
+                </ul>
+
+                <h2>Chapter 3: Control Flow (Conditionals & Loops)</h2>
+                <p>Control flow structures enable decision-making within programs.</p>
+                <pre><code># Decision Making
+score = 85
+if score >= 80:
+    print("Grade: B")
+else:
+    print("Grade: C")
+
+# For Loop
+for i in range(3):
+    print("Iteration:", i)</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2: INTERACTIVE PRESENTATION SLIDES -->
+    <div class="modal" id="slideModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title"><i class="fa-solid fa-presentation-screen"></i> Presentation Deck: Python Fundamentals</div>
+                <button class="close-btn" onclick="closeModal('slideModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="slide-container">
+                    <div class="slide-card" id="slideContent">
+                        <!-- Dynamic Slide Content Inserted via JS -->
+                    </div>
+                    <div class="slide-controls">
+                        <button class="btn-action" onclick="prevSlide()"><i class="fa-solid fa-arrow-left"></i> Previous</button>
+                        <span id="slideIndicator" style="font-weight: 600; color: var(--text-muted);">Slide 1 of 4</span>
+                        <button class="btn-action" onclick="nextSlide()">Next <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <p>&copy; 2026 OmniRead Master Knowledge Hub. All Rights Reserved.</p>
     </footer>
 
     <script>
-        // Live Search Filtering
+        // Search Filter
         function filterCards() {
             let input = document.getElementById('searchInput').value.toLowerCase();
             let cards = document.getElementsByClassName('card');
 
-            for (let i = 0; i < cards.length; i++) {
-                let title = cards[i].querySelector('.card-title').innerText.toLowerCase();
-                let desc = cards[i].querySelector('.card-desc').innerText.toLowerCase();
-                
+            for (let card of cards) {
+                let title = card.querySelector('.card-title').innerText.toLowerCase();
+                let desc = card.querySelector('.card-desc').innerText.toLowerCase();
                 if (title.includes(input) || desc.includes(input)) {
-                    cards[i].style.display = "flex";
+                    card.style.display = "flex";
                 } else {
-                    cards[i].style.display = "none";
+                    card.style.display = "none";
                 }
             }
         }
 
-        // Category Button Filtering
+        // Category Filter
         function filterCategory(category) {
             let cards = document.getElementsByClassName('card');
             let buttons = document.getElementsByClassName('cat-btn');
 
-            for (let btn of buttons) {
-                btn.classList.remove('active');
-            }
+            for (let btn of buttons) { btn.classList.remove('active'); }
             event.target.classList.add('active');
 
             for (let card of cards) {
@@ -387,6 +564,67 @@
                 } else {
                     card.style.display = "none";
                 }
+            }
+        }
+
+        // Modal Handlers
+        function openBookModal() { document.getElementById('bookModal').classList.add('active'); }
+        function openSlideModal() { 
+            document.getElementById('slideModal').classList.add('active');
+            renderSlide();
+        }
+        function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+
+        // Interactive Presentation Engine
+        const slides = [
+            {
+                title: "Python Programming Essentials",
+                desc: "Module 1: The Learner's Starter Foundation",
+                code: "# Welcome to Python 3\nprint('Starter Presentation Loaded')"
+            },
+            {
+                title: "What is Python?",
+                desc: "A high-level, interpreted programming language known for readability and clean syntax.",
+                code: "# Python uses indentation for blocks\nif True:\n    print('Clean & Readable')"
+            },
+            {
+                title: "Variables & Data Types",
+                desc: "No type declarations required. Variables store data dynamically.",
+                code: "username = 'Alice'\nitem_count = 10\nis_active = True"
+            },
+            {
+                title: "Control Flow Logic",
+                desc: "Execute code based on conditions or loops.",
+                code: "for step in range(3):\n    print('Current step:', step)"
+            }
+        ];
+
+        let currentSlide = 0;
+
+        function renderSlide() {
+            const container = document.getElementById('slideContent');
+            const indicator = document.getElementById('slideIndicator');
+            const slide = slides[currentSlide];
+
+            container.innerHTML = `
+                <h3>${slide.title}</h3>
+                <p>${slide.desc}</p>
+                <pre><code>${slide.code}</code></pre>
+            `;
+            indicator.innerText = `Slide ${currentSlide + 1} of ${slides.length}`;
+        }
+
+        function nextSlide() {
+            if (currentSlide < slides.length - 1) {
+                currentSlide++;
+                renderSlide();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                renderSlide();
             }
         }
     </script>
