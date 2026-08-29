@@ -1,649 +1,309 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OmniRead Enterprise Suite | Ultimate Knowledge & Office Workspace</title>
-    
-    <meta name="description" content="OmniRead is an institutional-grade fully loaded workspace featuring manual toolkits, typing master, general knowledge banks, direct-response AI chat, scientific calculator, timetable generator, and MS Office fix suites.">
-    <meta name="author" content="Ali Abbas">
-
-    <style>
-        :root {
-            --base-bg: #0b0f19;
-            --surface-bg: #111827;
-            --panel-bg: #1f2937;
-            --text-main: #f9fafb;
-            --text-muted: #9ca3af;
-            --border-color: #374151;
-            --accent-color: #2563eb;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        }
-
-        body {
-            background-color: var(--base-bg);
-            color: var(--text-main);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* Top Bar */
-        .topbar {
-            background-color: var(--surface-bg);
-            border-bottom: 1px solid var(--border-color);
-            padding: 12px 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.9rem;
-        }
-
-        .brand {
-            font-weight: 800;
-            letter-spacing: 0.5px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .badge {
-            background: var(--accent-color);
-            color: #fff;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-        }
-
-        /* Modal Overlay */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-        }
-
-        .modal-card {
-            background-color: var(--surface-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 30px;
-            max-width: 480px;
-            width: 90%;
-            text-align: center;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-        }
-
-        .modal-card h2 {
-            margin-bottom: 15px;
-            color: #60a5fa;
-        }
-
-        .modal-card p {
-            color: var(--text-muted);
-            margin-bottom: 20px;
-            line-height: 1.6;
-            font-size: 0.95rem;
-        }
-
-        /* Layout Grid */
-        .workspace {
-            display: grid;
-            grid-template-columns: 280px 1fr 340px;
-            gap: 20px;
-            max-width: 1800px;
-            margin: 20px auto;
-            padding: 0 20px;
-            flex: 1;
-            width: 100%;
-        }
-
-        @media (max-width: 1400px) {
-            .workspace {
-                grid-template-columns: 1fr;
+    <title>OmniRead Master Digital Library & Economic Insights Repository</title>
+    <meta name="description" content="An advanced digital library, economic research portal, and multi-functional interactive workspace.">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { 50: '#f0fdf4', 100: '#dcfce7', 500: '#22c55e', 600: '#16a34a', 700: '#15803d', 800: '#166534', 900: '#14532d' }
+                    }
+                }
             }
         }
-
-        .panel {
-            background-color: var(--surface-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            margin-bottom: 20px;
-        }
-
-        .panel-title {
-            font-size: 1.05rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 8px;
-            color: #60a5fa;
-        }
-
-        /* Navigation */
-        .nav-list {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .nav-btn {
-            background: var(--panel-bg);
-            border: 1px solid var(--border-color);
-            padding: 10px 14px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: 500;
-            text-align: left;
-            color: var(--text-main);
-            transition: all 0.2s;
-        }
-
-        .nav-btn:hover {
-            border-color: var(--accent-color);
-            transform: translateX(4px);
-        }
-
-        /* Viewport */
-        .viewport {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .section-view {
-            background-color: var(--surface-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 30px;
-            display: none;
-        }
-
-        .section-view.active {
-            display: block;
-        }
-
-        .section-view h2 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: var(--text-main);
-        }
-
-        .section-view p {
-            font-size: 1rem;
-            line-height: 1.7;
-            color: var(--text-muted);
-            margin-bottom: 15px;
-        }
-
-        /* Calculator UI */
-        .calc-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 8px;
-            max-width: 350px;
-            margin: 15px 0;
-        }
-
-        .calc-display {
-            grid-column: span 4;
-            background: var(--base-bg);
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-            padding: 14px;
-            font-size: 1.2rem;
-            text-align: right;
-            border-radius: 6px;
-        }
-
-        .calc-key {
-            background: var(--panel-bg);
-            color: var(--text-main);
-            border: 1px solid var(--border-color);
-            padding: 12px;
-            font-size: 1rem;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-
-        .calc-key:hover {
-            border-color: var(--accent-color);
-        }
-
-        /* Typing Master UI */
-        .typing-box {
-            background: var(--panel-bg);
-            border: 1px solid var(--border-color);
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 15px;
-        }
-
-        .typing-target {
-            font-size: 1.1rem;
-            letter-spacing: 0.5px;
-            margin-bottom: 15px;
-            color: #e2e8f0;
-            padding: 10px;
-            background: var(--base-bg);
-            border-radius: 6px;
-        }
-
-        /* General Knowledge UI */
-        .gk-card {
-            background: var(--panel-bg);
-            border: 1px solid var(--border-color);
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 12px;
-        }
-
-        .gk-card h4 {
-            color: #60a5fa;
-            margin-bottom: 5px;
-        }
-
-        /* AI Chatbot UI */
-        .chat-wrap {
-            display: flex;
-            flex-direction: column;
-            height: 480px;
-            background: var(--panel-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            overflow: hidden;
-            margin-top: 15px;
-        }
-
-        .chat-msgs {
-            flex: 1;
-            padding: 15px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .msg {
-            padding: 12px 16px;
-            border-radius: 8px;
-            max-width: 85%;
-            font-size: 0.92rem;
-            line-height: 1.6;
-        }
-
-        .msg.bot {
-            background: var(--surface-bg);
-            color: var(--text-main);
-            align-self: flex-start;
-            border: 1px solid var(--border-color);
-        }
-
-        .msg.user {
-            background: var(--accent-color);
-            color: #fff;
-            align-self: flex-end;
-        }
-
-        .chat-bar {
-            display: flex;
-            border-top: 1px solid var(--border-color);
-            padding: 12px;
-            background: var(--surface-bg);
-            gap: 10px;
-        }
-
-        .chat-input {
-            flex: 1;
-            background: var(--panel-bg);
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-            padding: 10px 14px;
-            border-radius: 6px;
-            outline: none;
-            font-size: 0.95rem;
-        }
-
-        /* Buttons */
-        .btn {
-            background: var(--accent-color);
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: opacity 0.2s;
-        }
-
-        .btn:hover {
-            opacity: 0.9;
-        }
-
-        .btn-sec {
-            background: var(--panel-bg);
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-        }
-
-        .form-control {
-            background: var(--panel-bg);
-            color: var(--text-main);
-            border: 1px solid var(--border-color);
-            padding: 10px 14px;
-            border-radius: 6px;
-            font-size: 0.95rem;
-            width: 100%;
-            outline: none;
-            margin-bottom: 12px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 25px;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            margin-top: auto;
-        }
-    </style>
+    </script>
 </head>
-<body>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased flex flex-col min-h-screen">
 
-    <div id="deviceModal" class="modal-overlay">
-        <div class="modal-card">
-            <h2>Device Telemetry & Workspace Setup</h2>
-            <p>OmniRead has detected your environment. Click below to verify encrypted OS telemetry (optimized up to 2022 standards) or skip directly to your manual and AI toolkits.</p>
-            <div style="display: flex; gap: 12px; justify-content: center;">
-                <button class="btn" onclick="verifyTelemetry()">View Telemetry</button>
-                <button class="btn btn-sec" onclick="closeModal()">Skip & Enter</button>
+    <!-- Top Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="bg-primary-600 text-white p-2 rounded-xl shadow-md">
+                    <i class="fa-solid fa-book-open-reader text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg leading-tight tracking-tight text-slate-900">OmniRead Master</h1>
+                    <p class="text-xs text-slate-500 font-medium">Digital Library & Economic Insights</p>
+                </div>
+            </div>
+            <nav class="hidden md:flex items-center space-x-6 text-sm font-semibold text-slate-600">
+                <a href="#library" class="hover:text-primary-600 transition">Library</a>
+                <a href="#economics" class="hover:text-primary-600 transition">Economic Insights</a>
+                <a href="#tools" class="hover:text-primary-600 transition">Workspace Tools</a>
+                <a href="#ai-assistant" class="hover:text-primary-600 transition">AI Assistant</a>
+            </nav>
+            <div class="flex items-center space-x-3">
+                <a href="https://github.com/akhunzadaaliabbas86-max/knowledge-hub" target="_blank" class="inline-flex items-center space-x-2 bg-slate-900 hover:bg-slate-800 text-white px-4 py-2 rounded-lg text-sm font-medium shadow transition">
+                    <i class="fa-brands fa-github"></i>
+                    <span>GitHub Hub</span>
+                </a>
             </div>
         </div>
-    </div>
-
-    <header class="topbar">
-        <div class="brand">
-            <span class="badge">OmniRead OS</span> Enterprise Research & Manual Toolkits
-        </div>
-        <div id="liveClock">12:00:00 AM</div>
     </header>
 
-    <div class="workspace">
-        
-        <aside class="panel">
-            <h3 class="panel-title">📂 Manual Toolkits</h3>
-            <div class="nav-list">
-                <button class="nav-btn" onclick="showView('dashboard')">📊 Dashboard Overview</button>
-                <button class="nav-btn" onclick="showView('typingmaster')">⌨️ Typing Master Practice</button>
-                <button class="nav-btn" onclick="showView('gkbank')">🌍 General Knowledge Bank</button>
-                <button class="nav-btn" onclick="showView('calculator')">🧮 Scientific Calculator</button>
-                <button class="nav-btn" onclick="showView('timetable')">📅 Study Timetable Generator</button>
-                <button class="nav-btn" onclick="showView('msoffice')">🛠️ MS Office Troubleshooting</button>
-                <button class="nav-btn" onclick="showView('aiassistant')">🤖 Autonomous AI Chatbot</button>
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-primary-900 text-white py-20 px-4">
+        <div class="max-w-5xl mx-auto text-center space-y-6">
+            <span class="inline-flex items-center gap-1.5 py-1 px-3 rounded-full text-xs font-semibold bg-primary-500/20 text-primary-300 border border-primary-500/30">
+                <i class="fa-solid fa-shield-halved"></i> Enterprise Knowledge Repository v3.4
+            </span>
+            <h2 class="text-4xl sm:text-6xl font-extrabold tracking-tight">
+                Centralized Intelligence & <span class="text-primary-400">Digital Archive</span>
+            </h2>
+            <p class="text-lg text-slate-300 max-w-2xl mx-auto">
+                A structured unified portal integrating academic literature series, macroeconomic analytical modules, English grammar frameworks, and specialized utility suites.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 pt-4">
+                <a href="#library" class="bg-primary-600 hover:bg-primary-500 text-white font-medium px-6 py-3 rounded-xl shadow-lg transition flex items-center gap-2">
+                    <i class="fa-solid fa-folder-open"></i> Access Digital Files
+                </a>
+                <a href="#tools" class="bg-white/10 hover:bg-white/20 text-white font-medium px-6 py-3 rounded-xl backdrop-blur-sm border border-white/10 transition flex items-center gap-2">
+                    <i class="fa-solid fa-toolbox"></i> Launch Tool Suite
+                </a>
             </div>
-        </aside>
+        </div>
+    </section>
 
-        <main class="viewport">
+    <!-- Main Content Container -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16 w-full">
+
+        <!-- Digital Library Grid -->
+        <section id="library" class="space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-200 pb-4">
+                <div>
+                    <h3 class="text-2xl font-bold text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-books text-primary-600"></i> Core Knowledge Categories
+                    </h3>
+                    <p class="text-sm text-slate-500">Explore structured documents, XML schemas, and literature catalogs.</p>
+                </div>
+            </div>
             
-            <section id="dashboard" class="section-view active">
-                <h2>Welcome to OmniRead Professional Workspace</h2>
-                <p>All manual tools (Typing Master, General Knowledge, Scientific Calculator, Timetable Generator, MS Office Fixes) and the Autonomous AI Chatbot are fully loaded and operational on separate panels.</p>
-                <p>Select any tool from the left manual directory or right quick-access bar to get started immediately.</p>
-                <button class="btn" onclick="showView('aiassistant')">Open Autonomous AI Chatbot</button>
-            </section>
-
-            <section id="typingmaster" class="section-view">
-                <h2>Typing Master Practice</h2>
-                <p>Improve your office typing speed and accuracy manually with real-time tracking.</p>
-                <div class="typing-box">
-                    <div class="typing-target" id="typingTargetText">The quick brown fox jumps over the lazy dog to test institutional productivity.</div>
-                    <input type="text" id="userTypingInput" class="form-control" placeholder="Start typing the text above here..." oninput="checkTypingProgress()">
-                    <p id="typingResultFeedback" style="font-size: 0.9rem; color: #60a5fa; margin-top: 8px;">Status: Waiting for input...</p>
-                </div>
-            </section>
-
-            <section id="gkbank" class="section-view">
-                <h2>General Knowledge & Institutional Database</h2>
-                <p>Quick reference facts for academic studies, competitive exams, and office administration.</p>
-                <div class="gk-card">
-                    <h4>1. Office Software Architecture</h4>
-                    <p>Microsoft Office uses advanced XML file compression (.docx, .xlsx, .pptx) allowing local offline editing and seamless cloud synchronization.</p>
-                </div>
-                <div class="gk-card">
-                    <h4>2. Operating Systems Standards</h4>
-                    <p>Windows, Linux, macOS, and mobile Android environments support secure web assembly protocols for high-performance browser execution.</p>
-                </div>
-                <div class="gk-card">
-                    <h4>3. Competitive Exam Framework</h4>
-                    <p>Structured time management, conceptual clarity, and rigorous past-paper practice are core pillars for civil service examinations.</p>
-                </div>
-            </section>
-
-            <section id="calculator" class="section-view">
-                <h2>Updated Scientific Calculator</h2>
-                <p>Perform complex academic or financial calculations instantly.</p>
-                <div class="calc-grid">
-                    <div class="calc-display" id="calcScreen">0</div>
-                    <button class="calc-key" onclick="pressCalc('7')">7</button>
-                    <button class="calc-key" onclick="pressCalc('8')">8</button>
-                    <button class="calc-key" onclick="pressCalc('9')">9</button>
-                    <button class="calc-key" onclick="pressCalc('/')">/</button>
-                    <button class="calc-key" onclick="pressCalc('4')">4</button>
-                    <button class="calc-key" onclick="pressCalc('5')">5</button>
-                    <button class="calc-key" onclick="pressCalc('6')">6</button>
-                    <button class="calc-key" onclick="pressCalc('*')">*</button>
-                    <button class="calc-key" onclick="pressCalc('1')">1</button>
-                    <button class="calc-key" onclick="pressCalc('2')">2</button>
-                    <button class="calc-key" onclick="pressCalc('3')">3</button>
-                    <button class="calc-key" onclick="pressCalc('-')">-</button>
-                    <button class="calc-key" onclick="pressCalc('0')">0</button>
-                    <button class="calc-key" onclick="clearCalc()">C</button>
-                    <button class="calc-key" onclick="computeCalc()">=</button>
-                    <button class="calc-key" onclick="pressCalc('+')">+</button>
-                </div>
-            </section>
-
-            <section id="timetable" class="section-view">
-                <h2>Study & Office Timetable Generator</h2>
-                <p>Create a customized daily routine based on your subject or office workload.</p>
-                <input type="text" id="ttSubject" class="form-control" placeholder="Enter subject or office project name...">
-                <input type="number" id="ttHours" class="form-control" placeholder="Available hours per day...">
-                <button class="btn" onclick="generateSchedule()">Generate Timetable</button>
-                
-                <div class="panel" id="ttOutputBox" style="margin-top: 20px; display: none;">
-                    <h4 style="color: #60a5fa; margin-bottom: 8px;">Your Generated Schedule</h4>
-                    <p id="ttResultText"></p>
-                </div>
-            </section>
-
-            <section id="msoffice" class="section-view">
-                <h2>MS Office Troubleshooting & Fixes</h2>
-                <p>Click any common office issue below for immediate step-by-step resolution:</p>
-                <div class="nav-list">
-                    <button class="nav-btn" onclick="alert('Excel VLOOKUP Fix: Ensure table arrays use absolute cell anchoring ($A$1:$Z$100) and verify that your column index number matches your data structure.')">📊 Excel VLOOKUP / XLOOKUP Error Fix</button>
-                    <button class="nav-btn" onclick="alert('MS Word Formatting Fix: Press Ctrl + Shift + N to clear rogue styles and reset text styling back to Normal typography.')">📄 MS Word Paragraph Layout Reset</button>
-                    <button class="nav-btn" onclick="alert('Power Query PDF Fix: Go to Data > Get Data > From File > From PDF to extract and merge tables without conversion errors.')">🔄 PDF to Excel Table Extraction Guide</button>
-                </div>
-            </section>
-
-            <section id="aiassistant" class="section-view">
-                <h2>Autonomous AI Chatbot Assistant</h2>
-                <p>Ask any question about shortcuts, office formulas, or study guides. Get direct, exact answers immediately.</p>
-                <div class="chat-wrap">
-                    <div class="chat-msgs" id="chatBox">
-                        <div class="msg bot">Hello! I am your autonomous AI expert. Ask me anything directly (e.g., "shortcut key for copy", "excel vlookup fix") and I will solve it right now!</div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition space-y-4">
+                    <div class="w-12 h-12 bg-primary-50 text-primary-600 rounded-xl flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-chart-line"></i>
                     </div>
-                    <div class="chat-bar">
-                        <input type="text" id="chatUserInput" class="chat-input" placeholder="Type your exact question here..." onkeypress="if(event.key==='Enter') submitChat()">
-                        <button class="btn" onclick="submitChat()">Send</button>
-                    </div>
+                    <h4 class="text-lg font-bold text-slate-900">Economic & Policy Studies</h4>
+                    <p class="text-sm text-slate-600">Macroeconomic metrics, regional agricultural infrastructure reviews, and development frameworks.</p>
+                    <a href="#economics" class="text-primary-600 font-semibold text-sm hover:underline inline-flex items-center gap-1">
+                        View Insights <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
                 </div>
-            </section>
 
-        </main>
+                <!-- Card 2 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition space-y-4">
+                    <div class="w-12 h-12 bg-primary-50 text-primary-600 rounded-xl flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900">Competitive Exam & Public Service</h4>
+                    <p class="text-sm text-slate-600">Curated materials, syntax modules, language proficiency series, and administrative templates.</p>
+                    <a href="#tools" class="text-primary-600 font-semibold text-sm hover:underline inline-flex items-center gap-1">
+                        Access Resources <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
 
-        <aside>
-            <div class="panel">
-                <h3 class="panel-title">🔒 Device Telemetry</h3>
-                <div id="telemetryInfo" style="font-size: 0.85rem; line-height: 1.6; color: var(--text-muted);">
-                    <p>Status: Active (Standard 2022)</p>
-                    <p>Environment: Verified Offline & Secure</p>
+                <!-- Card 3 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition space-y-4">
+                    <div class="w-12 h-12 bg-primary-50 text-primary-600 rounded-xl flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900">XML & Repository Directory</h4>
+                    <p class="text-sm text-slate-600">Standardized indexing structures, sitemaps, and robots configuration files for raw metadata parsing.</p>
+                    <a href="XML" class="text-primary-600 font-semibold text-sm hover:underline inline-flex items-center gap-1">
+                        Inspect Directory <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
                 </div>
             </div>
+        </section>
 
-            <div class="panel">
-                <h3 class="panel-title">⌨️ Office Shortcuts</h3>
-                <div style="font-size: 0.85rem; line-height: 1.6; color: var(--text-muted);">
-                    <p><strong>Ctrl + C / V:</strong> Copy & Paste</p>
-                    <p><strong>Ctrl + Z:</strong> Undo Action</p>
-                    <p><strong>F4:</strong> Repeat Excel Command</p>
-                    <p><strong>Ctrl + Shift + S:</strong> Save As</p>
+        <!-- Dynamic Utility Section -->
+        <section id="tools" class="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm space-y-6">
+            <div class="border-b border-slate-200 pb-4">
+                <h3 class="text-2xl font-bold text-slate-900 flex items-center gap-2">
+                    <i class="fa-solid fa-screwdriver-wrench text-primary-600"></i> Interactive Workspace & Utilities
+                </h3>
+                <p class="text-sm text-slate-500">Live web utilities engineered for instant calculation, document testing, and administrative validation.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Calculator Widget -->
+                <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 space-y-4">
+                    <h4 class="font-bold text-slate-800 flex items-center gap-2"><i class="fa-solid fa-calculator text-primary-600"></i> Scientific Computation Suite</h4>
+                    <input type="text" id="calc-screen" readonly class="w-full bg-white border border-slate-300 rounded-lg p-3 text-right text-xl font-mono text-slate-800 shadow-inner" value="0">
+                    <div class="grid grid-cols-4 gap-2">
+                        <button onclick="clearCalc()" class="bg-red-100 text-red-700 font-bold p-3 rounded-lg hover:bg-red-200 transition">C</button>
+                        <button onclick="appendCalc('(')" class="bg-slate-200 text-slate-700 font-bold p-3 rounded-lg hover:bg-slate-300 transition">(</button>
+                        <button onclick="appendCalc(')')" class="bg-slate-200 text-slate-700 font-bold p-3 rounded-lg hover:bg-slate-300 transition">)</button>
+                        <button onclick="appendCalc('/')" class="bg-primary-100 text-primary-700 font-bold p-3 rounded-lg hover:bg-primary-200 transition">÷</button>
+                        
+                        <button onclick="appendCalc('7')" class="bg-white border border-slate-200 p-3 rounded-lg hover:bg-slate-100 font-bold">7</button>
+                        <button onclick="appendCalc('8')" class="bg-white border border-slate-200 p-3 rounded-lg hover:bg-slate-100 font-bold">8</button>
+                        <button onclick="appendCalc('9')" class="bg-white border border-slate-200 p-3 rounded-lg hover:bg-slate-100 font-bold">9</button>
+                        <button onclick="appendCalc('*')" class="bg-primary-100 text-primary-700 font-bold p-3 rounded-lg hover:bg-primary-200 transition">×</button>
+                        
+                        <button onclick="appendCalc('4')" class="bg-white border border-slate-200 p-3 rounded-lg hover:bg-slate-100 font-bold">4</button>
+                        <button onclick="appendCalc('5')" class="bg-white border border-slate-200 p-3 rounded-lg hover:bg-slate-100 font-bold">5</button>
+                        <button onclick="appendCalc('6')" class="bg-white border border-slate-200 p-3 rounded-lg hover:bg-slate-100 font-bold">6</button>
+                        <button onclick="appendCalc('-')" class="bg-primary-100 text-primary-700 font-bold p-3 rounded-lg hover:bg-primary-200 transition">-</button>
+                        
+                        <button onclick="appendCalc('1')" class="bg-white border border-slate-200 p-3 rounded-lg hover:bg-slate-100 font-bold">1</button>
+                        <button onclick="appendCalc('2')" class="bg-white border border-slate-200 p-3 rounded-lg hover:bg-slate-100 font-bold">2</button>
+                        <button onclick="appendCalc('3')" class="bg-white border border-slate-200 p-3 rounded-lg hover:bg-slate-100 font-bold">3</button>
+                        <button onclick="appendCalc('+')" class="bg-primary-100 text-primary-700 font-bold p-3 rounded-lg hover:bg-primary-200 transition">+</button>
+                        
+                        <button onclick="appendCalc('0')" class="col-span-2 bg-white border border-slate-200 p-3 rounded-lg hover:bg-slate-100 font-bold">0</button>
+                        <button onclick="appendCalc('.')" class="bg-white border border-slate-200 p-3 rounded-lg hover:bg-slate-100 font-bold">.</button>
+                        <button onclick="calculateResult()" class="bg-primary-600 text-white font-bold p-3 rounded-lg hover:bg-primary-700 transition">=</button>
+                    </div>
+                </div>
+
+                <!-- Bilingual Typing & System Console Simulator -->
+                <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col justify-between space-y-4">
+                    <div>
+                        <h4 class="font-bold text-slate-800 flex items-center gap-2"><i class="fa-solid fa-terminal text-primary-600"></i> Workspace Diagnostic Engine</h4>
+                        <p class="text-xs text-slate-500 mt-1">Execute test diagnostics or inspect runtime metadata status directly within the repository shell.</p>
+                    </div>
+                    <div id="console-output" class="bg-slate-900 text-green-400 font-mono text-xs p-4 rounded-lg h-36 overflow-y-auto shadow-inner">
+                        [System Initialized: OmniRead Core v3.4]
+                        [Ready for execution command or data query...]
+                    </div>
+                    <div class="flex gap-2">
+                        <input type="text" id="console-input" placeholder="Type command (e.g., status, help)..." class="flex-grow bg-white border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-primary-500">
+                        <button onclick="runConsoleCommand()" class="bg-slate-900 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-800 transition">Run</button>
+                    </div>
                 </div>
             </div>
-        </aside>
+        </section>
 
-    </div>
+        <!-- AI Assistant / Knowledge Query Section -->
+        <section id="ai-assistant" class="bg-gradient-to-r from-primary-900 to-slate-900 text-white p-8 rounded-2xl shadow-xl space-y-6">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/10 pb-4">
+                <div>
+                    <h3 class="text-2xl font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-robot text-primary-400"></i> OmniRead Intelligent Assistant
+                    </h3>
+                    <p class="text-sm text-slate-300">Prompt-engineered AI context support embedded directly into the repository.</p>
+                </div>
+                <span class="bg-primary-500/30 border border-primary-400/40 text-primary-200 text-xs px-3 py-1.5 rounded-full font-mono">Status: Online</span>
+            </div>
+            <div class="space-y-4">
+                <div id="chat-box" class="bg-slate-900/80 border border-white/10 rounded-xl p-4 h-48 overflow-y-auto space-y-3 text-sm">
+                    <div class="flex items-start gap-3">
+                        <div class="bg-primary-600 text-white p-1.5 rounded-lg text-xs"><i class="fa-solid fa-robot"></i></div>
+                        <div class="bg-slate-800 p-3 rounded-xl border border-white/5 text-slate-200 max-w-lg">
+                            Welcome to OmniRead Master Library. How can I assist you with your document indexing, economic reports, or workflow tools today?
+                        </div>
+                    </div>
+                </div>
+                <div class="flex gap-2">
+                    <input type="text" id="chat-input" placeholder="Ask a question about the repository or search documents..." class="flex-grow bg-slate-800 border border-slate-700 text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary-500 placeholder-slate-400">
+                    <button onclick="sendChatMessage()" class="bg-primary-600 hover:bg-primary-500 text-white font-medium px-6 py-3 rounded-xl transition shadow">Send</button>
+                </div>
+            </div>
+        </section>
 
-    <footer>
-        <p>&copy; 2026 OmniRead Enterprise Suite. Architected by Ali Abbas for High-Performance Global Research. All rights reserved.</p>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-8 border-t border-slate-800 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>&copy; 2026 OmniRead Master Digital Library & Economic Insights Repository. All rights reserved.</p>
+            <div class="flex space-x-6 text-slate-400">
+                <a href="robots.txt" class="hover:text-white transition">robots.txt</a>
+                <a href="sitemap.xml" class="hover:text-white transition">sitemap.xml</a>
+                <a href="XML" class="hover:text-white transition">XML Catalog</a>
+            </div>
+        </div>
     </footer>
 
+    <!-- Client Script Logic -->
     <script>
-        // Clock
-        function updateClock() {
-            const now = new Date();
-            const clockEl = document.getElementById('liveClock');
-            if (clockEl) clockEl.innerText = now.toLocaleTimeString();
-        }
-        setInterval(updateClock, 1000);
-        updateClock();
-
-        // Modal Handlers
-        function closeModal() {
-            document.getElementById('deviceModal').style.display = 'none';
-        }
-        function verifyTelemetry() {
-            const ua = navigator.userAgent;
-            let os = "Encrypted Desktop/Mobile OS (2022 Standard)";
-            if (ua.includes("Win")) os = "Windows Environment [2022 Spec]";
-            else if (ua.includes("Mac")) os = "macOS / MacBook [2022 Spec]";
-            else if (ua.includes("Linux")) os = "Linux Kernel [2022 Spec]";
-            else if (ua.includes("Android")) os = "Android Smart Phone [2022 Spec]";
-            
-            document.getElementById('telemetryInfo').innerHTML = `<p><strong>Device:</strong> ${os}</p><p><strong>Status:</strong> Verified Secure</p>`;
-            closeModal();
-        }
-
-        // View Switcher
-        function showView(viewId) {
-            document.querySelectorAll('.section-view').forEach(v => v.classList.remove('active'));
-            const target = document.getElementById(viewId);
-            if (target) target.classList.add('active');
-        }
-
         // Calculator Logic
-        let calcVal = '';
-        function pressCalc(val) {
-            const screen = document.getElementById('calcScreen');
-            if (calcVal === '0' || calcVal === 'Error') calcVal = '';
-            calcVal += val;
-            if (screen) screen.innerText = calcVal;
+        const screen = document.getElementById('calc-screen');
+        function appendCalc(val) {
+            if(screen.value === '0' || screen.value === 'Error') screen.value = '';
+            screen.value += val;
         }
         function clearCalc() {
-            calcVal = '0';
-            const screen = document.getElementById('calcScreen');
-            if (screen) screen.innerText = calcVal;
+            screen.value = '0';
         }
-        function computeCalc() {
-            const screen = document.getElementById('calcScreen');
+        function calculateResult() {
             try {
-                calcVal = eval(calcVal).toString();
-                if (screen) screen.innerText = calcVal;
+                screen.value = eval(screen.value);
             } catch (e) {
-                calcVal = 'Error';
-                if (screen) screen.innerText = calcVal;
+                screen.value = 'Error';
             }
         }
 
-        // Typing Master Logic
-        function checkTypingProgress() {
-            const target = document.getElementById('typingTargetText').innerText;
-            const input = document.getElementById('userTypingInput').value;
-            const fb = document.getElementById('typingResultFeedback');
-            if (input === target.substring(0, input.length)) {
-                fb.innerText = `Status: Perfect! Match progress: ${input.length}/${target.length} characters.`;
-                fb.style.color = '#34d399';
-            } else {
-                fb.innerText = `Status: Typo detected. Check your spelling and spacing.`;
-                fb.style.color = '#f87171';
-            }
-        }
-
-        // Timetable Generator
-        function generateSchedule() {
-            const subj = document.getElementById('ttSubject').value || 'General Studies';
-            const hours = document.getElementById('ttHours').value || '4';
-            const outBox = document.getElementById('ttOutputBox');
-            const resText = document.getElementById('ttResultText');
+        // Console Simulator Logic
+        function runConsoleCommand() {
+            const input = document.getElementById('console-input');
+            const output = document.getElementById('console-output');
+            const val = input.value.trim().toLowerCase();
+            if(!val) return;
             
-            if (outBox && resText) {
-                outBox.style.display = 'block';
-                resText.innerHTML = `<strong>Topic/Project:</strong> ${subj}<br><strong>Allocation:</strong> ${hours} Hours Daily<br><br>` +
-                    `• Block 1 (50%): Core Conceptual Study / Deep Work<br>` +
-                    `• Block 2 (30%): Practical Application & Formatting<br>` +
-                    `• Block 3 (20%): Revision & Practice Q&A Testing`;
+            output.innerHTML += `<div>> ${input.value}</div>`;
+            let response = "Command processed successfully. Type 'help' for options.";
+            if(val === 'help') {
+                response = "Available commands: status, date, clear, version, repo";
+            } else if(val === 'status') {
+                response = "All systems operational. GitHub Pages sync active.";
+            } else if(val === 'date') {
+                response = new Date().toUTCString();
+            } else if(val === 'version') {
+                response = "OmniRead Core v3.4 (Production Release)";
+            } else if(val === 'repo') {
+                response = "https://github.com/akhunzadaaliabbas86-max/knowledge-hub";
+            } else if(val === 'clear') {
+                output.innerHTML = '';
+                input.value = '';
+                return;
             }
+            output.innerHTML += `<div class="text-slate-400">${response}</div>`;
+            output.scrollTop = output.scrollHeight;
+            input.value = '';
         }
 
-        // Autonomous AI Chatbot Resolver
-        function submitChat() {
-            const inputEl = document.getElementById('chatUserInput');
-            const box = document.getElementById('chatBox');
-            if (!inputEl || !box) return;
+        // Chatbot Simulation Logic
+        function sendChatMessage() {
+            const input = document.getElementById('chat-input');
+            const chatBox = document.getElementById('chat-box');
+            const text = input.value.trim();
+            if(!text) return;
 
-            const query = inputEl.value.trim();
-            if (!query) return;
-
-            box.innerHTML += `<div class="msg user">${query}</div>`;
-            inputEl.value = '';
-            box.scrollTop = box.scrollHeight;
+            chatBox.innerHTML += `
+                <div class="flex items-start justify-end gap-3">
+                    <div class="bg-primary-700 p-3 rounded-xl text-white max-w-lg">${text}</div>
+                    <div class="bg-slate-700 text-white p-1.5 rounded-lg text-xs"><i class="fa-solid fa-user"></i></div>
+                </div>`;
+            input.value = '';
+            chatBox.scrollTop = chatBox.scrollHeight;
 
             setTimeout(() => {
-                let reply = "";
-                const q = query.toLowerCase();
-
-                if (q.includes('shortcut') || q.includes('key') || q.includes('copy') || q.includes('paste')) {
-                    reply = "<strong>Direct Answer - Essential Keyboard Shortcuts:</strong><br>• <strong>Ctrl + C:</strong> Copy<br>• <strong>Ctrl + V:</strong> Paste<br>• <strong>Ctrl + Z:</strong> Undo<br>• <strong>Ctrl + Shift + S:</strong> Save As<br>• <strong>F4 (Excel):</strong> Repeat last command";
-                } else if (q.includes('excel') || q.includes('vlookup') || q.includes('formula')) {
-                    reply = "<strong>Direct Answer - Excel VLOOKUP Fix:</strong><br>1. Use absolute cell anchoring ($A$1:$Z$100).<br>2. Verify column index numbers.<br>3. Remove hidden spaces using =TRIM().";
-                } else if (q.includes('pdf') || q.includes('convert')) {
-                    reply = "<strong>Direct Answer - PDF to Excel Conversion:</strong><br>Open Excel > Data tab > Get Data > From File > From PDF.";
-                } else {
-                    reply = `<strong>Direct Institutional Resolution for "${query}":</strong><br>Ensure your environment parameters are updated and utilize the manual toolkits on the left sidebar for exact execution.`;
+                let reply = "I have cross-referenced your query against the repository's database indexes and economic library catalogs. Everything is structured correctly.";
+                if(text.toLowerCase().includes('pdf') || text.toLowerCase().includes('library')) {
+                    reply = "You can access all structured files and records under the main catalog sections or directly via the XML directory.";
+                } else if(text.toLowerCase().includes('help')) {
+                    reply = "I am ready to assist with sitemaps, data organization, or script execution queries.";
                 }
-
-                box.innerHTML += `<div class="msg bot">${reply}</div>`;
-                box.scrollTop = box.scrollHeight;
-            }, 300);
+                chatBox.innerHTML += `
+                    <div class="flex items-start gap-3">
+                        <div class="bg-primary-600 text-white p-1.5 rounded-lg text-xs"><i class="fa-solid fa-robot"></i></div>
+                        <div class="bg-slate-800 p-3 rounded-xl border border-white/5 text-slate-200 max-w-lg">${reply}</div>
+                    </div>`;
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }, 600);
         }
     </script>
 </body>
