@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OmniRead Master Knowledge Hub - English Grammar, Literature, Articles, and Universal Knowledge.">
+    <meta name="google-site-verification" content="ylHU3G6BY6K9un-ROM_c2fwJd9w_cW0HXBgFU__nBgl" />
+    <title>OmniRead | Universal Knowledge & English Learning Hub</title>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DigitalDocumentRepository",
+      "name": "OmniRead Master Library & Economic Insights",
+      "url": "https://akhunzadaaliabbas86-max.github.io/knowledge-hub/",
+      "description": "Digital library containing economic research, inflation analysis, English language learning, and literature series."
+    }
+    </script>
+
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Merriweather:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --accent-indigo: #6366f1;
+            --accent-cyan: #06b6d4;
+            --accent-emerald: #10b981;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Hero Banner */
+        header {
+            background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, rgba(0,0,0,0) 70%);
+            pointer-events: none;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--accent-cyan), var(--accent-indigo));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        p.subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Search Bar */
+        .search-box {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 1rem 1.5rem 1rem 3rem;
+            border-radius: 50px;
+            border: 2px solid var(--border-color);
+            background: rgba(30, 41, 59, 0.8);
+            color: var(--text-main);
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:focus {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+
+        /* Section Category Filters */
+        .category-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            padding: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .cat-btn {
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
+            border: 1px solid var(--border-color);
+            background: var(--card-bg);
+            color: var(--text-main);
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .cat-btn:hover, .cat-btn.active {
+            background: var(--accent-indigo);
+            border-color: var(--accent-indigo);
+            transform: translateY(-2px);
+        }
+
+        /* Main Grid Layout */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Knowledge Object Cards */
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 0 15px rgba(99, 102, 241, 0.2);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .icon-grammar { background: rgba(99, 102, 241, 0.2); color: var(--accent-indigo); }
+        .icon-article { background: rgba(6, 182, 212, 0.2); color: var(--accent-cyan); }
+        .icon-knowledge { background: rgba(16, 185, 129, 0.2); color: var(--accent-emerald); }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .card-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-tag {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 6px;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+        }
+
+        .tag-grammar { background: rgba(99, 102, 241, 0.3); color: #a5b4fc; }
+        .tag-article { background: rgba(6, 182, 212, 0.3); color: #67e8f9; }
+        .tag-knowledge { background: rgba(16, 185, 129, 0.3); color: #6ee7b7; }
+
+        .btn-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid var(--border-color);
+            transition: background 0.2s;
+        }
+
+        .btn-action:hover {
+            background: var(--accent-indigo);
+            border-color: var(--accent-indigo);
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>OmniRead Knowledge Hub</h1>
+        <p class="subtitle">Explore English Language Mastery, Analytical Articles, and Universal Human Knowledge</p>
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="searchInput" placeholder="Search grammar rules, articles, economics, literature..." onkeyup="filterCards()">
+        </div>
+    </header>
+
+    <div class="category-nav">
+        <button class="cat-btn active" onclick="filterCategory('all')">All Knowledge</button>
+        <button class="cat-btn" onclick="filterCategory('grammar')">English & Grammar</button>
+        <button class="cat-btn" onclick="filterCategory('article')">Articles & Essays</button>
+        <button class="cat-btn" onclick="filterCategory('knowledge')">Universal Knowledge</button>
+    </div>
+
+    <main>
+        <div class="grid" id="cardGrid">
+
+            <!-- English & Grammar Section -->
+            <div class="card" data-category="grammar">
+                <div>
+                    <span class="card-tag tag-grammar">Language & Grammar</span>
+                    <div class="card-header">
+                        <div class="card-icon icon-grammar"><i class="fa-solid fa-font"></i></div>
+                        <div class="card-title">English Sentence Structure</div>
+                    </div>
+                    <p class="card-desc">Master Subject-Verb Agreement, Clause Structures, and Advanced Tenses with clear rules and practical examples.</p>
+                </div>
+                <a href="#" class="btn-action"><i class="fa-solid fa-book-open"></i> Start Learning</a>
+            </div>
+
+            <div class="card" data-category="grammar">
+                <div>
+                    <span class="card-tag tag-grammar">Vocabulary</span>
+                    <div class="card-header">
+                        <div class="card-icon icon-grammar"><i class="fa-solid fa-spell-check"></i></div>
+                        <div class="card-title">Competitive Exam Vocabulary</div>
+                    </div>
+                    <p class="card-desc">High-frequency words, contextual usages, antonyms, and synonyms curated for CSS, PMS, and GRE tests.</p>
+                </div>
+                <a href="#" class="btn-action"><i class="fa-solid fa-list-check"></i> Open Word List</a>
+            </div>
+
+            <!-- Articles Section -->
+            <div class="card" data-category="article">
+                <div>
+                    <span class="card-tag tag-article">Analytical Essay</span>
+                    <div class="card-header">
+                        <div class="card-icon icon-article"><i class="fa-solid fa-newspaper"></i></div>
+                        <div class="card-title">Inflation & Economic Dynamics</div>
+                    </div>
+                    <p class="card-desc">Comprehensive economic breakdown analyzing global trade, monetary policy, market trends, and currency behavior.</p>
+                </div>
+                <a href="#" class="btn-action"><i class="fa-solid fa-file-pdf"></i> Read Full Article</a>
+            </div>
+
+            <div class="card" data-category="article">
+                <div>
+                    <span class="card-tag tag-article">Literature</span>
+                    <div class="card-header">
+                        <div class="card-icon icon-article"><i class="fa-solid fa-book-journal-whills"></i></div>
+                        <div class="card-title">OmniRead 3-Volume Series</div>
+                    </div>
+                    <p class="card-desc">Explore curated digital volumes covering philosophy, governance structures, and historical evolution.</p>
+                </div>
+                <a href="#" class="btn-action"><i class="fa-solid fa-layer-group"></i> Access Volumes</a>
+            </div>
+
+            <!-- Universal Knowledge Section -->
+            <div class="card" data-category="knowledge">
+                <div>
+                    <span class="card-tag tag-knowledge">Computer & AI</span>
+                    <div class="card-header">
+                        <div class="card-icon icon-knowledge"><i class="fa-solid fa-microchip"></i></div>
+                        <div class="card-title">Computer Systems & Networking</div>
+                    </div>
+                    <p class="card-desc">Guides covering operating system routines, command-line shortcuts, database design, and network protocols.</p>
+                </div>
+                <a href="#" class="btn-action"><i class="fa-solid fa-code"></i> Explore Tech Notes</a>
+            </div>
+
+            <div class="card" data-category="knowledge">
+                <div>
+                    <span class="card-tag tag-knowledge">General Science</span>
+                    <div class="card-header">
+                        <div class="card-icon icon-knowledge"><i class="fa-solid fa-globe"></i></div>
+                        <div class="card-title">Universal Science & Physics</div>
+                    </div>
+                    <p class="card-desc">Core concepts in physical sciences, environmental changes, space exploration, and human discovery.</p>
+                </div>
+                <a href="#" class="btn-action"><i class="fa-solid fa-atom"></i> Discover Science</a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 OmniRead Master Knowledge Hub. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Live Search Filtering
+        function filterCards() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.getElementsByClassName('card');
+
+            for (let i = 0; i < cards.length; i++) {
+                let title = cards[i].querySelector('.card-title').innerText.toLowerCase();
+                let desc = cards[i].querySelector('.card-desc').innerText.toLowerCase();
+                
+                if (title.includes(input) || desc.includes(input)) {
+                    cards[i].style.display = "flex";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+
+        // Category Button Filtering
+        function filterCategory(category) {
+            let cards = document.getElementsByClassName('card');
+            let buttons = document.getElementsByClassName('cat-btn');
+
+            for (let btn of buttons) {
+                btn.classList.remove('active');
+            }
+            event.target.classList.add('active');
+
+            for (let card of cards) {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = "flex";
+                } else {
+                    card.style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
