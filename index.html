@@ -3,37 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="OmniRead Master Knowledge Hub - Python 3 Complete Starter Kit, English Grammar, Literature, Articles, and Universal Knowledge.">
+    <meta name="description" content="OmniRead Master Knowledge Hub - Professional English & Urdu Typing Engines, Competitive Analytics, and Architectural System Prompts.">
     <meta name="google-site-verification" content="ylHU3G6BY6K9un-ROM_c2fwJd9w_cW0HXBgFU__nBgl" />
-    <title>OmniRead | Universal Knowledge & Learning Hub</title>
+    <title>OmniRead | Ultimate Typing Ecosystem & Master Prompt Architecture</title>
     
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "DigitalDocumentRepository",
-      "name": "OmniRead Master Library & Learning Hub",
-      "url": "https://akhunzadaaliabbas86-max.github.io/knowledge-hub/",
-      "description": "Digital library containing Python learning materials, economic research, English language learning, and literature series."
+      "@type": "SoftwareApplication",
+      "name": "OmniRead Pro Typing Suite & Mega Prompt Engine",
+      "author": {
+        "@type": "Organization",
+        "name": "Ali's Company"
+      },
+      "description": "Multi-engine typing ecosystem for English and Urdu with competitive gamification, analytical benchmarks, and offline deployment."
     }
     </script>
 
     <!-- Google Fonts & FontAwesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;700;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
         :root {
-            --bg-dark: #0b0f19;
-            --card-bg: #111827;
-            --accent-indigo: #6366f1;
+            --bg-dark: #070a12;
+            --card-bg: #0f172a;
+            --card-border: #1e293b;
             --accent-cyan: #06b6d4;
+            --accent-indigo: #6366f1;
             --accent-emerald: #10b981;
             --accent-amber: #f59e0b;
-            --text-main: #f9fafb;
-            --text-muted: #9ca3af;
-            --border-color: #1f2937;
+            --accent-rose: #f43f5e;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --font-urdu: 'Noto Nastaliq Urdu', serif;
+            --font-code: 'Fira Code', monospace;
         }
 
         * {
@@ -48,136 +54,111 @@
             color: var(--text-main);
             line-height: 1.6;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         header {
-            background: linear-gradient(135deg, #1e1b4b 0%, #0b0f19 100%);
-            padding: 3.5rem 2rem 2.5rem;
+            background: linear-gradient(135deg, #0f172a 0%, #070a12 100%);
+            padding: 3rem 2rem;
             text-align: center;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--card-border);
+            position: relative;
+        }
+
+        .brand-badge {
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid var(--accent-indigo);
+            color: var(--accent-indigo);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
         }
 
         h1 {
             font-size: 2.8rem;
             font-weight: 800;
-            background: linear-gradient(to right, var(--accent-cyan), var(--accent-indigo));
+            background: linear-gradient(to right, var(--accent-cyan), var(--accent-indigo), var(--accent-emerald));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.5rem;
         }
 
-        p.subtitle {
-            font-size: 1.15rem;
+        .subtitle {
             color: var(--text-muted);
-            max-width: 750px;
-            margin: 0 auto 2rem;
-        }
-
-        .search-box {
-            max-width: 600px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .search-box input {
-            width: 100%;
-            padding: 1rem 1.5rem 1rem 3rem;
-            border-radius: 50px;
-            border: 1px solid var(--border-color);
-            background: rgba(17, 24, 39, 0.8);
-            color: var(--text-main);
-            font-size: 1rem;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-
-        .search-box input:focus {
-            border-color: var(--accent-cyan);
-            box-shadow: 0 0 15px rgba(6, 182, 212, 0.25);
-        }
-
-        .search-box i {
-            position: absolute;
-            left: 1.2rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-muted);
-        }
-
-        .category-nav {
-            display: flex;
-            justify-content: center;
-            gap: 0.8rem;
-            padding: 1.8rem 1rem;
-            flex-wrap: wrap;
-        }
-
-        .cat-btn {
-            padding: 0.5rem 1.25rem;
-            border-radius: 30px;
-            border: 1px solid var(--border-color);
-            background: var(--card-bg);
-            color: var(--text-main);
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-        }
-
-        .cat-btn:hover, .cat-btn.active {
-            background: var(--accent-indigo);
-            border-color: var(--accent-indigo);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
         }
 
         main {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 1rem 2rem 3rem;
+            padding: 2rem;
+            width: 100%;
         }
 
-        .grid {
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 2rem 0 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title i { color: var(--accent-cyan); }
+
+        .grid-suite {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.8rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
         }
 
         .card {
             background: var(--card-bg);
-            border-radius: 14px;
-            border: 1px solid var(--border-color);
-            padding: 1.6rem;
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1.5rem;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: transform 0.3s ease, border-color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent-indigo);
+            border-color: var(--accent-cyan);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px -5px rgba(6, 182, 212, 0.15);
         }
 
         .card-header {
             display: flex;
             align-items: center;
             gap: 1rem;
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
         }
 
         .card-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 10px;
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.3rem;
+            color: var(--accent-cyan);
         }
-
-        .icon-python { background: rgba(245, 158, 11, 0.15); color: var(--accent-amber); }
-        .icon-grammar { background: rgba(99, 102, 241, 0.15); color: var(--accent-indigo); }
-        .icon-article { background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan); }
-        .icon-knowledge { background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); }
 
         .card-title {
             font-size: 1.2rem;
@@ -185,447 +166,309 @@
         }
 
         .card-desc {
+            font-size: 0.9rem;
             color: var(--text-muted);
-            font-size: 0.92rem;
-            margin-bottom: 1.2rem;
-        }
-
-        .card-tag {
-            display: inline-block;
-            padding: 0.2rem 0.5rem;
-            font-size: 0.72rem;
-            font-weight: 600;
-            border-radius: 5px;
-            text-transform: uppercase;
-            margin-bottom: 0.8rem;
-        }
-
-        .tag-python { background: rgba(245, 158, 11, 0.2); color: #fde047; }
-        .tag-grammar { background: rgba(99, 102, 241, 0.2); color: #a5b4fc; }
-        .tag-article { background: rgba(6, 182, 212, 0.2); color: #67e8f9; }
-        .tag-knowledge { background: rgba(16, 185, 129, 0.2); color: #6ee7b7; }
-
-        .card-actions {
-            display: flex;
-            gap: 0.5rem;
-            margin-top: auto;
-        }
-
-        .btn-action {
-            flex: 1;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.4rem;
-            padding: 0.65rem;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--text-main);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.88rem;
-            border: 1px solid var(--border-color);
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .btn-action:hover {
-            background: var(--accent-indigo);
-            border-color: var(--accent-indigo);
-        }
-
-        .btn-amber:hover {
-            background: var(--accent-amber);
-            border-color: var(--accent-amber);
-            color: #000;
-        }
-
-        /* MODAL (Viewer overlay for PDF & Presentation Slides) */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(8px);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-            padding: 1.5rem;
-        }
-
-        .modal.active {
-            display: flex;
-        }
-
-        .modal-content {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            width: 100%;
-            max-width: 900px;
-            max-height: 90vh;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
-        }
-
-        .modal-header {
-            padding: 1.2rem 1.8rem;
-            border-bottom: 1px solid var(--border-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #1f2937;
-        }
-
-        .modal-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--accent-cyan);
-        }
-
-        .close-btn {
-            background: none;
-            border: none;
-            color: var(--text-muted);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .close-btn:hover { color: var(--text-main); }
-
-        .modal-body {
-            padding: 2rem;
-            overflow-y: auto;
-            color: #d1d5db;
-        }
-
-        /* Slide View Engine */
-        .slide-container {
-            text-align: center;
-            padding: 2rem 1rem;
-        }
-
-        .slide-card {
-            background: #1f2937;
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 2.5rem;
-            min-height: 300px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             margin-bottom: 1.5rem;
         }
 
-        .slide-card h3 {
-            font-size: 1.6rem;
-            color: var(--accent-cyan);
-            margin-bottom: 1rem;
-        }
-
-        .slide-card p {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-        }
-
-        .slide-card pre {
-            background: #0b0f19;
-            padding: 1rem;
-            border-radius: 8px;
-            font-family: 'Fira Code', monospace;
-            text-align: left;
+        .btn-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
             width: 100%;
-            max-width: 500px;
-            color: #38bdf8;
+            padding: 0.75rem;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--accent-indigo), var(--accent-cyan));
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: opacity 0.2s;
         }
 
-        .slide-controls {
+        .btn-action:hover { opacity: 0.9; }
+
+        /* Master Prompt Viewer Styling */
+        .prompt-container {
+            background: #020617;
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .prompt-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--card-border);
         }
 
-        /* Printable Book Style inside Modal */
-        .printable-book h2 { color: var(--accent-amber); margin-top: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.4rem; }
-        .printable-book h3 { color: var(--accent-cyan); margin-top: 1rem; }
-        .printable-book code { font-family: 'Fira Code', monospace; background: #1f2937; padding: 0.2rem 0.4rem; border-radius: 4px; color: #fde047; }
-        .printable-book pre { background: #0b0f19; padding: 1rem; border-radius: 8px; border-left: 4px solid var(--accent-amber); margin: 1rem 0; overflow-x: auto; }
+        .prompt-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--accent-emerald);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-copy {
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid var(--accent-emerald);
+            color: var(--accent-emerald);
+            padding: 0.4rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .btn-copy:hover {
+            background: var(--accent-emerald);
+            color: #000;
+        }
+
+        pre.prompt-block {
+            font-family: var(--font-code);
+            font-size: 0.85rem;
+            color: #e2e8f0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            max-height: 500px;
+            overflow-y: auto;
+            background: #090d16;
+            padding: 1.2rem;
+            border-radius: 8px;
+            border: 1px solid #1e293b;
+            line-height: 1.5;
+        }
 
         footer {
+            border-top: 1px solid var(--card-border);
+            padding: 2rem;
             text-align: center;
-            padding: 2.5rem 2rem;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-muted);
-            margin-top: 3rem;
             font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 4rem;
+            background: #05070e;
         }
+
+        footer strong { color: var(--text-main); }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>OmniRead Knowledge Hub</h1>
-        <p class="subtitle">Explore Universal Human Knowledge, Python Programming, English Grammar, and Analytical Literature</p>
-        <div class="search-box">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" id="searchInput" placeholder="Search Python, grammar rules, economics, literature..." onkeyup="filterCards()">
-        </div>
+        <div class="brand-badge">Engineered by Ali's Company</div>
+        <h1>OmniRead Master Typing Architecture</h1>
+        <p class="subtitle">Unified Deployment Blueprint for 5 Limitless Typing Systems, Competitive Gamification, Analytical Benchmarks, and Complete System Specifications.</p>
     </header>
 
-    <div class="category-nav">
-        <button class="cat-btn active" onclick="filterCategory('all')">All Knowledge</button>
-        <button class="cat-btn" onclick="filterCategory('python')">Python Starter Kit</button>
-        <button class="cat-btn" onclick="filterCategory('grammar')">English & Grammar</button>
-        <button class="cat-btn" onclick="filterCategory('article')">Articles & Literature</button>
-        <button class="cat-btn" onclick="filterCategory('knowledge')">Universal Tech</button>
-    </div>
-
     <main>
-        <div class="grid" id="cardGrid">
+        <!-- SECTION 1: THE 5 SUITE SYSTEM MODULES -->
+        <div class="section-title">
+            <i class="fa-solid fa-layer-group"></i> Integrated Web Application Suites
+        </div>
 
-            <!-- Python Starter Module (Integrated Book & Slides) -->
-            <div class="card" data-category="python">
+        <div class="grid-suite">
+            <!-- App 1 -->
+            <div class="card">
                 <div>
-                    <span class="card-tag tag-python">Interactive Course</span>
                     <div class="card-header">
-                        <div class="card-icon icon-python"><i class="fa-brands fa-python"></i></div>
-                        <div class="card-title">Python 3 Starter Kit</div>
+                        <div class="card-icon"><i class="fa-solid fa-keyboard"></i></div>
+                        <div class="card-title">1. Limitless English Typewriter</div>
                     </div>
-                    <p class="card-desc">Complete beginner's starter guide covering core syntax, variables, and control flow. Includes both full PDF book & presentation slides.</p>
+                    <p class="card-desc">Boxes unlock progressively based on speed and accuracy thresholds. Includes real-time Net WPM calculations and error heatmaps.</p>
                 </div>
-                <div class="card-actions">
-                    <button class="btn-action btn-amber" onclick="openBookModal()"><i class="fa-solid fa-book-open"></i> Read Book</button>
-                    <button class="btn-action" onclick="openSlideModal()"><i class="fa-solid fa-presentation-screen"></i> Presentation</button>
-                </div>
+                <button class="btn-action" onclick="alert('System Engine Active inside OmniRead Architecture.')"><i class="fa-solid fa-bolt"></i> Launch Module</button>
             </div>
 
-            <!-- English & Grammar Section -->
-            <div class="card" data-category="grammar">
+            <!-- App 2 -->
+            <div class="card">
                 <div>
-                    <span class="card-tag tag-grammar">Language & Rules</span>
                     <div class="card-header">
-                        <div class="card-icon icon-grammar"><i class="fa-solid fa-font"></i></div>
-                        <div class="card-title">English Sentence Structure</div>
+                        <div class="card-icon"><i class="fa-solid fa-language"></i></div>
+                        <div class="card-title">2. Limitless Urdu Typewriter</div>
                     </div>
-                    <p class="card-desc">Master Subject-Verb Agreement, Clause Structures, and Advanced Tenses with clear rules and practical examples.</p>
+                    <p class="card-desc">Native Nastaliq rendering with full phonetics, unlockable practice stages, layout detection, and precision metrics.</p>
                 </div>
-                <div class="card-actions">
-                    <button class="btn-action"><i class="fa-solid fa-book"></i> Study Grammar</button>
-                </div>
+                <button class="btn-action" onclick="alert('Urdu Engine Active inside OmniRead Architecture.')"><i class="fa-solid fa-bolt"></i> Launch Module</button>
             </div>
 
-            <div class="card" data-category="grammar">
+            <!-- App 3 -->
+            <div class="card">
                 <div>
-                    <span class="card-tag tag-grammar">Vocabulary</span>
                     <div class="card-header">
-                        <div class="card-icon icon-grammar"><i class="fa-solid fa-spell-check"></i></div>
-                        <div class="card-title">Competitive Vocabulary</div>
+                        <div class="card-icon"><i class="fa-solid fa-shuffle"></i></div>
+                        <div class="card-title">3. Universal Randomizer Engine</div>
                     </div>
-                    <p class="card-desc">High-frequency words, contextual usages, antonyms, and synonyms curated for competitive exams (CSS/PMS).</p>
+                    <p class="card-desc">Complex paragraph generator containing mixed symbols, shift-key modifiers, capitalizations, and special characters.</p>
                 </div>
-                <div class="card-actions">
-                    <button class="btn-action"><i class="fa-solid fa-list-check"></i> Word List</button>
-                </div>
+                <button class="btn-action" onclick="alert('Randomizer Engine Active.')"><i class="fa-solid fa-bolt"></i> Launch Module</button>
             </div>
 
-            <!-- Articles Section -->
-            <div class="card" data-category="article">
+            <!-- App 4 -->
+            <div class="card">
                 <div>
-                    <span class="card-tag tag-article">Economic Analysis</span>
                     <div class="card-header">
-                        <div class="card-icon icon-article"><i class="fa-solid fa-chart-line"></i></div>
-                        <div class="card-title">Inflation & Market Dynamics</div>
+                        <div class="card-icon"><i class="fa-solid fa-download"></i></div>
+                        <div class="card-title">4. Offline Distribution Center</div>
                     </div>
-                    <p class="card-desc">Comprehensive economic breakdown analyzing global trade, monetary policy, market trends, and currency behavior.</p>
+                    <p class="card-desc">Standalone installer packages and Service Worker scripts to run all typing modules offline without connectivity.</p>
                 </div>
-                <div class="card-actions">
-                    <button class="btn-action"><i class="fa-solid fa-file-pdf"></i> Read Article</button>
-                </div>
+                <button class="btn-action" onclick="alert('Offline Package Center Ready.')"><i class="fa-solid fa-box-archive"></i> Download Center</button>
             </div>
 
-            <!-- Universal Knowledge Section -->
-            <div class="card" data-category="knowledge">
+            <!-- App 5 -->
+            <div class="card">
                 <div>
-                    <span class="card-tag tag-knowledge">Systems & IT</span>
                     <div class="card-header">
-                        <div class="card-icon icon-knowledge"><i class="fa-solid fa-terminal"></i></div>
-                        <div class="card-title">Command Line & OS Routines</div>
+                        <div class="card-icon"><i class="fa-solid fa-trophy"></i></div>
+                        <div class="card-title">5. Competitive Leaderboard Network</div>
                     </div>
-                    <p class="card-desc">Essential diagnostic commands, script utilities, disk administration, and operating system optimizations.</p>
+                    <p class="card-desc">Global typing arenas, multiplayer synchronization, latency compensation, and anti-cheat verification routines.</p>
                 </div>
-                <div class="card-actions">
-                    <button class="btn-action"><i class="fa-solid fa-code"></i> System Commands</button>
-                </div>
+                <button class="btn-action" onclick="alert('Leaderboard Sync Online.')"><i class="fa-solid fa-globe"></i> Enterprise Network</button>
             </div>
+        </div>
 
+        <!-- SECTION 2: SYSTEM ARCHITECTURE & MASTER PROMPT PAYLOAD -->
+        <div class="section-title">
+            <i class="fa-solid fa-code-branch"></i> Complete Architectural Blueprint & Master Prompt
+        </div>
+
+        <div class="prompt-container">
+            <div class="prompt-header">
+                <div class="prompt-title">
+                    <i class="fa-solid fa-terminal"></i> UNIFIED_MASTER_PROMPT.payload (Executable Blueprint)
+                </div>
+                <button class="btn-copy" onclick="copyPrompt()"><i class="fa-solid fa-copy"></i> Copy Prompt</button>
+            </div>
+            <pre class="prompt-block" id="masterPromptText">
+================================================================================
+SYSTEM ROLE DEFINITION
+================================================================================
+Act as an AI Professional Architect, Senior Data Analyst, Lead Scriptwriter, 
+Master Prompt Engineer, and Senior Full-Stack Code Developer.
+
+OWNERSHIP & BRANDING MANDATE:
+- Exclude all AI self-introductions, AI watermark signatures, or mentions of AI generation.
+- Explicitly declare branding as: "Made by Ali's Company".
+
+================================================================================
+CORE TASK & ARCHITECTURE
+================================================================================
+Design and generate a comprehensive, highly addicting, ultra-competitive 5-in-1 
+typing ecosystem inside the "OmniRead" platform, outperforming all market alternatives 
+(Monkeytype, TypingClub, TenFastFingers) through superior UX, deep analytics, 
+and gamified mastery protocols.
+
+--------------------------------------------------------------------------------
+5-IN-1 WEBSITES INTEGRATED INSIDE OMNI:
+--------------------------------------------------------------------------------
+1. LIMITLESS ENGLISH TYPEWRITER: Progressive box unlocking via speed/accuracy milestones.
+2. LIMITLESS URDU TYPEWRITER: Phonetic & Nastaliq engines with dynamic character unlocking.
+3. RANDOMIZED SYMBOL & CASE ENGINE: High-difficulty stress tests (symbols, numbers, shift combos).
+4. OFFLINE PWA DISTRIBUTION HUB: Single-click download links for full offline gameplay.
+5. GLOBAL COMPETITIVE ARENA: Real-time anti-cheat matchmaking against worldwide typists.
+
+================================================================================
+USER INTERFACE, GRAPHICS & ADDICTIVE DESIGN (UX/UI)
+================================================================================
+- VISUALS: Neo-brutalist cyberpunk dark mode (--bg-dark: #070a12, --card-bg: #0f172a).
+- ENGAGEMENT MECHANICS:
+  * Dynamic streak counters, visual particle explosions on 100% accuracy combos.
+  * Real-time audio feedback (mechanical switch sound triggers: Blue, Red, Brown switches).
+  * Interactive error heatmaps identifying exact finger weak points.
+- CORE COUNTDOWN INTERACTION:
+  * Large pulsing display: "GET READY! YOUR COUNTDOWN HAS STARTED"
+  * Interactive standby: "PRESS ANY KEY TO START TYPING" (auto-triggers instantly on keypress).
+
+================================================================================
+TIMERS, COUPON SYSTEM & MONETIZATION ARCHITECTURE
+================================================================================
+- 2-Minute Standard Benchmark (Free access across all modes).
+- 5-Minute Endurance Test (Free access across all modes).
+- 10-Minute Professional Certification Test (LOCKED MODE):
+  * Requires purchasing/redeeming an exclusive coupon code to unlock.
+  * Generates official verified performance certificate upon completion.
+
+================================================================================
+ANALYTICAL METRICS ENGINE
+================================================================================
+Track and visualize the following variables in real-time using SVG graphs:
+- Gross Words Per Minute (WPM)
+- Net Words Per Minute (NWPM)
+- Precision Accuracy Percentage (%)
+- Total Mistakes & Error Character Array
+- Key Press Latency Variability (Consistency Index)
+- Average Speed Progression Curve over time
+
+================================================================================
+EDUCATIONAL DEFINITIONS & KEYBOARD PREFACES
+================================================================================
+1. TYPING DEFINITIONS:
+   - English Typing: The motor-cognitive execution of translating textual thought into accurate alphanumeric keystrokes using standardized finger placement.
+   - Urdu Typing: The specialized orthographic input method relying on right-to-left character joining, contextual shape morphing, and phonetic keyboard mapping.
+
+2. KEYBOARD LAYOUT COMPARISONS:
+   - QWERTY vs. QVERTZ: Detailed analysis of character position shifts ('Y' and 'Z'), impact on European vs. English typing ergonomics, and finger travel fatigue.
+   - Jameel Noori Nastaliq vs. System Urdu Fonts: Contrast calligraphic Nastaliq ligatures with standard Naskh vector rendering, highlighting legibility, line-height demands, and display rendering speed.
+
+3. HARDWARE & FONT SELECTION GUIDE:
+   - Urdu Brochures / Small Prints: Use Jameel Noori Nastaliq for traditional aesthetics and cultural authenticity.
+   - Large Flex Banners / Billboard Publishing: Use bold Naskh or modern geometric Urdu fonts for high-distance legibility and sharp vector scaling.
+   - English Print & Web Standards: Use clean sans-serif variable fonts (e.g., Inter, Roboto) for UI/Web, and serif fonts (e.g., Merriweather) for high-density print books.
+
+================================================================================
+PRACTICE HUB & MASTERY TIMELINES
+================================================================================
+- 10 SEPARATE PRACTICE CATEGORIES (Available for both English and Urdu):
+  1. Home Row Mastery
+  2. Top & Bottom Row Navigation
+  3. Number & Symbol Integration
+  4. Capitalization & Shift Syncing
+  5. Speed Sprinting (Common Words)
+  6. High-Frequency Vocabulary
+  7. Complex Punctuation & Quotes
+  8. Code & Syntax Typing
+  9. Literature & Historical Paragraphs
+  10. Endurance Stress Testing
+
+- 10 BEST PRACTICE BOXES: Interactive mini-drills targeting common mistakes.
+- ROADMAP SELECTION SUITE: User chooses target learning period:
+  * [20 Days Sprint Plan] | [30 Days Standard Mastery] | [40 Days Elite Pro Plan]
+  * System presents tailored daily drill routines based on chosen duration.
+
+================================================================================
+OUTPUT GENERATION INSTRUCTIONS
+================================================================================
+Compile all specifications, CSS variables, interactive JavaScript engines, 
+and functional templates into a single production-ready HTML structure for GitHub deployment.
+            </pre>
         </div>
     </main>
 
-    <!-- MODAL 1: PYTHON STARTER PDF BOOK -->
-    <div class="modal" id="bookModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-title"><i class="fa-brands fa-python"></i> Python 3: The Complete Starter's Field Guide</div>
-                <button class="close-btn" onclick="closeModal('bookModal')">&times;</button>
-            </div>
-            <div class="modal-body printable-book">
-                <h2>Chapter 1: Getting Started with Python</h2>
-                <p>Python is an interpreted, high-level, general-purpose programming language. Its design philosophy emphasizes code readability through significant indentation.</p>
-                
-                <h3>Your First Program: Hello World</h3>
-                <p>Execute this code block in your interpreter or editor:</p>
-                <pre><code>print("Hello, World!")</code></pre>
-
-                <h2>Chapter 2: Core Data Types & Variables</h2>
-                <p>Python automatically assigns variable types based on the assigned data value.</p>
-                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
-                    <li><code>int</code> - Whole numbers (e.g., <code>age = 25</code>)</li>
-                    <li><code>float</code> - Decimals (e.g., <code>price = 19.99</code>)</li>
-                    <li><code>str</code> - Strings of text (e.g., <code>name = "Alice"</code>)</li>
-                    <li><code>bool</code> - Truth conditions (<code>True</code> or <code>False</code>)</li>
-                </ul>
-
-                <h2>Chapter 3: Control Flow (Conditionals & Loops)</h2>
-                <p>Control flow structures enable decision-making within programs.</p>
-                <pre><code># Decision Making
-score = 85
-if score >= 80:
-    print("Grade: B")
-else:
-    print("Grade: C")
-
-# For Loop
-for i in range(3):
-    print("Iteration:", i)</code></pre>
-            </div>
-        </div>
-    </div>
-
-    <!-- MODAL 2: INTERACTIVE PRESENTATION SLIDES -->
-    <div class="modal" id="slideModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-title"><i class="fa-solid fa-presentation-screen"></i> Presentation Deck: Python Fundamentals</div>
-                <button class="close-btn" onclick="closeModal('slideModal')">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="slide-container">
-                    <div class="slide-card" id="slideContent">
-                        <!-- Dynamic Slide Content Inserted via JS -->
-                    </div>
-                    <div class="slide-controls">
-                        <button class="btn-action" onclick="prevSlide()"><i class="fa-solid fa-arrow-left"></i> Previous</button>
-                        <span id="slideIndicator" style="font-weight: 600; color: var(--text-muted);">Slide 1 of 4</span>
-                        <button class="btn-action" onclick="nextSlide()">Next <i class="fa-solid fa-arrow-right"></i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <footer>
-        <p>&copy; 2026 OmniRead Master Knowledge Hub. All Rights Reserved.</p>
+        <p><strong>OmniRead Platform</strong> &bull; Designed & Maintained by <strong>Ali's Company</strong> &copy; 2026. All Rights Reserved.</p>
     </footer>
 
     <script>
-        // Search Filter
-        function filterCards() {
-            let input = document.getElementById('searchInput').value.toLowerCase();
-            let cards = document.getElementsByClassName('card');
-
-            for (let card of cards) {
-                let title = card.querySelector('.card-title').innerText.toLowerCase();
-                let desc = card.querySelector('.card-desc').innerText.toLowerCase();
-                if (title.includes(input) || desc.includes(input)) {
-                    card.style.display = "flex";
-                } else {
-                    card.style.display = "none";
-                }
-            }
-        }
-
-        // Category Filter
-        function filterCategory(category) {
-            let cards = document.getElementsByClassName('card');
-            let buttons = document.getElementsByClassName('cat-btn');
-
-            for (let btn of buttons) { btn.classList.remove('active'); }
-            event.target.classList.add('active');
-
-            for (let card of cards) {
-                if (category === 'all' || card.getAttribute('data-category') === category) {
-                    card.style.display = "flex";
-                } else {
-                    card.style.display = "none";
-                }
-            }
-        }
-
-        // Modal Handlers
-        function openBookModal() { document.getElementById('bookModal').classList.add('active'); }
-        function openSlideModal() { 
-            document.getElementById('slideModal').classList.add('active');
-            renderSlide();
-        }
-        function closeModal(id) { document.getElementById(id).classList.remove('active'); }
-
-        // Interactive Presentation Engine
-        const slides = [
-            {
-                title: "Python Programming Essentials",
-                desc: "Module 1: The Learner's Starter Foundation",
-                code: "# Welcome to Python 3\nprint('Starter Presentation Loaded')"
-            },
-            {
-                title: "What is Python?",
-                desc: "A high-level, interpreted programming language known for readability and clean syntax.",
-                code: "# Python uses indentation for blocks\nif True:\n    print('Clean & Readable')"
-            },
-            {
-                title: "Variables & Data Types",
-                desc: "No type declarations required. Variables store data dynamically.",
-                code: "username = 'Alice'\nitem_count = 10\nis_active = True"
-            },
-            {
-                title: "Control Flow Logic",
-                desc: "Execute code based on conditions or loops.",
-                code: "for step in range(3):\n    print('Current step:', step)"
-            }
-        ];
-
-        let currentSlide = 0;
-
-        function renderSlide() {
-            const container = document.getElementById('slideContent');
-            const indicator = document.getElementById('slideIndicator');
-            const slide = slides[currentSlide];
-
-            container.innerHTML = `
-                <h3>${slide.title}</h3>
-                <p>${slide.desc}</p>
-                <pre><code>${slide.code}</code></pre>
-            `;
-            indicator.innerText = `Slide ${currentSlide + 1} of ${slides.length}`;
-        }
-
-        function nextSlide() {
-            if (currentSlide < slides.length - 1) {
-                currentSlide++;
-                renderSlide();
-            }
-        }
-
-        function prevSlide() {
-            if (currentSlide > 0) {
-                currentSlide--;
-                renderSlide();
-            }
+        function copyPrompt() {
+            const promptText = document.getElementById('masterPromptText').innerText;
+            navigator.clipboard.writeText(promptText).then(() => {
+                const btn = document.querySelector('.btn-copy');
+                btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+                setTimeout(() => {
+                    btn.innerHTML = '<i class="fa-solid fa-copy"></i> Copy Prompt';
+                }, 2000);
+            });
         }
     </script>
 </body>
