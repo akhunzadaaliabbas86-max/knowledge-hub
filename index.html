@@ -3,568 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="OmniRead Platform - Unified Typing Ecosystem, Daily Editorial Analysis, Exam Vocab, and Practice Hub.">
-    <title>OmniRead | Master Learning & Typing Platform</title>
+    <title>OmniRead Master Platform | Digital Library & CSS/PMS Exam Prep</title>
+    
+    <!-- Primary SEO Meta Tags -->
+    <meta name="title" content="OmniRead Master Platform | Digital Library & CSS/PMS Exam Prep">
+    <meta name="description" content="OmniRead is a premier digital library and knowledge hub offering advanced typing engines, 10 practice categories, daily articles, and comprehensive CSS/PMS exam preparation resources.">
+    <meta name="keywords" content="OmniRead, Digital Library, CSS Exam Prep, PMS Exam, Typing Suites, Online Learning, Knowledge Hub, Ali's Company">
+    <meta name="author" content="Ali Abbas">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://akhunzadaaliabbas86-max.github.io/knowledge-hub/">
 
-    <!-- Google Fonts & FontAwesome Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="property:type" content="website">
+    <meta property="og:url" content="https://akhunzadaaliabbas86-max.github.io/knowledge-hub/">
+    <meta property="og:title" content="OmniRead Master Platform | Digital Library & CSS/PMS Prep">
+    <meta property="og:description" content="Access advanced typing suites, structured practice categories, and elite CSS/PMS exam preparation resources on OmniRead.">
+    <meta property="og:image" content="https://akhunzadaaliabbas86-max.github.io/knowledge-hub/assets/preview.png">
 
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://akhunzadaaliabbas86-max.github.io/knowledge-hub/">
+    <meta name="twitter:title" content="OmniRead Master Platform | Digital Library & CSS/PMS Prep">
+    <meta name="twitter:description" content="Access advanced typing suites, structured practice categories, and elite CSS/PMS exam preparation resources on OmniRead.">
+
+    <!-- Structured Data (JSON-LD) for Search Engines -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "OmniRead Master Platform",
+      "url": "https://akhunzadaaliabbas86-max.github.io/knowledge-hub/",
+      "author": {
+        "@type": "Person",
+        "name": "Ali Abbas"
+      },
+      "description": "Comprehensive digital library and competitive exam preparation portal."
+    }
+    </script>
+
+    <!-- Stylesheet Architecture -->
     <style>
         :root {
-            --bg-main: #070a12;
-            --card-bg: #0f172a;
-            --card-hover: #1e293b;
-            --border-line: #1e293b;
-            --accent-cyan: #06b6d4;
-            --accent-indigo: #6366f1;
-            --accent-emerald: #10b981;
-            --accent-amber: #f59e0b;
-            --accent-rose: #f43f5e;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --font-sans: 'Inter', sans-serif;
-            --font-serif: 'Merriweather', serif;
-            --font-code: 'Fira Code', monospace;
-            --font-urdu: 'Noto Nastaliq Urdu', serif;
+            --bg-color: #0b0f19;
+            --card-bg: #111827;
+            --accent-color: #3b82f6;
+            --accent-hover: #2563eb;
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --border-color: #1f2937;
         }
-
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
-
         body {
-            background-color: var(--bg-main);
-            color: var(--text-main);
-            font-family: var(--font-sans);
-            line-height: 1.7;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 20px;
         }
-
-        /* HEADER & NAVIGATION */
         header {
-            background: linear-gradient(135deg, #0f172a 0%, #070a12 100%);
-            border-bottom: 1px solid var(--border-line);
-            padding: 2rem 1.5rem 1rem;
             text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            padding: 40px 20px;
         }
-
-        .brand-badge {
-            display: inline-block;
-            background: rgba(99, 102, 241, 0.15);
-            border: 1px solid var(--accent-indigo);
-            color: var(--accent-indigo);
-            padding: 0.25rem 0.75rem;
+        .company-badge {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent-color);
+            padding: 6px 16px;
             border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 1px;
+            font-size: 0.85rem;
+            font-weight: 600;
             text-transform: uppercase;
-            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
         }
-
-        h1.site-logo {
-            font-size: 2.2rem;
+        h1 {
+            font-size: 2.5rem;
+            margin-top: 15px;
             font-weight: 800;
-            background: linear-gradient(to right, var(--accent-cyan), var(--accent-indigo), var(--accent-emerald));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
         }
-
-        /* NAVIGATION TABS */
-        nav.nav-tabs {
+        .nav-links {
             display: flex;
             justify-content: center;
-            gap: 0.8rem;
+            gap: 15px;
+            margin-top: 25px;
             flex-wrap: wrap;
-            margin-top: 1rem;
         }
-
         .nav-btn {
             background: var(--card-bg);
-            border: 1px solid var(--border-line);
-            color: var(--text-muted);
-            padding: 0.6rem 1.2rem;
+            color: var(--text-primary);
+            padding: 10px 20px;
             border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            cursor: pointer;
+            text-decoration: none;
+            font-weight: 500;
+            border: 1px solid var(--border-color);
             transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
-
-        .nav-btn:hover, .nav-btn.active {
-            background: var(--accent-indigo);
-            color: #ffffff;
-            border-color: var(--accent-indigo);
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        .nav-btn:hover {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
         }
-
-        /* MAIN CONTENT AREA */
-        main {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
-            width: 100%;
-        }
-
-        .content-box {
-            display: none; /* Toggled via JS */
-            animation: fadeIn 0.4s ease-in-out;
-        }
-
-        .content-box.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* SECTION TITLES */
-        .box-header {
-            border-bottom: 2px solid var(--border-line);
-            padding-bottom: 0.8rem;
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .box-title {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--text-main);
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .box-title i { color: var(--accent-cyan); }
-
-        /* GRID SUITES */
-        .grid-suite {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .card {
+        .main-container {
+            max-width: 900px;
+            margin: 40px auto;
             background: var(--card-bg);
-            border: 1px solid var(--border-line);
+            border: 1px solid var(--border-color);
             border-radius: 12px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
         }
-
-        .card:hover {
-            border-color: var(--accent-cyan);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(6, 182, 212, 0.12);
-        }
-
-        .card-icon {
-            width: 42px;
-            height: 42px;
-            border-radius: 8px;
-            background: rgba(6, 182, 212, 0.1);
-            color: var(--accent-cyan);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-        }
-
-        .card-title {
-            font-size: 1.15rem;
+        .timer-box {
+            font-size: 3rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+            margin: 20px 0;
+            letter-spacing: 2px;
         }
-
-        .card-desc {
-            font-size: 0.88rem;
-            color: var(--text-muted);
-            margin-bottom: 1.2rem;
-        }
-
-        .btn-action {
-            width: 100%;
-            padding: 0.7rem;
-            border-radius: 6px;
-            background: linear-gradient(135deg, var(--accent-indigo), var(--accent-cyan));
+        .cta-btn {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
             color: #fff;
+            padding: 12px 30px;
             border: none;
-            font-weight: 600;
-            font-size: 0.88rem;
-            cursor: pointer;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
-        /* TYPING ENGINE DISPLAY BOX */
-        .typing-display {
-            background: #020617;
-            border: 1px solid var(--border-line);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .status-badge {
-            display: inline-block;
-            background: rgba(245, 158, 11, 0.15);
-            border: 1px solid var(--accent-amber);
-            color: var(--accent-amber);
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .timer-big {
-            font-family: var(--font-code);
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--accent-cyan);
-            margin: 1rem 0;
-        }
-
-        /* EDITORIAL & VOCABULARY STYLES */
-        .editorial-text p {
-            font-family: var(--font-serif);
-            font-size: 1.05rem;
-            color: #cbd5e1;
-            margin-bottom: 1.5rem;
-            text-align: justify;
-        }
-
-        .vocab-box {
-            background: var(--card-hover);
-            border-left: 4px solid var(--accent-amber);
-            padding: 1.2rem;
             border-radius: 6px;
-            margin-bottom: 1.2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
         }
-
-        .vocab-word {
-            font-weight: 700;
-            color: var(--accent-amber);
-            font-size: 1.1rem;
+        .cta-btn:hover {
+            opacity: 0.9;
         }
-
-        /* TABLES */
-        .data-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: var(--card-bg);
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid var(--border-line);
-        }
-
-        .data-table th, .data-table td {
-            padding: 0.9rem 1.1rem;
-            text-align: left;
-            border-bottom: 1px solid var(--border-line);
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            color: var(--text-secondary);
             font-size: 0.9rem;
         }
-
-        .data-table th {
-            background: #1e293b;
-            color: var(--accent-cyan);
-            font-weight: 700;
-        }
-
-        /* FOOTER */
-        footer {
-            border-top: 1px solid var(--border-line);
-            padding: 2rem;
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            background: #05070e;
-            margin-top: 4rem;
-        }
-
-        footer strong { color: var(--text-main); }
     </style>
 </head>
 <body>
 
-    <!-- SITE HEADER & NAVIGATION -->
     <header>
-        <div class="brand-badge">Made by Ali's Company</div>
-        <h1 class="site-logo">OmniRead Master Platform</h1>
-        
-        <nav class="nav-tabs">
-            <button class="nav-btn active" onclick="switchBox('box-typing')"><i class="fa-solid fa-keyboard"></i> Typing Suites</button>
-            <button class="nav-btn" onclick="switchBox('box-categories')"><i class="fa-solid fa-list-check"></i> 10 Practice Categories</button>
-            <button class="nav-btn" onclick="switchBox('box-editorial')"><i class="fa-solid fa-newspaper"></i> Article of the Day</button>
-            <button class="nav-btn" onclick="switchBox('box-exam')"><i class="fa-solid fa-graduation-cap"></i> CSS/PMS Exam Prep</button>
-            <button class="nav-btn" onclick="switchBox('box-guides')"><i class="fa-solid fa-book"></i> Layout & Font Guides</button>
+        <span class="company-badge">Made by Ali's Company</span>
+        <h1>OmniRead Master Platform</h1>
+        <nav class="nav-links">
+            <a href="#typing" class="nav-btn">Typing Suites</a>
+            <a href="#categories" class="nav-btn">10 Practice Categories</a>
+            <a href="#article" class="nav-btn">Article of the Day</a>
+            <a href="#exam" class="nav-btn">CSS/PMS Exam Prep</a>
+            <a href="#guides" class="nav-btn">Layout & Font Guides</a>
         </nav>
     </header>
 
-    <main>
-
-        <!-- ================================================================= -->
-        <!-- CATEGORY BOX 1: 5-IN-1 TYPING SUITES                             -->
-        <!-- EDIT/UPDATE/DELETE TYPING ENGINE OPTIONS HERE                    -->
-        <!-- ================================================================= -->
-        <section id="box-typing" class="content-box active">
-            <div class="box-header">
-                <div class="box-title"><i class="fa-solid fa-keyboard"></i> 5 Integrated Typing Engines</div>
-            </div>
-
-            <!-- Interactive Standby & Timer Screen -->
-            <div class="typing-display">
-                <div class="status-badge">GET READY! YOUR COUNTDOWN HAS STARTED</div>
-                <p style="color: var(--text-muted); font-size: 0.95rem;">PRESS ANY KEY TO START TYPING</p>
-                <div class="timer-big">02:00</div>
-                <p style="font-size: 0.85rem; color: var(--text-muted);">Available Timers: <strong>2 Min (Free)</strong> | <strong>5 Min (Free)</strong> | <strong>10 Min (Requires Coupon)</strong></p>
-            </div>
-
-            <div class="grid-suite">
-                <!-- Suite 1 -->
-                <div class="card">
-                    <div>
-                        <div class="card-icon"><i class="fa-solid fa-font"></i></div>
-                        <div class="card-title">1. Limitless English Typewriter</div>
-                        <p class="card-desc">Unlock progressive boxes by achieving high speed, net WPM, and precision accuracy targets.</p>
-                    </div>
-                    <button class="btn-action" onclick="alert('Launching English Typewriter Engine...')"><i class="fa-solid fa-play"></i> Launch Engine</button>
-                </div>
-
-                <!-- Suite 2 -->
-                <div class="card">
-                    <div>
-                        <div class="card-icon"><i class="fa-solid fa-language"></i></div>
-                        <div class="card-title">2. Limitless Urdu Typewriter</div>
-                        <p class="card-desc">Native phonetic keyboard engine with unlockable character stages and real-time accuracy tracking.</p>
-                    </div>
-                    <button class="btn-action" onclick="alert('Launching Urdu Typewriter Engine...')"><i class="fa-solid fa-play"></i> Launch Engine</button>
-                </div>
-
-                <!-- Suite 3 -->
-                <div class="card">
-                    <div>
-                        <div class="card-icon"><i class="fa-solid fa-shuffle"></i></div>
-                        <div class="card-title">3. Universal Symbol Randomizer</div>
-                        <p class="card-desc">High-difficulty paragraphs featuring complex shift keys, capitalizations, numbers, and symbols.</p>
-                    </div>
-                    <button class="btn-action" onclick="alert('Launching Randomizer Engine...')"><i class="fa-solid fa-play"></i> Launch Engine</button>
-                </div>
-
-                <!-- Suite 4 -->
-                <div class="card">
-                    <div>
-                        <div class="card-icon"><i class="fa-solid fa-download"></i></div>
-                        <div class="card-title">4. Offline Download Hub</div>
-                        <p class="card-desc">Download full game packages to play offline on your computer without an active internet connection.</p>
-                    </div>
-                    <button class="btn-action" onclick="alert('Downloading Offline Package...')"><i class="fa-solid fa-download"></i> Download Package</button>
-                </div>
-
-                <!-- Suite 5 -->
-                <div class="card">
-                    <div>
-                        <div class="card-icon"><i class="fa-solid fa-trophy"></i></div>
-                        <div class="card-title">5. Competitive Online Arena</div>
-                        <p class="card-desc">Compete live against typists worldwide with anti-cheat protection and real-time multiplayer scoreboards.</p>
-                    </div>
-                    <button class="btn-action" onclick="alert('Connecting to Multiplayer Arena...')"><i class="fa-solid fa-globe"></i> Enter Arena</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- ================================================================= -->
-        <!-- CATEGORY BOX 2: 10 SEPARATE PRACTICE CATEGORIES                  -->
-        <!-- EDIT/UPDATE/DELETE PRACTICE CATEGORIES HERE                      -->
-        <!-- ================================================================= -->
-        <section id="box-categories" class="content-box">
-            <div class="box-header">
-                <div class="box-title"><i class="fa-solid fa-list-check"></i> 10 Practice Categories (English & Urdu)</div>
-            </div>
-
-            <div class="grid-suite">
-                <div class="card"><div class="card-title">1. Home Row Mastery</div><p class="card-desc">Focus on core finger positioning and baseline keys.</p></div>
-                <div class="card"><div class="card-title">2. Top & Bottom Row Navigation</div><p class="card-desc">Practice vertical finger movement precision.</p></div>
-                <div class="card"><div class="card-title">3. Number & Symbol Integration</div><p class="card-desc">Master the top numeric row and special symbols.</p></div>
-                <div class="card"><div class="card-title">4. Capitalization & Shift Syncing</div><p class="card-desc">Improve shift key timing and uppercase speed.</p></div>
-                <div class="card"><div class="card-title">5. Speed Sprinting (Common Words)</div><p class="card-desc">Build muscle memory for the top 100 frequent words.</p></div>
-                <div class="card"><div class="card-title">6. High-Frequency Vocabulary</div><p class="card-desc">Practice complex multi-syllable terms.</p></div>
-                <div class="card"><div class="card-title">7. Complex Punctuation & Quotes</div><p class="card-desc">Master quotes, brackets, and full stops.</p></div>
-                <div class="card"><div class="card-title">8. Code & Syntax Typing</div><p class="card-desc">Practice HTML, Python, and C++ symbol routines.</p></div>
-                <div class="card"><div class="card-title">9. Literature & Historical Texts</div><p class="card-desc">Type long formal paragraphs and articles.</p></div>
-                <div class="card"><div class="card-title">10. Endurance Stress Testing</div><p class="card-desc">High-speed long-duration typing drills.</p></div>
-            </div>
-
-            <div style="margin-top: 2.5rem; background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-line);">
-                <h3 style="color: var(--accent-emerald); margin-bottom: 0.5rem;"><i class="fa-solid fa-calendar-check"></i> Learning Roadmap Selection</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Select your preferred timeframe to become a fully practical typist:</p>
-                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                    <button class="btn-action" style="width: auto; padding: 0.6rem 1.5rem;" onclick="alert('20 Days Sprint Plan Selected!')">20 Days Sprint Plan</button>
-                    <button class="btn-action" style="width: auto; padding: 0.6rem 1.5rem;" onclick="alert('30 Days Standard Mastery Selected!')">30 Days Standard Plan</button>
-                    <button class="btn-action" style="width: auto; padding: 0.6rem 1.5rem;" onclick="alert('40 Days Elite Pro Plan Selected!')">40 Days Elite Plan</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- ================================================================= -->
-        <!-- CATEGORY BOX 3: ARTICLE OF THE DAY                               -->
-        <!-- EDIT/UPDATE/DELETE DAILY EDITORIAL ARTICLES HERE                 -->
-        <!-- ================================================================= -->
-        <section id="box-editorial" class="content-box">
-            <div class="box-header">
-                <div class="box-title"><i class="fa-solid fa-newspaper"></i> Editorial Analysis & Vocabulary</div>
-            </div>
-
-            <div style="background: var(--card-bg); border: 1px solid var(--border-line); border-radius: 12px; padding: 2rem;" class="editorial-text">
-                <h2 style="color: var(--accent-cyan); margin-bottom: 0.5rem;">Navigating Macroeconomic Volatility & Governance Imperatives</h2>
-                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem;">Published by Editorial Board &bull; 8 Min Read</p>
-
-                <p>The imperative for deep-seated fiscal recalibration across emerging markets has reached a critical turning point. As persistent inflationary pressures continue to erode purchasing power, national policymakers find themselves backed into a corner. Traditional stopgap measures no longer yield stability. While external revenue streams show marginal stabilization, underlying structural deficits remain unaddressed. Can short-term liquidity injections rescue a fragile economy without fundamentally altering its productivity foundation?</p>
-
-                <p>To weather the impending financial storm, executive leadership must clamp down on unbudgeted expenditures and phase out regressive subsidies immediately. Do not delay these necessary policy shifts any longer. If institutional reforms are deferred once again, international creditors will inevitably tighten borrowing conditions, thereby driving domestic interest rates to unprecedented peaks.</p>
-
-                <h3 style="color: var(--accent-amber); margin: 2rem 0 1rem;">Contextual Vocabulary & Meanings</h3>
-                
-                <div class="vocab-box">
-                    <div class="vocab-word">1. Imperative</div>
-                    <p style="color: var(--text-main); font-size: 0.9rem; margin-bottom: 0.5rem;">Definition: An essential duty or urgent priority; impossible to ignore.</p>
-                    <p style="font-size: 0.85rem; color: var(--text-muted);">• Example: Strengthening revenue collection is an immediate national imperative.</p>
-                </div>
-
-                <div class="vocab-box">
-                    <div class="vocab-word">2. Recalibration</div>
-                    <p style="color: var(--text-main); font-size: 0.9rem; margin-bottom: 0.5rem;">Definition: The act of adjusting or fine-tuning a plan or policy in response to changing conditions.</p>
-                    <p style="font-size: 0.85rem; color: var(--text-muted);">• Example: The central bank ordered an immediate recalibration of monetary policy.</p>
-                </div>
-
-                <div class="vocab-box">
-                    <div class="vocab-word">3. Resilience</div>
-                    <p style="color: var(--text-main); font-size: 0.9rem; margin-bottom: 0.5rem;">Definition: The capacity to recover quickly from difficulties; toughness.</p>
-                    <p style="font-size: 0.85rem; color: var(--text-muted);">• Example: Export diversification builds long-term economic resilience.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ================================================================= -->
-        <!-- CATEGORY BOX 4: CSS & PMS EXAM PREPARATION MATERIAL              -->
-        <!-- EDIT/UPDATE/DELETE EXAM VOCABULARY AND IDIOMS HERE               -->
-        <!-- ================================================================= -->
-        <section id="box-exam" class="content-box">
-            <div class="box-header">
-                <div class="box-title"><i class="fa-solid fa-graduation-cap"></i> CSS & PMS Exam High-Frequency Material</div>
-            </div>
-
-            <h3 style="color: var(--accent-cyan); margin-bottom: 1rem;">Most Repeated One-Word Substitutions (3-Year Frequency)</h3>
-            <table class="data-table" style="margin-bottom: 2rem;">
-                <thead>
-                    <tr>
-                        <th>Term</th>
-                        <th>Exam Meaning & Definition</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td style="font-weight: 700; color: var(--accent-amber);">Iconoclast</td><td>A person who attacks or rejects traditional beliefs and established institutions.</td></tr>
-                    <tr><td style="font-weight: 700; color: var(--accent-amber);">Ephemeral</td><td>Lasting for a very short, transitory period; fleeting.</td></tr>
-                    <tr><td style="font-weight: 700; color: var(--accent-amber);">Perfunctory</td><td>Carried out with minimum effort or routine reflection; superficial.</td></tr>
-                    <tr><td style="font-weight: 700; color: var(--accent-amber);">Ubiquitous</td><td>Present, appearing, or found everywhere simultaneously.</td></tr>
-                    <tr><td style="font-weight: 700; color: var(--accent-amber);">Veracity</td><td>Conformity to facts; accuracy and truthfulness.</td></tr>
-                </tbody>
-            </table>
-
-            <h3 style="color: var(--accent-cyan); margin-bottom: 1rem;">Essential Exam Idioms & Phrasal Expressions</h3>
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>Idiom / Expression</th>
-                        <th>Academic Usage & Meaning</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td style="font-weight: 700; color: var(--accent-emerald);">Burn the midnight oil</td><td>To work or study late into the night.</td></tr>
-                    <tr><td style="font-weight: 700; color: var(--accent-emerald);">Weather the storm</td><td>To survive a difficult financial or personal crisis without collapsing.</td></tr>
-                    <tr><td style="font-weight: 700; color: var(--accent-emerald);">Double-edged sword</td><td>A situation or decision that carries both major benefits and major drawbacks.</td></tr>
-                    <tr><td style="font-weight: 700; color: var(--accent-emerald);">Read between the lines</td><td>To discover hidden meanings that are not explicitly stated.</td></tr>
-                </tbody>
-            </table>
-        </section>
-
-        <!-- ================================================================= -->
-        <!-- CATEGORY BOX 5: KEYBOARD LAYOUTS & FONT SELECTION GUIDES         -->
-        <!-- EDIT/UPDATE/DELETE TECHNICAL PREFACES AND COMPARISONS HERE       -->
-        <!-- ================================================================= -->
-        <section id="box-guides" class="content-box">
-            <div class="box-header">
-                <div class="box-title"><i class="fa-solid fa-book"></i> Layout Comparisons & Font Selection Prefaces</div>
-            </div>
-
-            <div class="grid-suite">
-                <div class="card">
-                    <div class="card-title" style="color: var(--accent-cyan);">QWERTY vs. QWERTZ Layouts</div>
-                    <p class="card-desc">QWERTY is the international standard, while QWERTZ swaps 'Y' and 'Z' for Central European languages. This shift causes key travel fatigue for English typists unused to German layout mapping.</p>
-                </div>
-
-                <div class="card">
-                    <div class="card-title" style="color: var(--accent-emerald);">Jameel Noori Nastaliq vs. System Fonts</div>
-                    <p class="card-desc">Jameel Noori Nastaliq features calligraphic ligatures ideal for publications, while Naskh vector fonts provide faster web rendering speeds and better digital UI alignment.</p>
-                </div>
-
-                <div class="card">
-                    <div class="card-title" style="color: var(--accent-amber);">Urdu Print vs. Flex Publishing</div>
-                    <p class="card-desc">Use <strong>Jameel Noori Nastaliq</strong> for Urdu brochures and formal documents. Use <strong>Bold Naskh</strong> for large flex banners and outdoor billboards to maintain long-distance legibility.</p>
-                </div>
-            </div>
-        </section>
-
+    <main class="main-container" id="typing">
+        <h3>5 Integrated Typing Engines</h3>
+        <p style="color: var(--text-secondary); margin-top: 10px;">Get ready for your speed optimization countdown session.</p>
+        <div class="timer-box">02:00</div>
+        <button class="cta-btn" onclick="startTypingEngine()">Start Typing Session</button>
     </main>
 
-    <!-- FOOTER -->
     <footer>
-        <p>OmniRead Master Platform &bull; Designed & Maintained by <strong>Ali's Company</strong> &copy; 2026. All Rights Reserved.</p>
+        <p>&copy; 2026 OmniRead Master Platform. All rights reserved. Architected for Global Digital Excellence.</p>
     </footer>
 
-    <!-- INTERACTIVE TAB SWITCHING SCRIPT -->
     <script>
-        function switchBox(boxId) {
-            // Hide all content boxes
-            const boxes = document.querySelectorAll('.content-box');
-            boxes.forEach(box => box.classList.remove('active'));
-
-            // Remove active status from all navigation buttons
-            const buttons = document.querySelectorAll('.nav-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-
-            // Show the selected box
-            document.getElementById(boxId).classList.add('active');
-
-            // Highlight the clicked button
-            event.currentTarget.classList.add('active');
+        function startTypingEngine() {
+            alert("Initializing OmniRead High-Performance Typing Engine...");
         }
     </script>
 </body>
