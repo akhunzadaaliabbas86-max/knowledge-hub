@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://akhunzadaaliabbas86-max.github.io/knowledge-hub/sitemap.xml
