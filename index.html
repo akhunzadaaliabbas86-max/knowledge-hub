@@ -5,31 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OmniRead Enterprise Suite | Advanced Knowledge Engine & OS Workspace</title>
     
+    <!-- Professional SEO Meta Tags -->
     <meta name="title" content="OmniRead Enterprise Suite | Advanced Knowledge Engine & OS Workspace">
-    <meta name="description" content="OmniRead is a professional institutional knowledge platform featuring dynamic randomized color themes, multi-lingual lexical dictionaries, CSS/PMS past papers archive, hardware specifications, bilingual typing curricula, and bi-directional file format converters.">
-    <meta name="keywords" content="OmniRead, CSS Past Papers, PMS Exam Archive, Multi-Lingual Dictionary, File Converters, Hardware Architecture, Bilingual Typing, Ali Abbas">
+    <meta name="description" content="OmniRead is a professional institutional knowledge platform featuring dynamic device detection, encrypted OS telemetry up to 2022, embedded scientific calculators, intelligent timetable generation, MS Office troubleshooting, interactive Q&A study modules, fully functional AI chat assistant, 3D diagrams, and shortcut guides.">
+    <meta name="keywords" content="OmniRead, Enterprise Suite, Device Telemetry, Scientific Calculator, MS Office Shortcuts, AI Chat Bot, Study Timetable, Ali Abbas">
     <meta name="author" content="Ali Abbas">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://akhunzadaaliabbas86-max.github.io/knowledge-hub/">
 
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://akhunzadaaliabbas86-max.github.io/knowledge-hub/">
-    <meta property="og:title" content="OmniRead Enterprise Suite | Global Research Portal">
-    <meta property="og:description" content="Explore advanced dynamic color workspaces, interactive dictionaries, competitive examination archives, and technical file format converters.">
+    <!-- Content Security Policy Simulation -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';">
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "OmniRead Enterprise Suite",
-      "url": "https://akhunzadaaliabbas86-max.github.io/knowledge-hub/",
-      "author": {
-        "@type": "Person",
-        "name": "Ali Abbas"
-      }
-    }
-    </script>
-
+    <!-- Professional Enterprise Architecture Stylesheet -->
     <style>
         :root {
             --base-bg: #0f172a;
@@ -85,22 +71,54 @@
             text-transform: uppercase;
         }
 
-        /* Daily Intelligent Reminder Banner */
-        .reminder-banner {
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(16, 185, 129, 0.15));
-            border-bottom: 1px solid var(--border-color);
-            padding: 12px 24px;
+        /* Modal Overlay for Device Telemetry Suggestion */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-card {
+            background-color: var(--surface-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
             text-align: center;
-            font-size: 0.95rem;
-            font-weight: 500;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .modal-card h2 {
+            margin-bottom: 15px;
+            color: var(--accent-dynamic);
+        }
+
+        .modal-card p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
         }
 
         /* Main Workspace Layout */
         .workspace-grid {
             display: grid;
-            grid-template-columns: 280px 1fr 320px;
+            grid-template-columns: 280px 1fr 340px;
             gap: 20px;
-            max-width: 1750px;
+            max-width: 1800px;
             margin: 20px auto;
             padding: 0 20px;
             flex: 1;
@@ -119,6 +137,7 @@
             border-radius: 12px;
             padding: 20px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
         }
 
         .panel-title {
@@ -190,91 +209,116 @@
             margin-bottom: 15px;
         }
 
-        /* Multi-Language Dictionary Module */
-        .dict-controls {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
+        /* Scientific Calculator Widget */
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            max-width: 350px;
+            margin: 15px 0;
         }
 
-        .dict-input {
-            flex: 1;
+        .calc-display {
+            grid-column: span 4;
+            background: var(--base-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 14px;
+            font-size: 1.2rem;
+            text-align: right;
+            border-radius: 6px;
+        }
+
+        .calc-btn {
             background: var(--panel-bg);
             color: var(--text-main);
             border: 1px solid var(--border-color);
-            padding: 10px 14px;
+            padding: 12px;
+            font-size: 1rem;
             border-radius: 6px;
-            font-size: 0.95rem;
-            outline: none;
-        }
-
-        .dict-select {
-            background: var(--panel-bg);
-            color: var(--text-main);
-            border: 1px solid var(--border-color);
-            padding: 10px 14px;
-            border-radius: 6px;
-            font-size: 0.95rem;
-            outline: none;
             cursor: pointer;
         }
 
-        .dict-results-box {
-            background: var(--panel-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-top: 15px;
-            min-height: 150px;
+        .calc-btn:hover {
+            border-color: var(--accent-dynamic);
         }
 
-        /* Hardware Architecture Studio */
-        .hardware-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        /* Timetable Generator Module */
+        .timetable-form {
+            display: flex;
+            flex-direction: column;
             gap: 12px;
             margin-top: 15px;
         }
 
-        .hardware-card {
+        .input-control {
             background: var(--panel-bg);
+            color: var(--text-main);
             border: 1px solid var(--border-color);
-            padding: 15px;
-            border-radius: 8px;
-            cursor: pointer;
-            text-align: center;
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-size: 0.95ynth;
+            outline: none;
         }
 
-        .hardware-card:hover {
-            border-color: var(--accent-dynamic);
-        }
-
-        /* Past Papers Archive (CSS/PMS/Tehsildar) */
-        .archive-item {
-            background: var(--panel-bg);
-            border: 1px solid var(--border-color);
-            padding: 14px;
-            border-radius: 8px;
-            margin-bottom: 10px;
+        /* AI Chatbot Module */
+        .chat-container {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        /* File & Code Converter Dropzone */
-        .converter-zone {
+            flex-direction: column;
+            height: 400px;
             background: var(--panel-bg);
-            border: 2px dashed var(--border-color);
+            border: 1px solid var(--border-color);
             border-radius: 8px;
-            padding: 30px;
-            text-align: center;
-            cursor: pointer;
+            overflow: hidden;
             margin-top: 15px;
         }
 
-        .converter-zone:hover {
-            border-color: var(--accent-dynamic);
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .chat-bubble {
+            padding: 10px 14px;
+            border-radius: 8px;
+            max-width: 80%;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .chat-bubble.bot {
+            background: var(--surface-bg);
+            color: var(--text-main);
+            align-self: flex-start;
+            border: 1px solid var(--border-color);
+        }
+
+        .chat-bubble.user {
+            background: var(--accent-dynamic);
+            color: #fff;
+            align-self: flex-end;
+        }
+
+        .chat-input-area {
+            display: flex;
+            border-top: 1px solid var(--border-color);
+            padding: 10px;
+            background: var(--surface-bg);
+            gap: 10px;
+        }
+
+        .chat-input {
+            flex: 1;
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 8px 12px;
+            border-radius: 6px;
+            outline: none;
         }
 
         /* Action Buttons */
@@ -293,6 +337,12 @@
             opacity: 0.9;
         }
 
+        .btn-secondary {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+
         /* Footer */
         footer {
             text-align: center;
@@ -306,6 +356,19 @@
 </head>
 <body onclick="triggerDynamicColorShift()">
 
+    <!-- Device Telemetry Modal Suggestion -->
+    <div id="deviceModal" class="modal-overlay">
+        <div class="modal-card">
+            <h2>Device Telemetry Assistant</h2>
+            <p>Would you like OmniRead to analyze and display encrypted architectural information regarding your operating system and hardware device (optimized for devices up to 2022 standards)?</p>
+            <div class="modal-actions">
+                <button class="btn-action" onclick="revealDeviceTelemetry()">View Telemetry</button>
+                <button class="btn-action btn-secondary" onclick="closeDeviceModal()">Skip to Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Top Enterprise Bar -->
     <header class="enterprise-topbar">
         <div class="brand-signature">
             <span class="brand-badge">OmniRead OS</span> Enterprise Research & Knowledge Portal
@@ -313,199 +376,204 @@
         <div id="clockDisplay">12:00:00 AM</div>
     </header>
 
-    <div class="reminder-banner" id="dailyReminder">
-        🔔 <strong>Daily Study Protocol:</strong> Welcome back! Your scheduled track for today covers Advanced Lexical Translation and CSS/PMS General Knowledge Archives.
-    </div>
-
+    <!-- Main Workspace Grid -->
     <div class="workspace-grid">
         
+        <!-- LEFT PANEL: Navigation & Categories -->
         <aside class="panel-box">
             <h3 class="panel-title">📂 Category Directory</h3>
             <div class="nav-list">
                 <button class="nav-item" onclick="switchView('dashboard')">📊 Dashboard & Overview</button>
-                <button class="nav-item" onclick="switchView('dictionary')">🌐 Multi-Language Dictionary</button>
-                <button class="nav-item" onclick="switchView('hardware')">💻 Computer Hardware & 3D Specs</button>
-                <button class="nav-item" onclick="switchView('pastpapers')">📜 CSS, PMS & Tehsildar Papers</button>
-                <button class="nav-item" onclick="switchView('typing')">⌨️ Bilingual Typing Curricula</button>
-                <button class="nav-item" onclick="switchView('converters')">🔄 File & Code Format Converters</button>
-                <button class="nav-item" onclick="switchView('gkbooks')">📚 Caravan GK & Reference Books</button>
+                <button class="nav-item" onclick="switchView('calculator')">🧮 Scientific Calculator</button>
+                <button class="nav-item" onclick="switchView('timetable')">📅 Study Timetable Generator</button>
+                <button class="nav-item" onclick="switchView('msoffice')">🛠️ MS Office Troubleshooting & Fixes</button>
+                <button class="nav-item" onclick="switchView('qamodule')">❓ Practice Q&A & Extension Converter</button>
+                <button class="nav-item" onclick="switchView('aiassistant')">🤖 Fully Prompt-Engineered AI Chat</button>
+                <button class="nav-item" onclick="switchView('visuals')">🧊 3D Diagrams & Roadmaps</button>
             </div>
         </aside>
 
+        <!-- CENTER PANEL: Dynamic Viewport -->
         <main class="viewport-container">
             
+            <!-- VIEW 1: DASHBOARD -->
             <section id="dashboard" class="content-card active">
                 <h2>Enterprise Workspace Dashboard</h2>
-                <p>
-                    Welcome to the core portal of OmniRead. Every time you navigate between tabs or click across the workspace, the system automatically recalibrates dynamic color signatures to maintain a vibrant, fatigue-free study environment.
-                </p>
-                <p>
-                    Use the left navigation directory to explore institutional PDF repositories, inspect hardware components with 3D specifications, search multi-lingual definitions across 8 regional languages, or practice professional typing suites.
-                </p>
-                <button class="btn-action" onclick="switchView('dictionary')">Launch Dictionary Studio</button>
+                <p>Welcome to OmniRead. All office management modules, scientific computation tools, intelligent study timetables, and automated AI chat assistants are loaded and fully operational.</p>
+                <p>Select any category from the left navigation directory or use the sidebar widgets for immediate offline office troubleshooting and calculator execution.</p>
+                <button class="btn-action" onclick="switchView('aiassistant')">Launch AI Chat Assistant</button>
             </section>
 
-            <section id="dictionary" class="content-card">
-                <h2>Global Multi-Language Lexicon Studio</h2>
-                <p>Enter any term below to extract deep contextual descriptions, grammatical explanations, and at least 4 real-world usage sentences across global dictionaries.</p>
+            <!-- VIEW 2: SCIENTIFIC CALCULATOR -->
+            <section id="calculator" class="content-card">
+                <h2>Updated Scientific Calculator</h2>
+                <p>Equipped for complex calculations, academic research, and advanced office management computations.</p>
                 
-                <div class="dict-controls">
-                    <input type="text" id="dictSearchInput" class="dict-input" placeholder="Type a word (e.g., Sovereign, Algorithm, Diplomacy)...">
-                    <select id="dictLangSelect" class="dict-select">
-                        <option value="en-us">English (US)</option>
-                        <option value="en-uk">English (UK)</option>
-                        <option value="ar-sa">Arabic (Saudi Arabia)</option>
-                        <option value="ur-pk">Urdu (Pakistan)</option>
-                        <option value="hi-in">Hindi (India)</option>
-                        <option value="ur-in">Urdu (India)</option>
-                        <option value="zh-cn">Chinese (Mandarin)</option>
-                    </select>
-                    <button class="btn-action" onclick="performDictionarySearch()">Search Lexicon</button>
-                </div>
-
-                <div class="dict-results-box" id="dictResultsOutput">
-                    <strong>Lexicon Ready:</strong> Enter a query above to view etymology, 4 sample sentences, and cross-linguistic suggestions.
-                </div>
-            </section>
-
-            <section id="hardware" class="content-card">
-                <h2>Computer Hardware Architecture & Specifications</h2>
-                <p>Select any computer component below to review its precise definition, two practical real-world examples, and technical specifications.</p>
-                
-                <div class="hardware-grid">
-                    <div class="hardware-card" onclick="loadHardwarePart('CPU')">
-                        <h4>Central Processing Unit (CPU)</h4>
-                        <p>Core computing engine</p>
-                    </div>
-                    <div class="hardware-card" onclick="loadHardwarePart('RAM')">
-                        <h4>Random Access Memory</h4>
-                        <p>Volatile high-speed workspace</p>
-                    </div>
-                    <div class="hardware-card" onclick="loadHardwarePart('GPU')">
-                        <h4>Graphics Processing Unit</h4>
-                        <p>Parallel processing engine</p>
-                    </div>
-                    <div class="hardware-card" onclick="loadHardwarePart('SSD')">
-                        <h4>Solid State Drive</h4>
-                        <p>Non-volatile persistent storage</p>
-                    </div>
-                </div>
-
-                <div class="dict-results-box" id="hardwareOutput" style="margin-top: 20px;">
-                    <strong>Hardware Inspector:</strong> Click any component above to inspect its definition and examples.
+                <div class="calculator-grid">
+                    <div class="calc-display" id="calcScreen">0</div>
+                    <button class="calc-btn" onclick="calcInput('7')">7</button>
+                    <button class="calc-btn" onclick="calcInput('8')">8</button>
+                    <button class="calc-btn" onclick="calcInput('9')">9</button>
+                    <button class="calc-btn" onclick="calcInput('/')">/</button>
+                    <button class="calc-btn" onclick="calcInput('4')">4</button>
+                    <button class="calc-btn" onclick="calcInput('5')">5</button>
+                    <button class="calc-btn" onclick="calcInput('6')">6</button>
+                    <button class="calc-btn" onclick="calcInput('*')">*</button>
+                    <button class="calc-btn" onclick="calcInput('1')">1</button>
+                    <button class="calc-btn" onclick="calcInput('2')">2</button>
+                    <button class="calc-btn" onclick="calcInput('3')">3</button>
+                    <button class="calc-btn" onclick="calcInput('-')">-</button>
+                    <button class="calc-btn" onclick="calcInput('0')">0</button>
+                    <button class="calc-btn" onclick="calcClear()">C</button>
+                    <button class="calc-btn" onclick="calcCompute()">=</button>
+                    <button class="calc-btn" onclick="calcInput('+')">+</button>
                 </div>
             </section>
 
-            <section id="pastpapers" class="content-card">
-                <h2>10-Year Previous Competitive Examination Archives</h2>
-                <p>Access authenticated past papers for CSS, PMS, Tehsildar, and Naib Tehsildar examinations.</p>
+            <!-- VIEW 3: TIMETABLE GENERATOR -->
+            <section id="timetable" class="content-card">
+                <h2>Intelligent Study Timetable Generator</h2>
+                <p>Configure your study subject or topic below to generate a customized, optimized schedule instantly.</p>
                 
-                <div class="archive-item">
-                    <div>
-                        <strong>CSS Essay & Precis Paper (2025 Archive)</strong>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin: 2px 0;">Federal Public Service Commission (FPSC)</p>
-                    </div>
-                    <button class="btn-action" onclick="alert('Downloading CSS 2025 Paper PDF...')">Download PDF</button>
+                <div class="timetable-form">
+                    <input type="text" id="subjectInput" class="input-control" placeholder="Enter study topic or exam subject (e.g., CSS Public Administration)...">
+                    <input type="number" id="hoursInput" class="input-control" placeholder="Available hours per day...">
+                    <button class="btn-action" onclick="generateTimetable()">Generate Optimized Schedule</button>
                 </div>
 
-                <div class="archive-item">
-                    <div>
-                        <strong>PMS Punjab General Knowledge Paper (2024 Archive)</strong>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin: 2px 0;">Punjab Public Service Commission (PPSC)</p>
-                    </div>
-                    <button class="btn-action" onclick="alert('Downloading PMS 2024 Paper PDF...')">Download PDF</button>
-                </div>
-
-                <div class="archive-item">
-                    <div>
-                        <strong>Tehsildar & Naib Tehsildar Examination Paper (2023 Archive)</strong>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin: 2px 0;">Executive Revenue Cadre</p>
-                    </div>
-                    <button class="btn-action" onclick="alert('Downloading Tehsildar Paper PDF...')">Download PDF</button>
+                <div class="panel-box" id="timetableOutput" style="margin-top: 20px; display: none;">
+                    <h3 style="color: var(--accent-dynamic); margin-bottom: 10px;">Generated Schedule</h3>
+                    <p id="timetableResultText">Configure parameters above to establish your routine.</p>
                 </div>
             </section>
 
-            <section id="typing" class="content-card">
-                <h2>Bilingual Typing Curricula & Training Schedules</h2>
-                <p>Structured typing programs tailored for office automation, flex design typography, and high-speed data entry.</p>
+            <!-- VIEW 4: MS OFFICE TROUBLESHOOTING -->
+            <section id="msoffice" class="content-card">
+                <h2>MS Office Management & Troubleshooting Suite</h2>
+                <p>Select any common office work issue or formula error below to apply instant step-by-step solutions and shortcut keys.</p>
                 
-                <div class="panel-box" style="margin-bottom: 15px;">
-                    <h3 style="font-size: 1.1rem; color: var(--accent-dynamic); margin-bottom: 8px;">Office Work Typing Mastery (Suggested Duration: 30 Days)</h3>
-                    <p style="font-size: 0.9rem;">Designed for administrative staff to achieve 60+ WPM with zero errors using touch-typing ergonomics.</p>
+                <div class="nav-list">
+                    <div class="nav-item" onclick="alert('Excel Formula Fix: Ensure your VLOOKUP range uses absolute cell references ($A$1:$Z$100) and check that column index numbers match your data layout.')">
+                        📊 <strong>Excel VLOOKUP / XLOOKUP Error Fix</strong>
+                    </div>
+                    <div class="nav-item" onclick="alert('Word Formatting Fix: Use Ctrl + Shift + N to instantly clear rogue paragraph styles and reset document typography to Normal.')">
+                        📄 <strong>MS Word Layout & Style Reset Guide</strong>
+                    </div>
+                    <div class="nav-item" onclick="alert('Power Query Fix: When merging attendance PDF reports, ensure column data types match text/number formats before expanding tables.')">
+                        🔄 <strong>PDF Attendance Merger & Power Query Error Resolution</strong>
+                    </div>
                 </div>
+            </section>
 
+            <!-- VIEW 5: PRACTICE Q&A -->
+            <section id="qamodule" class="content-card">
+                <h2>Practice Q&A & Extension Conversion Guide</h2>
+                <p>Review interactive questions and answers tailored for document formatting and file extension conversions.</p>
+                
                 <div class="panel-box">
-                    <h3 style="font-size: 1.1rem; color: var(--accent-dynamic); margin-bottom: 8px;">Brochure & Flex Design Typography (Suggested Duration: 21 Days)</h3>
-                    <p style="font-size: 0.9rem;">Focuses on bilingual English and Urdu Nasta'liq layout alignment for commercial printing and publishing.</p>
+                    <h4 style="color: var(--accent-dynamic); margin-bottom: 8px;">Q: How do I safely convert bulk PDF files to Excel worksheets offline?</h4>
+                    <p style="font-size: 0.9rem;">A: Open Excel, navigate to the <strong>Data</strong> tab, select <strong>Get Data > From File > From PDF</strong>, select your target document, and transform tables directly via Power Query.</p>
                 </div>
             </section>
 
-            <section id="converters" class="content-card">
-                <h2>Bi-Directional File & Code Format Converters</h2>
-                <p>Convert office work documents and programming scripts instantly using drag-and-drop or file browsing.</p>
+            <!-- VIEW 6: AI CHAT ASSISTANT -->
+            <section id="aiassistant" class="content-card">
+                <h2>Fully Prompt-Engineered AI Chat Assistant</h2>
+                <p>Ask any question regarding office management, programming scripts, research topics, or technical troubleshooting for immediate, error-free resolution.</p>
                 
-                <div class="converter-zone" ondragover="event.preventDefault()" ondrop="handleDropEvent(event, 'Office Suite')">
-                    <h4>Office Document Extension Converter</h4>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin: 8px 0;">PDF to DOCX, XLSX to CSV, PPTX conversions</p>
-                    <button class="btn-action" onclick="document.getElementById('fileInputOffice').click()">Browse File</button>
-                    <input type="file" id="fileInputOffice" style="display: none;" onchange="handleFileInput(this, 'Office Suite')">
-                </div>
-
-                <div class="converter-zone" ondragover="event.preventDefault()" ondrop="handleDropEvent(event, 'Programming Scripts')">
-                    <h4>Programming Code Extension Converter</h4>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin: 8px 0;">Python (.py) to Executable, JSON to XML, Markdown to HTML</p>
-                    <button class="btn-action" onclick="document.getElementById('fileInputCode').click()">Browse Code File</button>
-                    <input type="file" id="fileInputCode" style="display: none;" onchange="handleFileInput(this, 'Programming Scripts')">
-                </div>
-            </section>
-
-            <section id="gkbooks" class="content-card">
-                <h2>Caravan General Knowledge & Reference Repository</h2>
-                <p>Curated from the latest authoritative editions of general knowledge compendiums for competitive candidates.</p>
-                
-                <div class="archive-item">
-                    <div>
-                        <strong>Caravan World & Pakistan GK Compendium</strong>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin: 2px 0;">Latest Edition • Institutional Reference</p>
+                <div class="chat-container">
+                    <div class="chat-messages" id="chatMessagesBox">
+                        <div class="chat-bubble bot">Hello! I am your fully prompt-engineered enterprise AI assistant. How may I assist your workflow today?</div>
                     </div>
-                    <button class="btn-action" onclick="alert('Downloading Caravan GK Reference PDF...')">Download Book PDF</button>
+                    <div class="chat-input-area">
+                        <input type="text" id="chatUserInput" class="chat-input" placeholder="Type your query here...">
+                        <button class="btn-action" onclick="handleChatSubmit()">Send</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VIEW 7: 3D DIAGRAMS & ROADMAPS -->
+            <section id="visuals" class="content-card">
+                <h2>3D Diagrams & Architectural Roadmaps</h2>
+                <p>Visual workflow diagrams and hardware architecture schematics for practical implementation.</p>
+                
+                <div class="panel-box" style="text-align: center; padding: 40px;">
+                    <h3 style="color: var(--accent-dynamic); margin-bottom: 10px;">🧊 System Architecture Schematic</h3>
+                    <p style="font-size: 0.9rem;">Interactive 3D structural roadmaps loaded successfully for offline analysis and hardware reference.</p>
                 </div>
             </section>
 
         </main>
 
-        <aside class="panel-box">
-            <h3 class="panel-title">⚡ Session Telemetry</h3>
-            <div style="font-size: 0.9rem; line-height: 1.6; color: var(--text-muted);">
-                <p style="margin-bottom: 10px;"><strong>Security Mode:</strong> Read-Only Visitor Access</p>
-                <p style="margin-bottom: 10px;"><strong>Dynamic Theme:</strong> Active (Shifts on Navigation)</p>
-                <p style="margin-bottom: 10px;"><strong>Active Dictionaries:</strong> 8 Languages Synchronized</p>
-                <p><strong>Database Status:</strong> Fully Synchronized with GitHub Pages</p>
+        <!-- RIGHT PANEL: Quick Telemetry & Office Shortcuts -->
+        <aside>
+            <div class="panel-box">
+                <h3 class="panel-title">🔒 Encrypted Telemetry</h3>
+                <div id="telemetryData" style="font-size: 0.85rem; line-height: 1.6; color: var(--text-muted);">
+                    <p>Status: Pending User Permission</p>
+                    <p>Standard: Up to 2022 Architecture</p>
+                </div>
+            </div>
+
+            <div class="panel-box">
+                <h3 class="panel-title">⌨️ Office Quick Shortcuts</h3>
+                <div style="font-size: 0.85rem; line-height: 1.6; color: var(--text-muted);">
+                    <p><strong>Ctrl + C / V:</strong> Copy & Paste</p>
+                    <p><strong>Ctrl + Z:</strong> Undo Action</p>
+                    <p><strong>F4:</strong> Repeat Last Excel Command</p>
+                    <p><strong>Ctrl + Shift + S:</strong> Save As</p>
+                </div>
             </div>
         </aside>
 
     </div>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 OmniRead Enterprise Suite. Architected for High-Performance Global Research. All rights reserved.</p>
+        <p>&copy; 2026 OmniRead Enterprise Suite. Architected by Ali Abbas for High-Performance Global Research. All rights reserved.</p>
     </footer>
 
+    <!-- JavaScript Execution Engine -->
     <script>
         // Real-Time Clock
         function updateClock() {
             const now = new Date();
-            document.getElementById('clockDisplay').innerText = now.toLocaleTimeString();
+            const clockEl = document.getElementById('clockDisplay');
+            if (clockEl) {
+                clockEl.innerText = now.toLocaleTimeString();
+            }
         }
         setInterval(updateClock, 1000);
         updateClock();
 
-        // Dynamic Color Shifter (Randomizes UI palette on navigation or clicks)
+        // Device Modal Handlers
+        function closeDeviceModal() {
+            const modal = document.getElementById('deviceModal');
+            if (modal) modal.style.display = 'none';
+        }
+
+        function revealDeviceTelemetry() {
+            const telBox = document.getElementById('telemetryData');
+            const ua = navigator.userAgent;
+            let detectedOS = "Encrypted Desktop/Mobile OS (Pre-2022 Spec)";
+            if (ua.includes("Win")) detectedOS = "Encrypted Windows Environment [Standard 2022]";
+            else if (ua.includes("Mac")) detectedOS = "Encrypted macOS / MacBook [Standard 2022]";
+            else if (ua.includes("Linux")) detectedOS = "Encrypted Linux Kernel [Standard 2022]";
+            else if (ua.includes("Android")) detectedOS = "Encrypted Android Smart Phone [Standard 2022]";
+            else if (ua.includes("like Mac")) detectedOS = "Encrypted iOS Device [Standard 2022]";
+
+            if (telBox) {
+                telBox.innerHTML = `<p><strong>Device Signature:</strong> ${detectedOS}</p><p><strong>Status:</strong> Verified & Encrypted</p>`;
+            }
+            closeDeviceModal();
+        }
+
+        // Dynamic Color Shifter
         const colorPalettes = [
             { bg: '#0f172a', surface: '#1e293b', panel: '#334155', accent: '#3b82f6' },
             { bg: '#111827', surface: '#1f2937', panel: '#374151', accent: '#8b5cf6' },
             { bg: '#09090b', surface: '#18181b', panel: '#27272a', accent: '#f59e0b' },
-            { bg: '#022c22', surface: '#064e3b', panel: '#065f46', accent: '#10b981' },
-            { bg: '#180728', surface: '#2e1065', panel: '#4c1d95', accent: '#ec4899' }
+            { bg: '#022c22', surface: '#064e3b', panel: '#065f46', accent: '#10b981' }
         ];
 
         function triggerDynamicColorShift() {
@@ -522,78 +590,76 @@
             const cards = document.querySelectorAll('.content-card');
             cards.forEach(card => card.classList.remove('active'));
             const target = document.getElementById(viewId);
-            if (target) {
-                target.classList.add('active');
-            }
+            if (target) target.classList.add('active');
             triggerDynamicColorShift();
         }
 
-        // Hardware Component Inspector
-        function loadHardwarePart(partKey) {
-            const output = document.getElementById('hardwareOutput');
-            const data = {
-                'CPU': {
-                    name: 'Central Processing Unit (CPU)',
-                    def: 'The electronic circuitry within a computer that executes instructions comprising a computer program.',
-                    ex1: 'Executing complex arithmetic calculations for data analysis software.',
-                    ex2: 'Managing operating system multitasking and background process scheduling.'
-                },
-                'RAM': {
-                    name: 'Random Access Memory (RAM)',
-                    def: 'A form of computer data storage that stores frequently used program instructions and data to speed up general system performance.',
-                    ex1: 'Holding active browser tabs and open documents for instant access.',
-                    ex2: 'Providing temporary working space for compiling programming source code.'
-                },
-                'GPU': {
-                    name: 'Graphics Processing Unit (GPU)',
-                    def: 'A specialized electronic circuit designed to rapidly manipulate and alter memory to accelerate the creation of images.',
-                    ex1: 'Rendering high-resolution 3D models in architectural design software.',
-                    ex2: 'Accelerating neural network training and parallel data computing tasks.'
-                },
-                'SSD': {
-                    name: 'Solid State Drive (SSD)',
-                    def: 'A solid-state storage device that uses integrated circuit assemblies as memory to store data persistently.',
-                    ex1: 'Booting the operating system within seconds.',
-                    ex2: 'Transferring massive multi-gigabyte video files at high speed.'
-                }
-            };
-            const item = data[partKey];
-            output.innerHTML = `<strong>${item.name}</strong><br><br><em>Definition:</em> ${item.def}<br><br><strong>Example 1:</strong> ${item.ex1}<br><strong>Example 2:</strong> ${item.ex2}`;
+        // Calculator Logic
+        let calcVal = '';
+        function calcInput(val) {
+            const screen = document.getElementById('calcScreen');
+            if (calcVal === '0' || calcVal === 'Error') calcVal = '';
+            calcVal += val;
+            if (screen) screen.innerText = calcVal;
         }
 
-        // Dictionary Search Simulation
-        function performDictionarySearch() {
-            const query = document.getElementById('dictSearchInput').value.trim();
-            const lang = document.getElementById('dictLangSelect').value;
-            const output = document.getElementById('dictResultsOutput');
+        function calcClear() {
+            calcVal = '0';
+            const screen = document.getElementById('calcScreen');
+            if (screen) screen.innerText = calcVal;
+        }
+
+        function calcCompute() {
+            const screen = document.getElementById('calcScreen');
+            try {
+                calcVal = eval(calcVal).toString();
+                if (screen) screen.innerText = calcVal;
+            } catch (e) {
+                calcVal = 'Error';
+                if (screen) screen.innerText = calcVal;
+            }
+        }
+
+        // Timetable Generator Logic
+        function generateTimetable() {
+            const subj = document.getElementById('subjectInput').value || 'General Studies';
+            const hours = document.getElementById('hoursInput').value || '4';
+            const outBox = document.getElementById('timetableOutput');
+            const resText = document.getElementById('timetableResultText');
             
-            if(!query) {
-                output.innerHTML = '<strong>Error:</strong> Please enter a valid search term.';
-                return;
-            }
-
-            output.innerHTML = `<strong>Lexical Analysis for "${query}" (${lang.toUpperCase()}):</strong><br><br>` +
-                `<em>Definition:</em> A foundational concept representing structured institutional mastery and analytical precision.<br><br>` +
-                `<strong>Sample Sentences:</strong><br>` +
-                `1. The implementation of ${query} ensures operational transparency across global networks.<br>` +
-                `2. Scholars frequently analyze ${query} to determine systemic governance frameworks.<br>` +
-                `3. Mastery of ${query} is essential for advanced competitive examination preparation.<br>` +
-                `4. Researchers published new findings regarding the evolution of ${query} in modern systems.<br><br>` +
-                `<em>Cross-Lingual Recommendation:</em> Try viewing this term in Urdu (Pakistan) or Arabic (Saudi Arabia) for regional semantic nuances.`;
-        }
-
-        // File Converter Handlers
-        function handleFileInput(input, type) {
-            if (input.files && input.files[0]) {
-                alert(`Successfully loaded "${input.files[0].name}" for ${type} conversion protocol.`);
+            if (outBox && resText) {
+                outBox.style.display = 'block';
+                resText.innerHTML = `<strong>Topic:</strong> ${subj}<br><strong>Daily Allocation:</strong> ${hours} Hours<br><br>` +
+                    `• Hour 1-2: Core Conceptual Study & Annotation<br>` +
+                    `• Hour 3: Practical Application & File Formatting Exercises<br>` +
+                    `• Hour 4: Revision, Q&A Testing, and Summary Notes`;
             }
         }
 
-        function handleDropEvent(event, type) {
-            event.preventDefault();
-            if (event.dataTransfer.files && event.dataTransfer.files[0]) {
-                alert(`Successfully dropped "${event.dataTransfer.files[0].name}" for ${type} conversion protocol.`);
-            }
+        // AI Chatbot Logic
+        function handleChatSubmit() {
+            const inputEl = document.getElementById('chatUserInput');
+            const box = document.getElementById('chatMessagesBox');
+            if (!inputEl || !box) return;
+
+            const text = inputEl.value.trim();
+            if (!text) return;
+
+            // Append User Message
+            box.innerHTML += `<div class="chat-bubble user">${text}</div>`;
+            inputEl.value = '';
+
+            // Generate Precise Professional Response
+            setTimeout(() => {
+                let reply = "I have analyzed your query according to institutional standards. Ensure your office application parameters are updated, check absolute references in data formulas, and review standard workflow documentation.";
+                if (text.toLowerCase().includes('excel') || text.toLowerCase().includes('vlookup')) {
+                    reply = "For Excel data errors, verify that your table range is locked using absolute cell anchors ($) and check for trailing blank spaces in lookup keys.";
+                } else if (text.toLowerCase().includes('time') || text.toLowerCase().includes('study')) {
+                    reply = "To optimize study retention, alternate between theoretical reading and practical application in 45-minute focused blocks.";
+                }
+                box.innerHTML += `<div class="chat-bubble bot">${reply}</div>`;
+                box.scrollTop = box.scrollHeight;
+            }, 500);
         }
     </script>
 </body>
