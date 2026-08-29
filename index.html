@@ -43,7 +43,7 @@
                 <a href="#ai-assistant" class="hover:text-primary-600 transition">AI Assistant</a>
             </nav>
             <div class="flex items-center space-x-3">
-                <a href="https://github.com/akhunzadaaliabbas86-max/knowledge-hub" target="_blank" class="inline-flex items-center space-x-2 bg-slate-900 hover:bg-slate-800 text-white px-4 py-2 rounded-lg text-sm font-medium shadow transition">
+                <a href="https://github.com/akhunzadaaliabbas86-max/knowledge-hub" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 bg-slate-900 hover:bg-slate-800 text-white px-4 py-2 rounded-lg text-sm font-medium shadow transition">
                     <i class="fa-brands fa-github"></i>
                     <span>GitHub Hub</span>
                 </a>
@@ -55,7 +55,7 @@
     <section class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-primary-900 text-white py-20 px-4">
         <div class="max-w-5xl mx-auto text-center space-y-6">
             <span class="inline-flex items-center gap-1.5 py-1 px-3 rounded-full text-xs font-semibold bg-primary-500/20 text-primary-300 border border-primary-500/30">
-                <i class="fa-solid fa-shield-halved"></i> Enterprise Knowledge Repository v3.4
+                <i class="fa-solid fa-shield-halved"></i> Enterprise Knowledge Repository v4.0 Final
             </span>
             <h2 class="text-4xl sm:text-6xl font-extrabold tracking-tight">
                 Centralized Intelligence & <span class="text-primary-400">Digital Archive</span>
@@ -142,29 +142,29 @@
                     <h4 class="font-bold text-slate-800 flex items-center gap-2"><i class="fa-solid fa-calculator text-primary-600"></i> Scientific Computation Suite</h4>
                     <input type="text" id="calc-screen" readonly class="w-full bg-white border border-slate-300 rounded-lg p-3 text-right text-xl font-mono text-slate-800 shadow-inner" value="0">
                     <div class="grid grid-cols-4 gap-2">
-                        <button onclick="clearCalc()" class="bg-red-100 text-red-700 font-bold p-3 rounded-lg hover:bg-red-200 transition">C</button>
-                        <button onclick="appendCalc('(')" class="bg-slate-200 text-slate-700 font-bold p-3 rounded-lg hover:bg-slate-300 transition">(</button>
-                        <button onclick="appendCalc(')')" class="bg-slate-200 text-slate-700 font-bold p-3 rounded-lg hover:bg-slate-300 transition">)</button>
-                        <button onclick="appendCalc('/')" class="bg-primary-100 text-primary-700 font-bold p-3 rounded-lg hover:bg-primary-200 transition">÷</button>
+                        <button type="button" onclick="clearCalc()" class="bg-red-100 text-red-700 font-bold p-3 rounded-lg hover:bg-red-200 transition">C</button>
+                        <button type="button" onclick="appendCalc('(')" class="bg-slate-200 text-slate-700 font-bold p-3 rounded-lg hover:bg-slate-300 transition">(</button>
+                        <button type="button" onclick="appendCalc(')')" class="bg-slate-200 text-slate-700 font-bold p-3 rounded-lg hover:bg-slate-300 transition">)</button>
+                        <button type="button" onclick="appendCalc('/')" class="bg-primary-100 text-primary-700 font-bold p-3 rounded-lg hover:bg-primary-200 transition">÷</button>
                         
-                        <button onclick="appendCalc('7')" class="bg-white border border-slate-200 p-3 rounded-lg hover:bg-slate-100 font-bold">7</button>
-                        <button onclick="appendCalc('8')" class="bg-white border border-slate-200 p-3 rounded-lg hover:bg-slate-100 font-bold">8</button>
-                        <button onclick="appendCalc('9')" class="bg-white border border-slate-200 p-3 rounded-lg hover:bg-slate-100 font-bold">9</button>
-                        <button onclick="appendCalc('*')" class="bg-primary-100 text-primary-700 font-bold p-3 rounded-lg hover:bg-primary-200 transition">×</button>
+                        <button type="button" onclick="appendCalc('7')" class="bg-white border border-slate-200 p-3 rounded-lg hover:bg-slate-100 font-bold">7</button>
+                        <button type="button" onclick="appendCalc('8')" class="bg-white border border-slate-200 p-3 rounded-lg hover:bg-slate-100 font-bold">8</button>
+                        <button type="button" onclick="appendCalc('9')" class="bg-white border border-slate-200 p-3 rounded-lg hover:bg-slate-100 font-bold">9</button>
+                        <button type="button" onclick="appendCalc('*')" class="bg-primary-100 text-primary-700 font-bold p-3 rounded-lg hover:bg-primary-200 transition">×</button>
                         
-                        <button onclick="appendCalc('4')" class="bg-white border border-slate-200 p-3 rounded-lg hover:bg-slate-100 font-bold">4</button>
-                        <button onclick="appendCalc('5')" class="bg-white border border-slate-200 p-3 rounded-lg hover:bg-slate-100 font-bold">5</button>
-                        <button onclick="appendCalc('6')" class="bg-white border border-slate-200 p-3 rounded-lg hover:bg-slate-100 font-bold">6</button>
-                        <button onclick="appendCalc('-')" class="bg-primary-100 text-primary-700 font-bold p-3 rounded-lg hover:bg-primary-200 transition">-</button>
+                        <button type="button" onclick="appendCalc('4')" class="bg-white border border-slate-200 p-3 rounded-lg hover:bg-slate-100 font-bold">4</button>
+                        <button type="button" onclick="appendCalc('5')" class="bg-white border border-slate-200 p-3 rounded-lg hover:bg-slate-100 font-bold">5</button>
+                        <button type="button" onclick="appendCalc('6')" class="bg-white border border-slate-200 p-3 rounded-lg hover:bg-slate-100 font-bold">6</button>
+                        <button type="button" onclick="appendCalc('-')" class="bg-primary-100 text-primary-700 font-bold p-3 rounded-lg hover:bg-primary-200 transition">-</button>
                         
-                        <button onclick="appendCalc('1')" class="bg-white border border-slate-200 p-3 rounded-lg hover:bg-slate-100 font-bold">1</button>
-                        <button onclick="appendCalc('2')" class="bg-white border border-slate-200 p-3 rounded-lg hover:bg-slate-100 font-bold">2</button>
-                        <button onclick="appendCalc('3')" class="bg-white border border-slate-200 p-3 rounded-lg hover:bg-slate-100 font-bold">3</button>
-                        <button onclick="appendCalc('+')" class="bg-primary-100 text-primary-700 font-bold p-3 rounded-lg hover:bg-primary-200 transition">+</button>
+                        <button type="button" onclick="appendCalc('1')" class="bg-white border border-slate-200 p-3 rounded-lg hover:bg-slate-100 font-bold">1</button>
+                        <button type="button" onclick="appendCalc('2')" class="bg-white border border-slate-200 p-3 rounded-lg hover:bg-slate-100 font-bold">2</button>
+                        <button type="button" onclick="appendCalc('3')" class="bg-white border border-slate-200 p-3 rounded-lg hover:bg-slate-100 font-bold">3</button>
+                        <button type="button" onclick="appendCalc('+')" class="bg-primary-100 text-primary-700 font-bold p-3 rounded-lg hover:bg-primary-200 transition">+</button>
                         
-                        <button onclick="appendCalc('0')" class="col-span-2 bg-white border border-slate-200 p-3 rounded-lg hover:bg-slate-100 font-bold">0</button>
-                        <button onclick="appendCalc('.')" class="bg-white border border-slate-200 p-3 rounded-lg hover:bg-slate-100 font-bold">.</button>
-                        <button onclick="calculateResult()" class="bg-primary-600 text-white font-bold p-3 rounded-lg hover:bg-primary-700 transition">=</button>
+                        <button type="button" onclick="appendCalc('0')" class="col-span-2 bg-white border border-slate-200 p-3 rounded-lg hover:bg-slate-100 font-bold">0</button>
+                        <button type="button" onclick="appendCalc('.')" class="bg-white border border-slate-200 p-3 rounded-lg hover:bg-slate-100 font-bold">.</button>
+                        <button type="button" onclick="calculateResult()" class="bg-primary-600 text-white font-bold p-3 rounded-lg hover:bg-primary-700 transition">=</button>
                     </div>
                 </div>
 
@@ -175,12 +175,12 @@
                         <p class="text-xs text-slate-500 mt-1">Execute test diagnostics or inspect runtime metadata status directly within the repository shell.</p>
                     </div>
                     <div id="console-output" class="bg-slate-900 text-green-400 font-mono text-xs p-4 rounded-lg h-36 overflow-y-auto shadow-inner">
-                        [System Initialized: OmniRead Core v3.4]
+                        [System Initialized: OmniRead Core v4.0 Final]
                         [Ready for execution command or data query...]
                     </div>
                     <div class="flex gap-2">
                         <input type="text" id="console-input" placeholder="Type command (e.g., status, help)..." class="flex-grow bg-white border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-primary-500">
-                        <button onclick="runConsoleCommand()" class="bg-slate-900 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-800 transition">Run</button>
+                        <button type="button" onclick="runConsoleCommand()" class="bg-slate-900 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-800 transition">Run</button>
                     </div>
                 </div>
             </div>
@@ -208,7 +208,7 @@
                 </div>
                 <div class="flex gap-2">
                     <input type="text" id="chat-input" placeholder="Ask a question about the repository or search documents..." class="flex-grow bg-slate-800 border border-slate-700 text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary-500 placeholder-slate-400">
-                    <button onclick="sendChatMessage()" class="bg-primary-600 hover:bg-primary-500 text-white font-medium px-6 py-3 rounded-xl transition shadow">Send</button>
+                    <button type="button" onclick="sendChatMessage()" class="bg-primary-600 hover:bg-primary-500 text-white font-medium px-6 py-3 rounded-xl transition shadow">Send</button>
                 </div>
             </div>
         </section>
@@ -229,7 +229,7 @@
 
     <!-- Client Script Logic -->
     <script>
-        // Calculator Logic
+        // Calculator Logic with safer arithmetic validation
         const screen = document.getElementById('calc-screen');
         function appendCalc(val) {
             if(screen.value === '0' || screen.value === 'Error') screen.value = '';
@@ -240,20 +240,36 @@
         }
         function calculateResult() {
             try {
-                screen.value = eval(screen.value);
+                // Sanitize input to allow only valid arithmetic characters
+                const sanitized = screen.value.replace(/[^0-9+\-*/().]/g, '');
+                if (!sanitized) {
+                    screen.value = 'Error';
+                    return;
+                }
+                const result = Function('"use strict";return (' + sanitized + ')')();
+                screen.value = result;
             } catch (e) {
                 screen.value = 'Error';
             }
         }
 
-        // Console Simulator Logic
+        // Console Simulator Logic with Enter key support
+        const consoleInput = document.getElementById('console-input');
+        if (consoleInput) {
+            consoleInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    runConsoleCommand();
+                }
+            });
+        }
+
         function runConsoleCommand() {
             const input = document.getElementById('console-input');
             const output = document.getElementById('console-output');
             const val = input.value.trim().toLowerCase();
             if(!val) return;
             
-            output.innerHTML += `<div>> ${input.value}</div>`;
+            output.innerHTML += `<div>> ${escapeHtml(input.value)}</div>`;
             let response = "Command processed successfully. Type 'help' for options.";
             if(val === 'help') {
                 response = "Available commands: status, date, clear, version, repo";
@@ -262,7 +278,7 @@
             } else if(val === 'date') {
                 response = new Date().toUTCString();
             } else if(val === 'version') {
-                response = "OmniRead Core v3.4 (Production Release)";
+                response = "OmniRead Core v4.0 Final Production Release";
             } else if(val === 'repo') {
                 response = "https://github.com/akhunzadaaliabbas86-max/knowledge-hub";
             } else if(val === 'clear') {
@@ -275,7 +291,16 @@
             input.value = '';
         }
 
-        // Chatbot Simulation Logic
+        // Chatbot Simulation Logic with Enter key support
+        const chatInput = document.getElementById('chat-input');
+        if (chatInput) {
+            chatInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendChatMessage();
+                }
+            });
+        }
+
         function sendChatMessage() {
             const input = document.getElementById('chat-input');
             const chatBox = document.getElementById('chat-box');
@@ -284,7 +309,7 @@
 
             chatBox.innerHTML += `
                 <div class="flex items-start justify-end gap-3">
-                    <div class="bg-primary-700 p-3 rounded-xl text-white max-w-lg">${text}</div>
+                    <div class="bg-primary-700 p-3 rounded-xl text-white max-w-lg">${escapeHtml(text)}</div>
                     <div class="bg-slate-700 text-white p-1.5 rounded-lg text-xs"><i class="fa-solid fa-user"></i></div>
                 </div>`;
             input.value = '';
@@ -304,6 +329,15 @@
                     </div>`;
                 chatBox.scrollTop = chatBox.scrollHeight;
             }, 600);
+        }
+
+        // Helper function to safely escape HTML strings
+        function escapeHtml(str) {
+            return str.replace(/&/g, "&amp;")
+                      .replace(/</g, "&lt;")
+                      .replace(/>/g, "&gt;")
+                      .replace(/"/g, "&quot;")
+                      .replace(/#/g, "&#039;");
         }
     </script>
 </body>
