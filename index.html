@@ -3,564 +3,392 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="OmniRead Digital Library & Economic Analysis - Master Update including Inflation Analysis and 3-Volume Book Series.">
-    <meta name="google-site-verification" content="yLhU3G6BY6K9un-ROM_c2fwJd9w_cW0HXBGfU__nBgl" />
-    <title>OmniRead Master Library & Economic Insights</title>
+    <meta name="description" content="OmniRead Master Knowledge Hub - English Grammar, Literature, Articles, and Universal Knowledge.">
+    <meta name="google-site-verification" content="ylHU3G6BY6K9un-ROM_c2fwJd9w_cW0HXBgFU__nBgl" />
+    <title>OmniRead | Universal Knowledge & English Learning Hub</title>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DigitalDocumentRepository",
+      "name": "OmniRead Master Library & Economic Insights",
+      "url": "https://akhunzadaaliabbas86-max.github.io/knowledge-hub/",
+      "description": "Digital library containing economic research, inflation analysis, English language learning, and literature series."
+    }
+    </script>
+
+    <!-- Google Fonts & FontAwesome Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Merriweather:wght@400;700&family=Azeret+Mono:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Merriweather:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "DigitalDocumentRepository",
-  "name": "OmniRead Master Library & Economic Insights",
-  "url": "https://akhunzadaaliabbas86-max.github.io/knowledge-hub/",
-  "description": "Digital library containing economic research, inflation analysis, and literature series."
-}
-</script>
+
     <style>
         :root {
-            --bg-color: #f3f0df;
-            --deep-blue: #005088;
-            --accent-green: #11caa0;
-            --text-dark: #1e293b;
-            --text-light: #f8fafc;
-            --border-color: #cbd5e1;
-            --cream: #fffaf1;
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --accent-indigo: #6366f1;
+            --accent-cyan: #06b6d4;
+            --accent-emerald: #10b981;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
 
         body {
-            background-color: #e2e8f0;
-            font-family: "DM Sans", sans-serif;
-            color: var(--text-dark);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            overflow-x: hidden;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
         }
 
-        nav {
-            position: sticky;
-            top: 0;
+        /* Hero Banner */
+        header {
+            background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, rgba(0,0,0,0) 70%);
+            pointer-events: none;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--accent-cyan), var(--accent-indigo));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        p.subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Search Bar */
+        .search-box {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-box input {
             width: 100%;
-            background: var(--deep-blue);
-            z-index: 1000;
-            padding: 15px 0;
+            padding: 1rem 1.5rem 1rem 3rem;
+            border-radius: 50px;
+            border: 2px solid var(--border-color);
+            background: rgba(30, 41, 59, 0.8);
+            color: var(--text-main);
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:focus {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+
+        /* Section Category Filters */
+        .category-nav {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            gap: 1rem;
+            padding: 2rem;
+            flex-wrap: wrap;
         }
 
-        nav a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 500;
-            padding: 8px 16px;
-            border-radius: 6px;
-            transition: background 0.3s;
-        }
-
-        nav a:hover, nav a.active {
-            background: var(--accent-green);
-            color: var(--deep-blue);
-        }
-
-        .section-container {
-            display: none;
-            width: 100%;
-            max-width: 1280px;
-            padding: 40px 20px;
-        }
-
-        .section-container.active { display: block; }
-
-        .book-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 30px;
-            margin-top: 20px;
-        }
-
-        .book-card {
-            background: var(--cream);
+        .cat-btn {
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
             border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 30px;
+            background: var(--card-bg);
+            color: var(--text-main);
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .cat-btn:hover, .cat-btn.active {
+            background: var(--accent-indigo);
+            border-color: var(--accent-indigo);
+            transform: translateY(-2px);
+        }
+
+        /* Main Grid Layout */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Knowledge Object Cards */
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            padding: 1.8rem;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .book-card h2 { color: var(--deep-blue); font-family: "Merriweather", serif; margin-bottom: 10px; }
-        .book-meta { list-style: none; margin: 15px 0; font-size: 0.9rem; }
-        .book-meta li { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px dashed #ccc; }
-        .btn-download { display: block; background: var(--deep-blue); color: #fff; text-align: center; padding: 12px; border-radius: 8px; text-decoration: none; margin-top: 15px; font-weight: 700; }
-
-        .essay-content {
-            background: #fff;
-            padding: 60px 80px;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            max-width: 1000px;
-            margin: 0 auto;
-            line-height: 1.8;
-            font-size: 1.1rem;
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 0 15px rgba(99, 102, 241, 0.2);
         }
 
-        .essay-title {
-            text-align: center;
-            font-family: "Merriweather", serif;
-            font-size: 2.8rem;
-            color: var(--deep-blue);
-            margin-bottom: 40px;
-            border-bottom: 3px solid var(--accent-green);
-            display: inline-block;
-            width: 100%;
-            padding-bottom: 10px;
-        }
-
-        .essay-content p { margin-bottom: 25px; text-align: justify; }
-        .essay-content .image-box { margin: 40px 0; text-align: center; border: 1px solid var(--border-color); border-radius: 12px; padding: 10px; background: #f8fafc; }
-        .essay-content .image-box img { max-width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .essay-content .caption { display: block; margin-top: 10px; font-style: italic; font-size: 0.9rem; color: #64748b; }
-        
-        .solution-title { color: var(--accent-green); font-family: "Merriweather", serif; font-size: 1.8rem; margin-top: 50px; }
-        .signature { margin-top: 60px; font-style: italic; border-top: 1px solid #ccc; padding-top: 20px; text-align: right; }
-
-        .slide-deck-container {
+        .card-header {
             display: flex;
-            flex-direction: column;
-            gap: 20px;
             align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
         }
 
-        .slide-container {
-            width: 1280px;
-            height: 720px;
-            background-color: var(--bg-color);
-            border-radius: 8px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-            overflow: hidden;
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
             display: flex;
-            flex-direction: column;
-            padding: 60px;
-            position: relative;
-            font-family: "DM Sans", sans-serif;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
         }
 
-        .slide-container::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background: radial-gradient(circle at 10% 20%, rgba(0, 80, 136, 0.05) 0%, transparent 40%); }
-        .slide-container > * { position: relative; z-index: 1; }
+        .icon-grammar { background: rgba(99, 102, 241, 0.2); color: var(--accent-indigo); }
+        .icon-article { background: rgba(6, 182, 212, 0.2); color: var(--accent-cyan); }
+        .icon-knowledge { background: rgba(16, 185, 129, 0.2); color: var(--accent-emerald); }
 
-        .slide-title { font-family: "Merriweather", serif; font-size: 48px; color: var(--deep-blue); margin-bottom: 40px; width: 100%; text-align: left; }
-        .content-area { flex-grow: 1; width: 100%; display: flex; flex-direction: column; justify-content: center; }
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
 
-        .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; width: 100%; }
-        .image-wrapper { height: 400px; width: 100%; overflow: hidden; border-radius: 12px; border: 2px solid var(--deep-blue); }
-        .image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
-        .image-wrapper.contain img { object-fit: contain; background: white; }
+        .card-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
 
-        .tile-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; width: 100%; }
-        .tile { background: var(--deep-blue); color: white; padding: 30px; border-radius: 15px; text-align: center; }
-        .tile h3 { color: var(--accent-green); font-size: 24px; margin-bottom: 15px; }
-        .tile .icon { font-size: 40px; margin-bottom: 15px; color: var(--text-light); }
+        .card-tag {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 6px;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+        }
 
-        .highlight-number { font-size: 120px; font-weight: 700; color: var(--deep-blue); line-height: 1; }
-        .highlight-label { font-size: 28px; color: var(--accent-green); font-weight: 500; }
+        .tag-grammar { background: rgba(99, 102, 241, 0.3); color: #a5b4fc; }
+        .tag-article { background: rgba(6, 182, 212, 0.3); color: #67e8f9; }
+        .tag-knowledge { background: rgba(16, 185, 129, 0.3); color: #6ee7b7; }
 
-        .area-chart-svg { width: 100%; height: 350px; overflow: visible; }
-        .table-layout table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; }
-        .table-layout th { background: var(--deep-blue); color: white; padding: 15px; text-align: left; }
-        .table-layout td { padding: 15px; border-bottom: 1px solid #eee; }
+        .btn-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid var(--border-color);
+            transition: background 0.2s;
+        }
 
-        .section-title-layout { text-align: center; height: 100%; display: flex; flex-direction: column; justify-content: center; }
-        .section-title-layout hr { width: 100px; height: 5px; background: var(--accent-green); margin: 20px auto; border: none; }
-        .section-title-layout h2 { font-size: 64px; color: var(--deep-blue); font-family: "Merriweather", serif; }
+        .btn-action:hover {
+            background: var(--accent-indigo);
+            border-color: var(--accent-indigo);
+        }
 
-        .slide-container.bleed-image-layout { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 0; align-items: start; }
-        .bleed-text-side { padding: 60px; display: flex; flex-direction: column; justify-content: center; height: 100%; }
-        .bleed-image-side { height: 720px; width: 100%; object-fit: cover; }
-
-        .phrase { font-weight: 700; color: var(--deep-blue); text-decoration: underline dotted var(--accent-green); cursor: help; }
-        
-        footer { margin-top: 50px; padding: 20px; text-align: center; color: #64748b; font-size: 0.9rem; }
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            margin-top: 4rem;
+        }
     </style>
 </head>
 <body>
 
-    <nav id="master-nav">
-        <a href="#" onclick="showSection('library')" id="nav-library">Digital Library</a>
-        <a href="#" onclick="showSection('essay')" id="nav-essay">Economic Analysis</a>
-        <a href="#" onclick="showSection('slides')" id="nav-slides">Summary Slides</a>
-    </nav>
-
-    <div id="library" class="section-container active">
-        <header style="text-align: center; margin-bottom: 40px;">
-            <h1 style="font-family: 'Merriweather', serif; color: var(--deep-blue); font-size: 2.5rem;">OmniRead Master Repository</h1>
-            <p style="color: #64748b;">3-Volume Technical & General Knowledge Reference Series</p>
-        </header>
-        <div class="book-grid">
-            <div class="book-card">
-                <div>
-                    <h2 style="font-size: 1.4rem;">General Knowledge Atlas</h2>
-                    <p>A comprehensive landscape for rapid reading across historical and geographical domains.</p>
-                    <ul class="book-meta">
-                        <li><span>Pages:</span> 129</li>
-                        <li><span>Format:</span> 16:9 PDF</li>
-                        <li><span>Index:</span> Interactive</li>
-                    </ul>
-                </div>
-                <a href="./books/Book_01_General_Knowledge_129Pages.pdf" class="btn-download" download>Download Volume 1</a>
-            </div>
-            <div class="book-card">
-                <div>
-                    <h2 style="font-size: 1.4rem;">Computer Science MCQs</h2>
-                    <p>Technically vetted questioning bank covering OS, Networking, and Databases.</p>
-                    <ul class="book-meta">
-                        <li><span>Pages:</span> 99</li>
-                        <li><span>Format:</span> 16:9 PDF</li>
-                        <li><span>Index:</span> Direct Anchors</li>
-                    </ul>
-                </div>
-                <a href="./books/Book_02_Computer_Science_99Pages.pdf" class="btn-download" download>Download Volume 2</a>
-            </div>
-            <div class="book-card">
-                <div>
-                    <h2 style="font-size: 1.4rem;">Global Current Affairs</h2>
-                    <p>Strategic analysis of international relations and macroeconomic policy timelines.</p>
-                    <ul class="book-meta">
-                        <li><span>Pages:</span> 214</li>
-                        <li><span>Format:</span> 16:9 PDF</li>
-                        <li><span>Index:</span> Dynamic Map</li>
-                    </ul>
-                </div>
-                <a href="./books/Book_03_Current_Affairs_214Pages.pdf" class="btn-download" download>Download Volume 3</a>
-            </div>
+    <header>
+        <h1>OmniRead Knowledge Hub</h1>
+        <p class="subtitle">Explore English Language Mastery, Analytical Articles, and Universal Human Knowledge</p>
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="searchInput" placeholder="Search grammar rules, articles, economics, literature..." onkeyup="filterCards()">
         </div>
+    </header>
+
+    <div class="category-nav">
+        <button class="cat-btn active" onclick="filterCategory('all')">All Knowledge</button>
+        <button class="cat-btn" onclick="filterCategory('grammar')">English & Grammar</button>
+        <button class="cat-btn" onclick="filterCategory('article')">Articles & Essays</button>
+        <button class="cat-btn" onclick="filterCategory('knowledge')">Universal Knowledge</button>
     </div>
 
-    <div id="essay" class="section-container">
-        <article class="essay-content">
-            <h1 class="essay-title">The Structural Quagmire: An Analysis of Inflationary Spirals in Pakistan</h1>
-            
-            <p>
-                The contemporary economic landscape of Pakistan is currently grappling with a <span class="phrase" title="One-word substitution: Quagmire">systemic quagmire</span> that threatens to undermine the very foundations of its macroeconomic stability. Inflation, which was once considered a cyclical nuisance, has now <span class="phrase" title="Phrasal verb: Bear out">borne out</span> to be a persistent structural malaise. For a professional observer, the current inflationary trend is not merely a number on a spreadsheet; it is a manifestation of historical <span class="phrase" title="One-word substitution: Profligacy">fiscal profligacy</span> and a precipitous decline in the purchasing power of the common man. To understand the gravity of this situation, one must look beyond the surface-level metrics and investigate the deep-rooted supply-side bottlenecks and monetary imbalances that have converged to create this perfect storm.
-            </p>
+    <main>
+        <div class="grid" id="cardGrid">
 
-            <div class="image-box">
-                <img src="http://googleusercontent.com/image_collection/image_retrieval/8583003394614321308" alt="3D Pakistani Marketplace Analysis">
-                <span class="caption">Figure 1: 3D Visualization of microeconomic price fluctuations in domestic urban markets.</span>
-            </div>
-
-            <p>
-                The primary catalyst for this <span class="phrase" title="One-word substitution: Precipitous">precipitous</span> rise in the Consumer Price Index (CPI) is the unrelenting devaluation of the Pakistani Rupee. This devaluation <span class="phrase" title="Phrasal verb: Stem from">stems from</span> a widening current account deficit and a lack of foreign direct investment. As a nation heavily reliant on imports—ranging from essential industrial raw materials to petroleum products—any fluctuation in the exchange rate immediately <span class="phrase" title="One-word substitution: Exacerbates">exacerbates</span> domestic price levels. The exchange rate pass-through effect in Pakistan is remarkably high, ensuring that a weaker currency is almost instantly mirrored in the cost of fuel, transport, and manufactured goods.
-            </p>
-
-            <p>
-                Furthermore, the energy sector remains a significant <span class="phrase" title="One-word substitution: Conundrum">conundrum</span> that fuels the inflationary fire. Periodic hikes in electricity and gas tariffs, often dictated by external multilateral lenders as part of structural adjustment programs, have added a heavy burden to the industrial cost of production. These cost-push factors are then inevitably passed on to the consumers, leading to a <span class="phrase" title="Phrase: Vicious cycle">vicious cycle</span> where the end-user pays the price for systemic inefficiencies and circular debt within the power sector. The inability to <span class="phrase" title="Phrasal verb: Phase out">phase out</span> unproductive subsidies while ensuring equitable pricing remains a daunting task for the policymakers.
-            </p>
-
-            <div class="image-box">
-                <img src="http://googleusercontent.com/image_collection/image_retrieval/3634280822636406432" alt="3D Energy Cost Visualization">
-                <span class="caption">Figure 2: Isometric mapping of escalating energy costs and their impact on industrial output.</span>
-            </div>
-
-            <p>
-                The agricultural sector, traditionally the backbone of the economy, has also been unable to <span class="phrase" title="Phrasal verb: Bring about">bring about</span> price stability. Climatic shocks, coupled with inefficient supply chains and the hoarding practices of middle-men, have led to unprecedented levels of food inflation. Essential commodities such as wheat, sugar, and milk have seen price spikes that far outpace the general wage growth. This disparity has led to a condition of <span class="phrase" title="One-word substitution: Penury">penury</span> for the lower-income strata, where food security is no longer a given but a daily struggle.
-            </p>
-
-            <p>
-                From a fiscal perspective, the government's reliance on domestic borrowing to bridge the deficit has significant <span class="phrase" title="One-word substitution: Imputations">imputations</span>. Massive borrowing from the banking sector crowds out private investment and necessitates higher interest rates by the central bank. While the State Bank of Pakistan (SBP) has historically used aggressive monetary tightening to <span class="phrase" title="Phrasal verb: Fall back on">fall back on</span> as a tool to curb demand, the efficacy of this policy is often questioned when inflation is primarily driven by supply-side shocks and administrative price adjustments.
-            </p>
-
-            <div class="image-box">
-                <img src="http://googleusercontent.com/image_collection/image_retrieval/12496029160818640141" alt="3D Rupee Devaluation Graph">
-                <span class="caption">Figure 3: 3D Isometric representation of the Pakistani Rupee vs US Dollar volatility.</span>
-            </div>
-
-            <p>
-                International commodity cycles also play a pivotal role. As a net importer of edible oil and pulses, Pakistan remains vulnerable to global price volatility. When global supply chains are disrupted, the domestic market feels the tremors instantly. The lack of a robust strategic reserve system means the economy has no cushion to <span class="phrase" title="Phrasal verb: Smooth over">smooth over</span> these external shocks, leading to abrupt and painful price corrections for the citizenry.
-            </p>
-
-            <p>
-                The erosion of the middle class is perhaps the most concerning social outcome of this economic climate. As purchasing power diminishes, discretionary spending is curtailed, leading to a slowdown in the services sector. The psychological impact of persistent inflation also leads to <span class="phrase" title="One-word substitution: Anticipatory">anticipatory</span> price-setting behavior by businesses, where they raise prices today in expectation of further inflation tomorrow, thereby creating a self-fulfilling prophecy that is difficult to break.
-            </p>
-
-            <p>
-                Finally, the political economy of Pakistan adds another layer of complexity. Uncertainty in the corridors of power often leads to delayed economic decisions. Investors, both domestic and foreign, prefer a stable policy environment to commit capital. Without a consensus on a long-term economic roadmap that transcends political cycles, the economy will continue to lurch from one crisis to another, with inflation remaining a constant shadow.
-            </p>
-
-            <h3 class="solution-title">Prescriptive Solutions for Economic Resurgence</h3>
-            <p>
-                To <span class="phrase" title="One-word substitution: Ameliorate">ameliorate</span> this crisis, a multi-pronged approach is essential. Firstly, the government must commit to <span class="phrase" title="One-word substitution: Parsimony">fiscal parsimony</span> by reducing non-essential expenditures and expanding the tax net to untapped sectors like retail and agriculture. Secondly, structural reforms in the energy sector are non-negotiable; reducing line losses and renegotiating expensive power contracts must be a priority. Thirdly, agricultural productivity must be enhanced through technology and the elimination of middle-men to ensure farmers get a fair price and consumers are not exploited.
-            </p>
-
-            <div class="image-box">
-                <img src="http://googleusercontent.com/image_collection/image_retrieval/9171679454287239715" alt="Professional Economic Study Room">
-                <span class="caption">Figure 4: Strategic planning and scholarly documentation for economic stabilization.</span>
-            </div>
-
-            <p>
-                Moreover, the SBP must maintain an independent stance to manage inflation expectations while coordinating with fiscal authorities to ensure that monetary contraction is not undermined by fiscal expansion. Promoting an export-oriented industrial policy will also help in stabilizing the rupee by providing a sustainable source of foreign exchange, reducing the reliance on external debt.
-            </p>
-
-            <p>
-                In conclusion, while the inflationary challenge in Pakistan is formidable, it is not insurmountable. It requires a departure from the "business as usual" approach and a steadfast commitment to painful but necessary structural reforms. Only then can the nation hope to transition from a state of survival to a path of sustainable and inclusive growth.
-            </p>
-
-            <div class="signature">
-                <p>Respectfully documented by,</p>
-                <p><strong>Professor of Macroeconomics & Strategic Analyst</strong></p>
-                <p>Academic Council for Economic Reform</p>
-            </div>
-        </article>
-    </div>
-
-    <div id="slides" class="section-container">
-        <div class="slide-deck-container">
-
-            <div class="slide-container" id="slide1">
-                <div class="section-title-layout">
-                    <h2>Economic Inflation <br>in Pakistan</h2>
-                    <hr>
-                    <p style="font-size: 24px; color: #475569;">A Strategic Analysis & Path to Stabilization</p>
-                </div>
-            </div>
-
-            <div class="slide-container" id="slide2">
-                <h2 class="slide-title">The Macroeconomic Landscape</h2>
-                <div class="content-area">
-                    <div class="two-column">
-                        <div>
-                            <p style="font-size: 22px; line-height: 1.6;">Pakistan's economy is currently navigating a period of intense inflationary pressure driven by a convergence of fiscal deficits, currency volatility, and energy tariff adjustments.</p>
-                            <ul style="list-style: none; margin-top: 20px;">
-                                <li style="margin-bottom: 15px;"><i class="fa-solid fa-circle-check" style="color: var(--accent-green);"></i> Persistent double-digit CPI readings.</li>
-                                <li style="margin-bottom: 15px;"><i class="fa-solid fa-circle-check" style="color: var(--accent-green);"></i> Erosion of purchasing power.</li>
-                                <li style="margin-bottom: 15px;"><i class="fa-solid fa-circle-check" style="color: var(--accent-green);"></i> High interest rate environment.</li>
-                            </ul>
-                        </div>
-                        <div class="image-wrapper contain">
-                            <img src="http://googleusercontent.com/image_collection/image_retrieval/8583003394614321308" alt="Market Analysis">
-                        </div>
+            <!-- English & Grammar Section -->
+            <div class="card" data-category="grammar">
+                <div>
+                    <span class="card-tag tag-grammar">Language & Grammar</span>
+                    <div class="card-header">
+                        <div class="card-icon icon-grammar"><i class="fa-solid fa-font"></i></div>
+                        <div class="card-title">English Sentence Structure</div>
                     </div>
+                    <p class="card-desc">Master Subject-Verb Agreement, Clause Structures, and Advanced Tenses with clear rules and practical examples.</p>
                 </div>
+                <a href="#" class="btn-action"><i class="fa-solid fa-book-open"></i> Start Learning</a>
             </div>
 
-            <div class="slide-container" id="slide3">
-                <h2 class="slide-title">Inflationary Trends</h2>
-                <div class="content-area">
-                    <svg class="area-chart-svg" viewBox="0 0 1000 400">
-                        <defs>
-                            <linearGradient id="area-grad" x1="0" y1="0" x2="0" y2="100%">
-                                <stop offset="0%" style="stop-color: var(--deep-blue);" stop-opacity="0.4"></stop>
-                                <stop offset="100%" style="stop-color: var(--deep-blue);" stop-opacity="0"></stop>
-                            </linearGradient>
-                        </defs>
-                        <path d="M 0 350 L 200 150 L 400 80 L 600 200 L 800 280 L 1000 260 L 1000 350 L 0 350 Z" fill="url(#area-grad)"></path>
-                        <polyline points="0,350 200,150 400,80 600,200 800,280 1000,260" fill="none" stroke="var(--deep-blue)" stroke-width="4"></polyline>
-                        <text x="10" y="380" font-size="14">2022</text>
-                        <text x="210" y="380" font-size="14">2023 (Peak)</text>
-                        <text x="410" y="380" font-size="14">2024</text>
-                        <text x="610" y="380" font-size="14">2025</text>
-                        <text x="810" y="380" font-size="14">2026</text>
-                    </svg>
-                    <p style="text-align: center; font-style: italic; margin-top: 20px;">Source: PBS & SBP Data Deconstruction. Peak inflation reached ~38% in FY23.</p>
-                </div>
-            </div>
-
-            <div class="slide-container bleed-image-layout" id="slide4">
-                <div class="bleed-text-side">
-                    <h2 class="slide-title">Currency Pass-Through</h2>
-                    <p style="font-size: 20px;">The precipitous devaluation of the Rupee (PKR) against the USD remains the single largest driver of "Imported Inflation."</p>
-                    <p style="font-size: 18px; margin-top: 20px; color: #475569;">Every 1% drop in currency value leads to approximately 0.25% - 0.40% increase in domestic inflation over 6 months.</p>
-                </div>
-                <div class="image-container">
-                    <img class="bleed-image-side" src="http://googleusercontent.com/image_collection/image_retrieval/12496029160818640141" alt="Currency Trend">
-                </div>
-            </div>
-
-            <div class="slide-container" id="slide5">
-                <h2 class="slide-title">Primary Drivers of Price Hikes</h2>
-                <div class="content-area">
-                    <div class="tile-grid">
-                        <div class="tile">
-                            <div class="icon"><i class="fa-solid fa-bolt"></i></div>
-                            <h3>Energy</h3>
-                            <p>Tariff rationalization and fuel adjustment charges.</p>
-                        </div>
-                        <div class="tile">
-                            <div class="icon"><i class="fa-solid fa-wheat-awn"></i></div>
-                            <h3>Commodities</h3>
-                            <p>Global price volatility in oil, wheat, and pulses.</p>
-                        </div>
-                        <div class="tile">
-                            <div class="icon"><i class="fa-solid fa-building-columns"></i></div>
-                            <h3>Fiscal deficit</h3>
-                            <p>Bank borrowing to finance government spending.</p>
-                        </div>
+            <div class="card" data-category="grammar">
+                <div>
+                    <span class="card-tag tag-grammar">Vocabulary</span>
+                    <div class="card-header">
+                        <div class="card-icon icon-grammar"><i class="fa-solid fa-spell-check"></i></div>
+                        <div class="card-title">Competitive Exam Vocabulary</div>
                     </div>
+                    <p class="card-desc">High-frequency words, contextual usages, antonyms, and synonyms curated for CSS, PMS, and GRE tests.</p>
                 </div>
+                <a href="#" class="btn-action"><i class="fa-solid fa-list-check"></i> Open Word List</a>
             </div>
 
-            <div class="slide-container" id="slide6">
-                <h2 class="slide-title">Sectoral Inflation Comparison</h2>
-                <div class="content-area">
-                    <div style="display: flex; flex-direction: column; gap: 25px;">
-                        <div style="display: flex; align-items: center; gap: 20px;">
-                            <div style="width: 200px; font-weight: bold;">Food Items</div>
-                            <div style="flex-grow: 1; height: 40px; background: #eee; border-radius: 20px; overflow: hidden;">
-                                <div style="width: 45%; height: 100%; background: var(--deep-blue); display: flex; align-items: center; padding-left: 15px; color: white;">45% Avg</div>
-                            </div>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 20px;">
-                            <div style="width: 200px; font-weight: bold;">Utilities</div>
-                            <div style="flex-grow: 1; height: 40px; background: #eee; border-radius: 20px; overflow: hidden;">
-                                <div style="width: 32%; height: 100%; background: var(--accent-green); display: flex; align-items: center; padding-left: 15px; color: white;">32% Avg</div>
-                            </div>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 20px;">
-                            <div style="width: 200px; font-weight: bold;">Transport</div>
-                            <div style="flex-grow: 1; height: 40px; background: #eee; border-radius: 20px; overflow: hidden;">
-                                <div style="width: 28%; height: 100%; background: #64748b; display: flex; align-items: center; padding-left: 15px; color: white;">28% Avg</div>
-                            </div>
-                        </div>
+            <!-- Articles Section -->
+            <div class="card" data-category="article">
+                <div>
+                    <span class="card-tag tag-article">Analytical Essay</span>
+                    <div class="card-header">
+                        <div class="card-icon icon-article"><i class="fa-solid fa-newspaper"></i></div>
+                        <div class="card-title">Inflation & Economic Dynamics</div>
                     </div>
+                    <p class="card-desc">Comprehensive economic breakdown analyzing global trade, monetary policy, market trends, and currency behavior.</p>
                 </div>
+                <a href="#" class="btn-action"><i class="fa-solid fa-file-pdf"></i> Read Full Article</a>
             </div>
 
-            <div class="slide-container bleed-image-layout" id="slide7">
-                <div class="image-container">
-                    <img class="bleed-image-side" src="http://googleusercontent.com/image_collection/image_retrieval/3634280822636406432" alt="Power Grid">
-                </div>
-                <div class="bleed-text-side">
-                    <h2 class="slide-title">The Energy Debt Cycle</h2>
-                    <p>Circular debt in the power sector necessitates periodic tariff hikes to fulfill IMF conditionalities.</p>
-                    <ul style="margin-top: 15px; font-size: 18px; color: #475569;">
-                        <li>High line losses (T&D).</li>
-                        <li>Capacity payments to IPPs.</li>
-                        <li>Escalating Fuel Price Adjustments (FPA).</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="slide-container" id="slide8">
-                <h2 class="slide-title">Key Economic Indicators</h2>
-                <div class="content-area">
-                    <div class="table-layout">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Indicator</th>
-                                    <th>FY 2023-24</th>
-                                    <th>FY 2024-25 (Projected)</th>
-                                    <th>Stability Target</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Real GDP Growth</td>
-                                    <td>~2.4%</td>
-                                    <td>~3.5%</td>
-                                    <td>> 5.0%</td>
-                                </tr>
-                                <tr>
-                                    <td>Average Inflation</td>
-                                    <td>23.5%</td>
-                                    <td>12-15%</td>
-                                    <td>5 - 7%</td>
-                                </tr>
-                                <tr>
-                                    <td>Policy Rate</td>
-                                    <td>22%</td>
-                                    <td>16-18%</td>
-                                    <td>Single Digit</td>
-                                </tr>
-                                <tr>
-                                    <td>Current Account</td>
-                                    <td>Deficit</td>
-                                    <td>Narrowing</td>
-                                    <td>Surplus / Balanced</td>
-                                </tr>
-                            </tbody>
-                        </table>
+            <div class="card" data-category="article">
+                <div>
+                    <span class="card-tag tag-article">Literature</span>
+                    <div class="card-header">
+                        <div class="card-icon icon-article"><i class="fa-solid fa-book-journal-whills"></i></div>
+                        <div class="card-title">OmniRead 3-Volume Series</div>
                     </div>
+                    <p class="card-desc">Explore curated digital volumes covering philosophy, governance structures, and historical evolution.</p>
                 </div>
+                <a href="#" class="btn-action"><i class="fa-solid fa-layer-group"></i> Access Volumes</a>
             </div>
 
-            <div class="slide-container" id="slide9">
-                <h2 class="slide-title">Purchasing Power Erosion</h2>
-                <div class="content-area">
-                    <div class="two-column" style="grid-template-columns: 40% 60%;">
-                        <div style="text-align: center;">
-                            <div class="highlight-number">-35%</div>
-                            <div class="highlight-label">Real Wage Decline</div>
-                        </div>
-                        <div>
-                            <h3>Social Impact Analysis</h3>
-                            <p style="font-size: 20px;">The disproportionate impact of inflation on fixed-income households has pushed an additional ~5-8 million people into the poverty trap in the last 24 months.</p>
-                        </div>
+            <!-- Universal Knowledge Section -->
+            <div class="card" data-category="knowledge">
+                <div>
+                    <span class="card-tag tag-knowledge">Computer & AI</span>
+                    <div class="card-header">
+                        <div class="card-icon icon-knowledge"><i class="fa-solid fa-microchip"></i></div>
+                        <div class="card-title">Computer Systems & Networking</div>
                     </div>
+                    <p class="card-desc">Guides covering operating system routines, command-line shortcuts, database design, and network protocols.</p>
                 </div>
+                <a href="#" class="btn-action"><i class="fa-solid fa-code"></i> Explore Tech Notes</a>
             </div>
 
-            <div class="slide-container" id="slide10">
-                <h2 class="slide-title">Strategic Policy Interventions</h2>
-                <div class="content-area">
-                    <div class="tile-grid">
-                        <div class="tile">
-                            <h3>Fiscal Discipline</h3>
-                            <p>Reducing circular debt and widening the tax base through digitalization.</p>
-                        </div>
-                        <div class="tile">
-                            <h3>Agri-Reform</h3>
-                            <p>Improving yield through climate-smart farming and supply chain efficiency.</p>
-                        </div>
-                        <div class="tile">
-                            <h3>Export Push</h3>
-                            <p>Value-added manufacturing to stabilize the current account deficit.</p>
-                        </div>
+            <div class="card" data-category="knowledge">
+                <div>
+                    <span class="card-tag tag-knowledge">General Science</span>
+                    <div class="card-header">
+                        <div class="card-icon icon-knowledge"><i class="fa-solid fa-globe"></i></div>
+                        <div class="card-title">Universal Science & Physics</div>
                     </div>
+                    <p class="card-desc">Core concepts in physical sciences, environmental changes, space exploration, and human discovery.</p>
                 </div>
-            </div>
-
-            <div class="slide-container" id="slide11">
-                <div class="section-title-layout">
-                    <h2 style="font-size: 50px;">The Path to Recovery</h2>
-                    <hr>
-                    <p style="font-size: 24px; padding: 0 100px;">Structural transformation, not just short-term stabilization, is required to break the cycle of inflation and debt.</p>
-                </div>
-            </div>
-
-            <div class="slide-container" id="slide12">
-                <div class="section-title-layout">
-                    <h2>Questions?</h2>
-                    <p style="margin-top: 20px;">Thank you for your academic interest in Pakistan's economic stability.</p>
-                    <p style="font-family: 'Azeret Mono', monospace; margin-top: 40px; font-size: 16px;">OmniRead Economic Research Division | Ali Abbas Repository</p>
-                </div>
+                <a href="#" class="btn-action"><i class="fa-solid fa-atom"></i> Discover Science</a>
             </div>
 
         </div>
-    </div>
+    </main>
 
     <footer>
-        <p>&copy; 2026 OmniRead Master Update — Developed for Ali Abbas Repository.</p>
+        <p>&copy; 2026 OmniRead Master Knowledge Hub. All Rights Reserved.</p>
     </footer>
 
     <script>
-        function showSection(id) {
-            document.querySelectorAll('.section-container').forEach(sec => sec.classList.remove('active'));
-            document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
-            document.getElementById('nav-' + id).classList.add('active');
-            window.scrollTo(0, 0);
+        // Live Search Filtering
+        function filterCards() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.getElementsByClassName('card');
+
+            for (let i = 0; i < cards.length; i++) {
+                let title = cards[i].querySelector('.card-title').innerText.toLowerCase();
+                let desc = cards[i].querySelector('.card-desc').innerText.toLowerCase();
+                
+                if (title.includes(input) || desc.includes(input)) {
+                    cards[i].style.display = "flex";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
         }
 
-        document.getElementById('nav-library').classList.add('active');
-    </script>
+        // Category Button Filtering
+        function filterCategory(category) {
+            let cards = document.getElementsByClassName('card');
+            let buttons = document.getElementsByClassName('cat-btn');
 
+            for (let btn of buttons) {
+                btn.classList.remove('active');
+            }
+            event.target.classList.add('active');
+
+            for (let card of cards) {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = "flex";
+                } else {
+                    card.style.display = "none";
+                }
+            }
+        }
+    </script>
 </body>
 </html>
