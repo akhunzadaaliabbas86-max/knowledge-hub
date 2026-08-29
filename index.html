@@ -3,30 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="OmniRead Editorial Analysis - Economic Resilience, Governance Dynamics, Language Acquisition Protocols, and CSS/PMS Competitive Exam Material.">
-    <title>OmniRead | Strategic Editorial Analysis & Lexical Foundations</title>
-    
+    <meta name="description" content="OmniRead Platform - Unified Typing Ecosystem, Daily Editorial Analysis, Exam Vocab, and Practice Hub.">
+    <title>OmniRead | Master Learning & Typing Platform</title>
+
+    <!-- Google Fonts & FontAwesome Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
         :root {
-            --bg-main: #0b0f19;
-            --surface-card: #111827;
-            --surface-hover: #1f2937;
-            --border-line: #374151;
+            --bg-main: #070a12;
+            --card-bg: #0f172a;
+            --card-hover: #1e293b;
+            --border-line: #1e293b;
             --accent-cyan: #06b6d4;
             --accent-indigo: #6366f1;
             --accent-emerald: #10b981;
             --accent-amber: #f59e0b;
-            --text-primary: #f9fafb;
-            --text-secondary: #9ca3af;
-            --text-muted: #6b7280;
-            --font-serif: 'Merriweather', serif;
+            --accent-rose: #f43f5e;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
             --font-sans: 'Inter', sans-serif;
+            --font-serif: 'Merriweather', serif;
             --font-code: 'Fira Code', monospace;
+            --font-urdu: 'Noto Nastaliq Urdu', serif;
         }
 
         * {
@@ -37,545 +39,533 @@
 
         body {
             background-color: var(--bg-main);
-            color: var(--text-primary);
+            color: var(--text-main);
             font-family: var(--font-sans);
-            line-height: 1.8;
+            line-height: 1.7;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
+        /* HEADER & NAVIGATION */
         header {
-            background: linear-gradient(135deg, #1e1b4b 0%, #0b0f19 100%);
-            padding: 4rem 2rem 3rem;
-            text-align: center;
+            background: linear-gradient(135deg, #0f172a 0%, #070a12 100%);
             border-bottom: 1px solid var(--border-line);
+            padding: 2rem 1.5rem 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        .header-tag {
+        .brand-badge {
             display: inline-block;
-            background: rgba(6, 182, 212, 0.15);
-            border: 1px solid var(--accent-cyan);
-            color: var(--accent-cyan);
-            padding: 0.3rem 0.8rem;
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid var(--accent-indigo);
+            color: var(--accent-indigo);
+            padding: 0.25rem 0.75rem;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 700;
             letter-spacing: 1px;
             text-transform: uppercase;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
-        h1.main-title {
-            font-size: 2.8rem;
+        h1.site-logo {
+            font-size: 2.2rem;
             font-weight: 800;
-            background: linear-gradient(to right, var(--accent-cyan), var(--accent-indigo));
+            background: linear-gradient(to right, var(--accent-cyan), var(--accent-indigo), var(--accent-emerald));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 1rem;
-            line-height: 1.2;
         }
 
-        .meta-line {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
+        /* NAVIGATION TABS */
+        nav.nav-tabs {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 0.8rem;
             flex-wrap: wrap;
+            margin-top: 1rem;
         }
 
-        main {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-        }
-
-        .editorial-container {
-            background: var(--surface-card);
+        .nav-btn {
+            background: var(--card-bg);
             border: 1px solid var(--border-line);
-            border-radius: 16px;
-            padding: 3rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+            color: var(--text-muted);
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .slogan-box {
-            border-left: 4px solid var(--accent-cyan);
-            background: rgba(6, 182, 212, 0.08);
-            padding: 1.2rem 1.5rem;
-            margin: 2rem 0;
+        .nav-btn:hover, .nav-btn.active {
+            background: var(--accent-indigo);
+            color: #ffffff;
+            border-color: var(--accent-indigo);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        /* MAIN CONTENT AREA */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            width: 100%;
+        }
+
+        .content-box {
+            display: none; /* Toggled via JS */
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .content-box.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* SECTION TITLES */
+        .box-header {
+            border-bottom: 2px solid var(--border-line);
+            padding-bottom: 0.8rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .box-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .box-title i { color: var(--accent-cyan); }
+
+        /* GRID SUITES */
+        .grid-suite {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-line);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(6, 182, 212, 0.12);
+        }
+
+        .card-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 8px;
+            background: rgba(6, 182, 212, 0.1);
+            color: var(--accent-cyan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
             font-size: 1.15rem;
             font-weight: 700;
-            color: var(--accent-cyan);
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
+            margin-bottom: 0.5rem;
         }
 
-        .article-body p {
+        .card-desc {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 1.2rem;
+        }
+
+        .btn-action {
+            width: 100%;
+            padding: 0.7rem;
+            border-radius: 6px;
+            background: linear-gradient(135deg, var(--accent-indigo), var(--accent-cyan));
+            color: #fff;
+            border: none;
+            font-weight: 600;
+            font-size: 0.88rem;
+            cursor: pointer;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        /* TYPING ENGINE DISPLAY BOX */
+        .typing-display {
+            background: #020617;
+            border: 1px solid var(--border-line);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid var(--accent-amber);
+            color: var(--accent-amber);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .timer-big {
+            font-family: var(--font-code);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            margin: 1rem 0;
+        }
+
+        /* EDITORIAL & VOCABULARY STYLES */
+        .editorial-text p {
             font-family: var(--font-serif);
-            font-size: 1.1rem;
-            color: #d1d5db;
-            margin-bottom: 1.8rem;
+            font-size: 1.05rem;
+            color: #cbd5e1;
+            margin-bottom: 1.5rem;
             text-align: justify;
         }
 
-        .article-body p strong {
-            color: var(--text-primary);
-            font-family: var(--font-sans);
-        }
-
-        .feature-image-frame {
-            width: 100%;
-            height: 380px;
-            border-radius: 12px;
-            overflow: hidden;
-            margin: 2rem 0;
-            border: 1px solid var(--border-line);
-            position: relative;
-        }
-
-        .feature-image-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .image-caption {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            text-align: center;
-            margin-top: -1.5rem;
-            margin-bottom: 2rem;
-            font-style: italic;
-        }
-
-        .section-header {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: var(--text-primary);
-            margin: 3rem 0 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--border-line);
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-
-        .section-header i {
-            color: var(--accent-indigo);
-        }
-
-        .vocab-card {
-            background: var(--surface-hover);
+        .vocab-box {
+            background: var(--card-hover);
             border-left: 4px solid var(--accent-amber);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
+            padding: 1.2rem;
+            border-radius: 6px;
+            margin-bottom: 1.2rem;
         }
 
         .vocab-word {
-            font-size: 1.3rem;
             font-weight: 700;
             color: var(--accent-amber);
-            margin-bottom: 0.3rem;
+            font-size: 1.1rem;
         }
 
-        .vocab-def {
-            font-size: 1rem;
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-            font-style: italic;
-        }
-
-        .sentence-list {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .sentence-list li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        .sentence-list li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--accent-amber);
-            font-weight: bold;
-        }
-
-        .tips-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.2rem;
-            margin-top: 1.5rem;
-        }
-
-        .tip-box {
-            background: var(--surface-card);
-            border: 1px solid var(--border-line);
-            border-radius: 10px;
-            padding: 1.2rem;
-            transition: border-color 0.3s;
-        }
-
-        .tip-box:hover {
-            border-color: var(--accent-emerald);
-        }
-
-        .tip-number {
-            font-size: 0.85rem;
-            font-weight: 800;
-            color: var(--accent-emerald);
-            text-transform: uppercase;
-            margin-bottom: 0.4rem;
-        }
-
-        .tip-title {
-            font-size: 1.05rem;
-            font-weight: 700;
-            margin-bottom: 0.4rem;
-        }
-
-        .tip-desc {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
-
-        .exam-table {
+        /* TABLES */
+        .data-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 1.5rem;
-            background: var(--surface-card);
-            border-radius: 10px;
+            background: var(--card-bg);
+            border-radius: 8px;
             overflow: hidden;
             border: 1px solid var(--border-line);
         }
 
-        .exam-table th, .exam-table td {
-            padding: 1rem 1.2rem;
+        .data-table th, .data-table td {
+            padding: 0.9rem 1.1rem;
             text-align: left;
             border-bottom: 1px solid var(--border-line);
+            font-size: 0.9rem;
         }
 
-        .exam-table th {
-            background: #1f2937;
+        .data-table th {
+            background: #1e293b;
             color: var(--accent-cyan);
             font-weight: 700;
-            font-size: 0.95rem;
-            text-transform: uppercase;
         }
 
-        .exam-table td {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-        }
-
-        .exam-table td.term {
-            font-weight: 700;
-            color: var(--text-primary);
-            width: 30%;
-        }
-
-        .external-links {
-            background: var(--surface-card);
-            border: 1px solid var(--border-line);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .links-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .links-list li {
-            margin-bottom: 0.8rem;
-        }
-
-        .links-list a {
-            color: var(--accent-cyan);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: color 0.2s;
-        }
-
-        .links-list a:hover {
-            color: var(--accent-indigo);
-            text-decoration: underline;
-        }
-
+        /* FOOTER */
         footer {
             border-top: 1px solid var(--border-line);
-            padding: 2.5rem 2rem;
+            padding: 2rem;
             text-align: center;
+            font-size: 0.85rem;
             color: var(--text-muted);
-            font-size: 0.9rem;
-            background: #070a12;
+            background: #05070e;
             margin-top: 4rem;
         }
 
-        footer strong {
-            color: var(--text-primary);
-        }
+        footer strong { color: var(--text-main); }
     </style>
 </head>
 <body>
 
+    <!-- SITE HEADER & NAVIGATION -->
     <header>
-        <div class="header-tag">OmniRead Executive Publication</div>
-        <h1 class="main-title">Navigating Macroeconomic Volatility & Governance Imperatives</h1>
-        <div class="meta-line">
-            <span><i class="fa-regular fa-calendar"></i> August 29, 2026</span>
-            <span><i class="fa-regular fa-pen-to-square"></i> Editorial Board Analysis</span>
-            <span><i class="fa-regular fa-clock"></i> 8 Min Read</span>
-        </div>
+        <div class="brand-badge">Made by Ali's Company</div>
+        <h1 class="site-logo">OmniRead Master Platform</h1>
+        
+        <nav class="nav-tabs">
+            <button class="nav-btn active" onclick="switchBox('box-typing')"><i class="fa-solid fa-keyboard"></i> Typing Suites</button>
+            <button class="nav-btn" onclick="switchBox('box-categories')"><i class="fa-solid fa-list-check"></i> 10 Practice Categories</button>
+            <button class="nav-btn" onclick="switchBox('box-editorial')"><i class="fa-solid fa-newspaper"></i> Article of the Day</button>
+            <button class="nav-btn" onclick="switchBox('box-exam')"><i class="fa-solid fa-graduation-cap"></i> CSS/PMS Exam Prep</button>
+            <button class="nav-btn" onclick="switchBox('box-guides')"><i class="fa-solid fa-book"></i> Layout & Font Guides</button>
+        </nav>
     </header>
 
     <main>
-        <article class="editorial-container">
-            
-            <div class="slogan-box">
-                Austerity Without Structural Reform Is Merely Delayed Insolvency.
+
+        <!-- ================================================================= -->
+        <!-- CATEGORY BOX 1: 5-IN-1 TYPING SUITES                             -->
+        <!-- EDIT/UPDATE/DELETE TYPING ENGINE OPTIONS HERE                    -->
+        <!-- ================================================================= -->
+        <section id="box-typing" class="content-box active">
+            <div class="box-header">
+                <div class="box-title"><i class="fa-solid fa-keyboard"></i> 5 Integrated Typing Engines</div>
             </div>
 
-            <div class="feature-image-frame">
-                <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=1200&q=80" alt="Economic Analysis and Global Finance Charts">
-            </div>
-            <div class="image-caption">Fiscal trajectory indicators detailing systemic debt restructuring and trade balance adjustments.</div>
-
-            <div class="article-body">
-                <p>The imperative for deep-seated fiscal recalibration across emerging markets has reached a critical turning point. As persistent inflationary pressures continue to erode purchasing power, national policymakers find themselves backed into a corner. Traditional stopgap measures no longer yield stability. While external revenue streams show marginal stabilization, underlying structural deficits remain unaddressed. Can short-term liquidity injections rescue a fragile economy without fundamentally altering its productivity foundation? The clear answer is no.</p>
-
-                <p>To weather the impending financial storm, executive leadership must clamp down on unbudgeted expenditures and phase out regressive energy subsidies immediately. Do not delay these necessary policy shifts any longer. The government faced an unavoidable ultimatum last quarter, yet administrative hesitation compounded market distress. If institutional reforms are deferred once again, international creditors will inevitably tighten borrowing conditions, thereby driving domestic interest rates to unprecedented peaks.</p>
-
-                <p>Despite these daunting challenges, economic recovery is not an impossible dream. By streamlining bureaucratic procedures, expanding the direct tax net, and fostering high-value agricultural exports, state institutions can successfully chart a path toward long-term sovereign resilience. Sustained fiscal discipline demands unwavering political resolve, rigorous oversight, and systemic transparency.</p>
+            <!-- Interactive Standby & Timer Screen -->
+            <div class="typing-display">
+                <div class="status-badge">GET READY! YOUR COUNTDOWN HAS STARTED</div>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">PRESS ANY KEY TO START TYPING</p>
+                <div class="timer-big">02:00</div>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Available Timers: <strong>2 Min (Free)</strong> | <strong>5 Min (Free)</strong> | <strong>10 Min (Requires Coupon)</strong></p>
             </div>
 
-            <!-- SECTION: ADVANCED LEXICON -->
-            <div class="section-header">
-                <i class="fa-solid fa-book-bookmark"></i> Contextual Vocabulary Analysis
-            </div>
-
-            <div class="vocab-card">
-                <div class="vocab-word">1. Imperative (Noun / Adjective)</div>
-                <div class="vocab-def">Definition: An essential duty or urgent priority; impossible to deter or ignore.</div>
-                <ul class="sentence-list">
-                    <li>Executing comprehensive tax reforms has become an urgent national imperative.</li>
-                    <li>Maintaining fiscal discipline remains the primary imperative for central bank administrators.</li>
-                    <li>In times of liquidity crises, securing external financing is an immediate operational imperative.</li>
-                    <li>Addressing youth unemployment must be treated as a strategic social imperative.</li>
-                    <li>The diplomatic envoy felt a moral imperative to address human rights concerns during negotiations.</li>
-                </ul>
-            </div>
-
-            <div class="vocab-card">
-                <div class="vocab-word">2. Recalibration (Noun)</div>
-                <div class="vocab-def">Definition: The act of adjusting, fine-tuning, or altering a plan, system, or policy in response to changing conditions.</div>
-                <ul class="sentence-list">
-                    <li>The Ministry of Finance ordered an immediate recalibration of current expenditure budgets.</li>
-                    <li>Geopolitical shifts require a thorough recalibration of regional trade alliances.</li>
-                    <li>A precise recalibration of monetary policy helped stabilize fluctuating exchange rates.</li>
-                    <li>Institutional survival depends on the constant recalibration of operational strategies.</li>
-                    <li>The committee suggested a radical recalibration of public sector wage structures.</li>
-                </ul>
-            </div>
-
-            <div class="vocab-card">
-                <div class="vocab-word">3. Regressive (Adjective)</div>
-                <div class="vocab-def">Definition: Returning to a less developed state; an economic structure taking a proportionally larger amount from lower earners.</div>
-                <ul class="sentence-list">
-                    <li>Indirect taxes often impose a regressive burden on low-income households.</li>
-                    <li>Economists argued that uniform fuel surcharges created a highly regressive financial impact.</li>
-                    <li>Reverting to legacy trade barriers would represent a regressive step for global integration.</li>
-                    <li>Critics condemned the policy as a regressive measure that harms social mobility.</li>
-                    <li>Without targeted safety nets, broad consumption taxes remain inherently regressive.</li>
-                </ul>
-            </div>
-
-            <div class="vocab-card">
-                <div class="vocab-word">4. Defer (Verb)</div>
-                <div class="vocab-def">Definition: To delay, postpone, or yield respectfully to another authority's judgment.</div>
-                <ul class="sentence-list">
-                    <li>State officials decided to defer non-essential infrastructure investments until next fiscal year.</li>
-                    <li>It is hazardous to defer critical structural adjustments during periods of mounting debt.</li>
-                    <li>The board agreed to defer final approval of the trade policy pending further audit reports.</li>
-                    <li>Junior analysts frequently defer to the senior consultant on complex statistical evaluations.</li>
-                    <li>Do not defer necessary healthcare spending, as long-term costs will inevitably rise.</li>
-                </ul>
-            </div>
-
-            <div class="vocab-card">
-                <div class="vocab-word">5. Resilience (Noun)</div>
-                <div class="vocab-def">Definition: The capacity to absorb shocks, recover quickly from adversity, and maintain core operational continuity.</div>
-                <ul class="sentence-list">
-                    <li>Diversifying export commodities builds systemic resilience against global market shocks.</li>
-                    <li>The local agricultural sector demonstrated remarkable resilience during severe drought conditions.</li>
-                    <li>Building institutional resilience requires transparent governance and robust risk mitigation.</li>
-                    <li>Sovereign debt resilience depends directly on consistent foreign exchange reserve accumulation.</li>
-                    <li>Community resilience increases when public infrastructure receives regular maintenance funding.</li>
-                </ul>
-            </div>
-
-            <!-- SECTION: 10 TIPS FOR VOCABULARY MASTERY -->
-            <div class="section-header">
-                <i class="fa-solid fa-graduation-cap"></i> 10 Strategic Vocabulary Acquisition Protocols
-            </div>
-
-            <div class="tips-grid">
-                <div class="tip-box">
-                    <div class="tip-number">Protocol 01</div>
-                    <div class="tip-title">Contextual Reading</div>
-                    <div class="tip-desc">Read high-density editorials daily to observe advanced words functioning inside complex sentences rather than isolated lists.</div>
+            <div class="grid-suite">
+                <!-- Suite 1 -->
+                <div class="card">
+                    <div>
+                        <div class="card-icon"><i class="fa-solid fa-font"></i></div>
+                        <div class="card-title">1. Limitless English Typewriter</div>
+                        <p class="card-desc">Unlock progressive boxes by achieving high speed, net WPM, and precision accuracy targets.</p>
+                    </div>
+                    <button class="btn-action" onclick="alert('Launching English Typewriter Engine...')"><i class="fa-solid fa-play"></i> Launch Engine</button>
                 </div>
-                <div class="tip-box">
-                    <div class="tip-number">Protocol 02</div>
-                    <div class="tip-title">Root Etymology</div>
-                    <div class="tip-desc">Master Latin and Greek prefixes, roots, and suffixes to systematically decode unfamiliar technical terms on sight.</div>
+
+                <!-- Suite 2 -->
+                <div class="card">
+                    <div>
+                        <div class="card-icon"><i class="fa-solid fa-language"></i></div>
+                        <div class="card-title">2. Limitless Urdu Typewriter</div>
+                        <p class="card-desc">Native phonetic keyboard engine with unlockable character stages and real-time accuracy tracking.</p>
+                    </div>
+                    <button class="btn-action" onclick="alert('Launching Urdu Typewriter Engine...')"><i class="fa-solid fa-play"></i> Launch Engine</button>
                 </div>
-                <div class="tip-box">
-                    <div class="tip-number">Protocol 03</div>
-                    <div class="tip-title">Active Output Integration</div>
-                    <div class="tip-desc">Write three original contextual sentences immediately after acquiring any new word to lock it into long-term memory.</div>
+
+                <!-- Suite 3 -->
+                <div class="card">
+                    <div>
+                        <div class="card-icon"><i class="fa-solid fa-shuffle"></i></div>
+                        <div class="card-title">3. Universal Symbol Randomizer</div>
+                        <p class="card-desc">High-difficulty paragraphs featuring complex shift keys, capitalizations, numbers, and symbols.</p>
+                    </div>
+                    <button class="btn-action" onclick="alert('Launching Randomizer Engine...')"><i class="fa-solid fa-play"></i> Launch Engine</button>
                 </div>
-                <div class="tip-box">
-                    <div class="tip-number">Protocol 04</div>
-                    <div class="tip-title">Spaced Repetition</div>
-                    <div class="tip-desc">Utilize digital flashcards across expanding time intervals (1 day, 3 days, 7 days, 30 days) to prevent memory decay.</div>
+
+                <!-- Suite 4 -->
+                <div class="card">
+                    <div>
+                        <div class="card-icon"><i class="fa-solid fa-download"></i></div>
+                        <div class="card-title">4. Offline Download Hub</div>
+                        <p class="card-desc">Download full game packages to play offline on your computer without an active internet connection.</p>
+                    </div>
+                    <button class="btn-action" onclick="alert('Downloading Offline Package...')"><i class="fa-solid fa-download"></i> Download Package</button>
                 </div>
-                <div class="tip-box">
-                    <div class="tip-number">Protocol 05</div>
-                    <div class="tip-title">Thematic Clustering</div>
-                    <div class="tip-desc">Group vocabulary by domain (e.g., Economics, Diplomacy, Jurisprudence) instead of memorizing alphabetical dictionaries.</div>
-                </div>
-                <div class="tip-box">
-                    <div class="tip-number">Protocol 06</div>
-                    <div class="tip-title">Precision Nuance Analysis</div>
-                    <div class="tip-desc">Compare close synonyms to understand tone variations, formal constraints, and exact academic applications.</div>
-                </div>
-                <div class="tip-box">
-                    <div class="tip-number">Protocol 07</div>
-                    <div class="tip-title">Collocation Mapping</div>
-                    <div class="tip-desc">Learn words along with their natural prepositional partners (e.g., "comply with", "conducive to", "tantamount to").</div>
-                </div>
-                <div class="tip-box">
-                    <div class="tip-number">Protocol 08</div>
-                    <div class="tip-title">Precise Editorial Journaling</div>
-                    <div class="tip-desc">Summarize complex news articles in under 100 words while explicitly forcing yourself to incorporate 5 newly learned terms.</div>
-                </div>
-                <div class="tip-box">
-                    <div class="tip-number">Protocol 09</div>
-                    <div class="tip-title">Auditory Reinforcement</div>
-                    <div class="tip-desc">Listen to international policy podcasts and record native speaker pronunciations and cadence choices.</div>
-                </div>
-                <div class="tip-box">
-                    <div class="tip-number">Protocol 10</div>
-                    <div class="tip-title">Continuous Self-Testing</div>
-                    <div class="tip-desc">Complete daily fill-in-the-blank and sentence completion drills past paper archives to verify recall under timed conditions.</div>
+
+                <!-- Suite 5 -->
+                <div class="card">
+                    <div>
+                        <div class="card-icon"><i class="fa-solid fa-trophy"></i></div>
+                        <div class="card-title">5. Competitive Online Arena</div>
+                        <p class="card-desc">Compete live against typists worldwide with anti-cheat protection and real-time multiplayer scoreboards.</p>
+                    </div>
+                    <button class="btn-action" onclick="alert('Connecting to Multiplayer Arena...')"><i class="fa-solid fa-globe"></i> Enter Arena</button>
                 </div>
             </div>
+        </section>
 
-            <!-- SECTION: CSS/PMS PAST PAPERS HIGH-FREQUENCY REPEATED MATERIAL -->
-            <div class="section-header">
-                <i class="fa-solid fa-award"></i> CSS & PMS Exam Material (High-Frequency 3-Year Focus)
+        <!-- ================================================================= -->
+        <!-- CATEGORY BOX 2: 10 SEPARATE PRACTICE CATEGORIES                  -->
+        <!-- EDIT/UPDATE/DELETE PRACTICE CATEGORIES HERE                      -->
+        <!-- ================================================================= -->
+        <section id="box-categories" class="content-box">
+            <div class="box-header">
+                <div class="box-title"><i class="fa-solid fa-list-check"></i> 10 Practice Categories (English & Urdu)</div>
             </div>
 
-            <h3 style="color: var(--accent-cyan); margin-top: 1.5rem;">Most Repeated One-Word Substitutions</h3>
-            <table class="exam-table">
+            <div class="grid-suite">
+                <div class="card"><div class="card-title">1. Home Row Mastery</div><p class="card-desc">Focus on core finger positioning and baseline keys.</p></div>
+                <div class="card"><div class="card-title">2. Top & Bottom Row Navigation</div><p class="card-desc">Practice vertical finger movement precision.</p></div>
+                <div class="card"><div class="card-title">3. Number & Symbol Integration</div><p class="card-desc">Master the top numeric row and special symbols.</p></div>
+                <div class="card"><div class="card-title">4. Capitalization & Shift Syncing</div><p class="card-desc">Improve shift key timing and uppercase speed.</p></div>
+                <div class="card"><div class="card-title">5. Speed Sprinting (Common Words)</div><p class="card-desc">Build muscle memory for the top 100 frequent words.</p></div>
+                <div class="card"><div class="card-title">6. High-Frequency Vocabulary</div><p class="card-desc">Practice complex multi-syllable terms.</p></div>
+                <div class="card"><div class="card-title">7. Complex Punctuation & Quotes</div><p class="card-desc">Master quotes, brackets, and full stops.</p></div>
+                <div class="card"><div class="card-title">8. Code & Syntax Typing</div><p class="card-desc">Practice HTML, Python, and C++ symbol routines.</p></div>
+                <div class="card"><div class="card-title">9. Literature & Historical Texts</div><p class="card-desc">Type long formal paragraphs and articles.</p></div>
+                <div class="card"><div class="card-title">10. Endurance Stress Testing</div><p class="card-desc">High-speed long-duration typing drills.</p></div>
+            </div>
+
+            <div style="margin-top: 2.5rem; background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-line);">
+                <h3 style="color: var(--accent-emerald); margin-bottom: 0.5rem;"><i class="fa-solid fa-calendar-check"></i> Learning Roadmap Selection</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Select your preferred timeframe to become a fully practical typist:</p>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button class="btn-action" style="width: auto; padding: 0.6rem 1.5rem;" onclick="alert('20 Days Sprint Plan Selected!')">20 Days Sprint Plan</button>
+                    <button class="btn-action" style="width: auto; padding: 0.6rem 1.5rem;" onclick="alert('30 Days Standard Mastery Selected!')">30 Days Standard Plan</button>
+                    <button class="btn-action" style="width: auto; padding: 0.6rem 1.5rem;" onclick="alert('40 Days Elite Pro Plan Selected!')">40 Days Elite Plan</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================================= -->
+        <!-- CATEGORY BOX 3: ARTICLE OF THE DAY                               -->
+        <!-- EDIT/UPDATE/DELETE DAILY EDITORIAL ARTICLES HERE                 -->
+        <!-- ================================================================= -->
+        <section id="box-editorial" class="content-box">
+            <div class="box-header">
+                <div class="box-title"><i class="fa-solid fa-newspaper"></i> Editorial Analysis & Vocabulary</div>
+            </div>
+
+            <div style="background: var(--card-bg); border: 1px solid var(--border-line); border-radius: 12px; padding: 2rem;" class="editorial-text">
+                <h2 style="color: var(--accent-cyan); margin-bottom: 0.5rem;">Navigating Macroeconomic Volatility & Governance Imperatives</h2>
+                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem;">Published by Editorial Board &bull; 8 Min Read</p>
+
+                <p>The imperative for deep-seated fiscal recalibration across emerging markets has reached a critical turning point. As persistent inflationary pressures continue to erode purchasing power, national policymakers find themselves backed into a corner. Traditional stopgap measures no longer yield stability. While external revenue streams show marginal stabilization, underlying structural deficits remain unaddressed. Can short-term liquidity injections rescue a fragile economy without fundamentally altering its productivity foundation?</p>
+
+                <p>To weather the impending financial storm, executive leadership must clamp down on unbudgeted expenditures and phase out regressive subsidies immediately. Do not delay these necessary policy shifts any longer. If institutional reforms are deferred once again, international creditors will inevitably tighten borrowing conditions, thereby driving domestic interest rates to unprecedented peaks.</p>
+
+                <h3 style="color: var(--accent-amber); margin: 2rem 0 1rem;">Contextual Vocabulary & Meanings</h3>
+                
+                <div class="vocab-box">
+                    <div class="vocab-word">1. Imperative</div>
+                    <p style="color: var(--text-main); font-size: 0.9rem; margin-bottom: 0.5rem;">Definition: An essential duty or urgent priority; impossible to ignore.</p>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">• Example: Strengthening revenue collection is an immediate national imperative.</p>
+                </div>
+
+                <div class="vocab-box">
+                    <div class="vocab-word">2. Recalibration</div>
+                    <p style="color: var(--text-main); font-size: 0.9rem; margin-bottom: 0.5rem;">Definition: The act of adjusting or fine-tuning a plan or policy in response to changing conditions.</p>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">• Example: The central bank ordered an immediate recalibration of monetary policy.</p>
+                </div>
+
+                <div class="vocab-box">
+                    <div class="vocab-word">3. Resilience</div>
+                    <p style="color: var(--text-main); font-size: 0.9rem; margin-bottom: 0.5rem;">Definition: The capacity to recover quickly from difficulties; toughness.</p>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">• Example: Export diversification builds long-term economic resilience.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================================= -->
+        <!-- CATEGORY BOX 4: CSS & PMS EXAM PREPARATION MATERIAL              -->
+        <!-- EDIT/UPDATE/DELETE EXAM VOCABULARY AND IDIOMS HERE               -->
+        <!-- ================================================================= -->
+        <section id="box-exam" class="content-box">
+            <div class="box-header">
+                <div class="box-title"><i class="fa-solid fa-graduation-cap"></i> CSS & PMS Exam High-Frequency Material</div>
+            </div>
+
+            <h3 style="color: var(--accent-cyan); margin-bottom: 1rem;">Most Repeated One-Word Substitutions (3-Year Frequency)</h3>
+            <table class="data-table" style="margin-bottom: 2rem;">
                 <thead>
                     <tr>
                         <th>Term</th>
-                        <th>Exam Meaning & Explanation</th>
+                        <th>Exam Meaning & Definition</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="term">Iconoclast</td>
-                        <td>A person who actively attacks or rejects cherished beliefs, traditional institutions, or established values.</td>
-                    </tr>
-                    <tr>
-                        <td class="term">Ephemeral</td>
-                        <td>Lasting for a very brief, transitory period; fleeting and non-permanent.</td>
-                    </tr>
-                    <tr>
-                        <td class="term">Perfunctory</td>
-                        <td>Carried out with minimum effort, care, or interest; done strictly as a routine duty.</td>
-                    </tr>
-                    <tr>
-                        <td class="term">Ubiquitous</td>
-                        <td>Present, appearing, or found everywhere at the same time; omnipresent.</td>
-                    </tr>
-                    <tr>
-                        <td class="term">Sycophant</td>
-                        <td>A person who acts obsequiously toward someone important to gain a personal or financial advantage.</td>
-                    </tr>
-                    <tr>
-                        <td class="term">Veracity</td>
-                        <td>Conformity to facts, accuracy, and habitual adherence to truthfulness.</td>
-                    </tr>
+                    <tr><td style="font-weight: 700; color: var(--accent-amber);">Iconoclast</td><td>A person who attacks or rejects traditional beliefs and established institutions.</td></tr>
+                    <tr><td style="font-weight: 700; color: var(--accent-amber);">Ephemeral</td><td>Lasting for a very short, transitory period; fleeting.</td></tr>
+                    <tr><td style="font-weight: 700; color: var(--accent-amber);">Perfunctory</td><td>Carried out with minimum effort or routine reflection; superficial.</td></tr>
+                    <tr><td style="font-weight: 700; color: var(--accent-amber);">Ubiquitous</td><td>Present, appearing, or found everywhere simultaneously.</td></tr>
+                    <tr><td style="font-weight: 700; color: var(--accent-amber);">Veracity</td><td>Conformity to facts; accuracy and truthfulness.</td></tr>
                 </tbody>
             </table>
 
-            <h3 style="color: var(--accent-cyan); margin-top: 2rem;">Essential Idioms & Phrasal Expressions</h3>
-            <table class="exam-table">
+            <h3 style="color: var(--accent-cyan); margin-bottom: 1rem;">Essential Exam Idioms & Phrasal Expressions</h3>
+            <table class="data-table">
                 <thead>
                     <tr>
-                        <th>Idiom / Phrase</th>
-                        <th>Contextual Meaning & Academic Usage</th>
+                        <th>Idiom / Expression</th>
+                        <th>Academic Usage & Meaning</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="term">Burn the midnight oil</td>
-                        <td>To work, study, or deliberate late into the night. (e.g., *Delegates burned the midnight oil to finalize the treaty.*)</td>
-                    </tr>
-                    <tr>
-                        <td class="term">At a crossroads</td>
-                        <td>A critical junction where a crucial decision must be made that impacts future direction.</td>
-                    </tr>
-                    <tr>
-                        <td class="term">Weather the storm</td>
-                        <td>To successfully survive a difficult period, crisis, or financial hardship without collapsing.</td>
-                    </tr>
-                    <tr>
-                        <td class="term">A double-edged sword</td>
-                        <td>A policy, tool, or decision that possesses both significant benefits and severe potential drawbacks.</td>
-                    </tr>
-                    <tr>
-                        <td class="term">Read between the lines</td>
-                        <td>To discern hidden meanings, unspoken intentions, or subtle nuances not explicitly stated.</td>
-                    </tr>
-                    <tr>
-                        <td class="term">Clear the air</td>
-                        <td>To remove lingering doubts, misunderstandings, or tense feelings through frank discussion.</td>
-                    </tr>
+                    <tr><td style="font-weight: 700; color: var(--accent-emerald);">Burn the midnight oil</td><td>To work or study late into the night.</td></tr>
+                    <tr><td style="font-weight: 700; color: var(--accent-emerald);">Weather the storm</td><td>To survive a difficult financial or personal crisis without collapsing.</td></tr>
+                    <tr><td style="font-weight: 700; color: var(--accent-emerald);">Double-edged sword</td><td>A situation or decision that carries both major benefits and major drawbacks.</td></tr>
+                    <tr><td style="font-weight: 700; color: var(--accent-emerald);">Read between the lines</td><td>To discover hidden meanings that are not explicitly stated.</td></tr>
                 </tbody>
             </table>
+        </section>
 
-            <!-- EXTERNAL SUGGESTIONS & REFERENCE LINKS -->
-            <div class="external-links">
-                <h4 style="color: var(--accent-emerald); margin-bottom: 1rem;"><i class="fa-solid fa-compass"></i> Recommended Reading & Institutional Resources</h4>
-                <ul class="links-list">
-                    <li><a href="https://www.fpsc.gov.pk" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> Federal Public Service Commission (FPSC) Official Syllabi & Past Papers</a></li>
-                    <li><a href="https://www.imf.org/en/Publications" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> IMF World Economic Outlook Reports & Structural Reform Analysis</a></li>
-                    <li><a href="https://www.economist.com" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> The Economist - Macroeconomic Policy & Trade Dynamics</a></li>
-                </ul>
+        <!-- ================================================================= -->
+        <!-- CATEGORY BOX 5: KEYBOARD LAYOUTS & FONT SELECTION GUIDES         -->
+        <!-- EDIT/UPDATE/DELETE TECHNICAL PREFACES AND COMPARISONS HERE       -->
+        <!-- ================================================================= -->
+        <section id="box-guides" class="content-box">
+            <div class="box-header">
+                <div class="box-title"><i class="fa-solid fa-book"></i> Layout Comparisons & Font Selection Prefaces</div>
             </div>
 
-        </article>
+            <div class="grid-suite">
+                <div class="card">
+                    <div class="card-title" style="color: var(--accent-cyan);">QWERTY vs. QWERTZ Layouts</div>
+                    <p class="card-desc">QWERTY is the international standard, while QWERTZ swaps 'Y' and 'Z' for Central European languages. This shift causes key travel fatigue for English typists unused to German layout mapping.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-title" style="color: var(--accent-emerald);">Jameel Noori Nastaliq vs. System Fonts</div>
+                    <p class="card-desc">Jameel Noori Nastaliq features calligraphic ligatures ideal for publications, while Naskh vector fonts provide faster web rendering speeds and better digital UI alignment.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-title" style="color: var(--accent-amber);">Urdu Print vs. Flex Publishing</div>
+                    <p class="card-desc">Use <strong>Jameel Noori Nastaliq</strong> for Urdu brochures and formal documents. Use <strong>Bold Naskh</strong> for large flex banners and outdoor billboards to maintain long-distance legibility.</p>
+                </div>
+            </div>
+        </section>
+
     </main>
 
+    <!-- FOOTER -->
     <footer>
-        <p>OmniRead Master Platform &bull; Engineered & Maintained by <strong>Ali's Company</strong> &copy; 2026. All Rights Reserved.</p>
+        <p>OmniRead Master Platform &bull; Designed & Maintained by <strong>Ali's Company</strong> &copy; 2026. All Rights Reserved.</p>
     </footer>
 
+    <!-- INTERACTIVE TAB SWITCHING SCRIPT -->
+    <script>
+        function switchBox(boxId) {
+            // Hide all content boxes
+            const boxes = document.querySelectorAll('.content-box');
+            boxes.forEach(box => box.classList.remove('active'));
+
+            // Remove active status from all navigation buttons
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Show the selected box
+            document.getElementById(boxId).classList.add('active');
+
+            // Highlight the clicked button
+            event.currentTarget.classList.add('active');
+        }
+    </script>
 </body>
 </html>
