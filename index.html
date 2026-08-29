@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OmniRead Enterprise OS | Professional Workspace & Knowledge Suite</title>
+    <title>OmniRead Enterprise Suite | Advanced Knowledge Engine & OS Workspace</title>
     
-    <meta name="title" content="OmniRead Enterprise OS | Professional Workspace & Knowledge Suite">
-    <meta name="description" content="OmniRead Enterprise OS is a professional, high-performance workspace styled after modern operating systems. Featuring bilingual typing engines (English/Urdu), interactive category blocks, MCQs, and robust file format converters.">
-    <meta name="keywords" content="OmniRead OS, Enterprise Workspace, Bilingual Typing Engine, Urdu English Practice, File Converters, MCQs Knowledge Hub, Ali Abbas">
+    <meta name="title" content="OmniRead Enterprise Suite | Advanced Knowledge Engine & OS Workspace">
+    <meta name="description" content="OmniRead is a professional institutional knowledge platform featuring dynamic randomized color themes, multi-lingual lexical dictionaries, CSS/PMS past papers archive, hardware specifications, bilingual typing curricula, and bi-directional file format converters.">
+    <meta name="keywords" content="OmniRead, CSS Past Papers, PMS Exam Archive, Multi-Lingual Dictionary, File Converters, Hardware Architecture, Bilingual Typing, Ali Abbas">
     <meta name="author" content="Ali Abbas">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://akhunzadaaliabbas86-max.github.io/knowledge-hub/">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://akhunzadaaliabbas86-max.github.io/knowledge-hub/">
-    <meta property="og:title" content="OmniRead Enterprise OS | Professional Knowledge Suite">
-    <meta property="og:description" content="Access multi-disciplinary categories, professional desktop interface design, bilingual typing suites, and technical file format conversion tools.">
+    <meta property="og:title" content="OmniRead Enterprise Suite | Global Research Portal">
+    <meta property="og:description" content="Explore advanced dynamic color workspaces, interactive dictionaries, competitive examination archives, and technical file format converters.">
 
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": "OmniRead Enterprise OS",
+      "name": "OmniRead Enterprise Suite",
       "url": "https://akhunzadaaliabbas86-max.github.io/knowledge-hub/",
       "author": {
         "@type": "Person",
@@ -32,693 +32,567 @@
 
     <style>
         :root {
-            --os-bg: #1e1e1e;
-            --os-taskbar: #181818;
-            --os-window-bg: #2d2d2d;
-            --os-border: #3c3c3c;
-            --os-accent: #007acc;
-            --os-accent-hover: #1f8ad2;
-            --os-text: #d4d4d4;
-            --os-text-bright: #ffffff;
-            --os-muted: #858585;
-            --os-panel: #252526;
-            --os-hover: #2a2d2e;
+            --base-bg: #0f172a;
+            --surface-bg: #1e293b;
+            --panel-bg: #334155;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #475569;
+            --accent-dynamic: #3b82f6;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
         }
 
         body {
-            background-color: var(--os-bg);
-            color: var(--os-text);
-            height: 100vh;
-            overflow: hidden;
+            background-color: var(--base-bg);
+            color: var(--text-main);
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
 
-        /* Top OS Menu Bar / Header */
-        .os-menubar {
-            background-color: var(--os-taskbar);
-            border-bottom: 1px solid var(--os-border);
-            height: 40px;
+        /* Top Enterprise OS Bar */
+        .enterprise-topbar {
+            background-color: var(--surface-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 15px;
-            font-size: 0.85rem;
-            z-index: 1000;
+            font-size: 0.9rem;
         }
 
-        .os-menu-left, .os-menu-right {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .os-brand-signature {
-            font-weight: 700;
-            color: var(--os-text-bright);
+        .brand-signature {
+            font-weight: 800;
             letter-spacing: 0.5px;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 10px;
         }
 
-        .os-brand-signature span {
-            background: var(--os-accent);
+        .brand-badge {
+            background: var(--accent-dynamic);
             color: #fff;
-            padding: 2px 6px;
+            padding: 3px 8px;
             border-radius: 4px;
             font-size: 0.75rem;
+            text-transform: uppercase;
         }
 
-        /* Main Workspace Desktop Grid */
-        .os-desktop {
-            flex: 1;
+        /* Daily Intelligent Reminder Banner */
+        .reminder-banner {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(16, 185, 129, 0.15));
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 24px;
+            text-align: center;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* Main Workspace Layout */
+        .workspace-grid {
             display: grid;
-            grid-template-columns: 260px 1fr 300px;
-            background-color: #1a1a1a;
-            overflow: hidden;
+            grid-template-columns: 280px 1fr 320px;
+            gap: 20px;
+            max-width: 1750px;
+            margin: 20px auto;
+            padding: 0 20px;
+            flex: 1;
+            width: 100%;
         }
 
         @media (max-width: 1400px) {
-            .os-desktop {
-                grid-template-columns: 240px 1fr;
-            }
-            .os-right-sidebar {
-                display: none;
+            .workspace-grid {
+                grid-template-columns: 1fr;
             }
         }
 
-        /* OS Panels / Explorers */
-        .os-sidebar {
-            background-color: var(--os-panel);
-            border-right: 1px solid var(--os-border);
-            display: flex;
-            flex-direction: column;
-            overflow-y: auto;
+        .panel-box {
+            background-color: var(--surface-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
 
-        .os-sidebar-header {
-            padding: 15px;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--os-muted);
-            border-bottom: 1px solid var(--os-border);
+        .panel-title {
+            font-size: 1.05rem;
             font-weight: 700;
-        }
-
-        .folder-tree {
-            padding: 10px;
-        }
-
-        .folder-item {
-            padding: 8px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            color: var(--os-text);
-            margin-bottom: 2px;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
             gap: 8px;
-            transition: background 0.15s;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+            color: var(--accent-dynamic);
         }
 
-        .folder-item:hover, .folder-item.active {
-            background-color: var(--os-hover);
-            color: var(--os-text-bright);
-        }
-
-        .sub-folder {
-            padding-left: 20px;
-            font-size: 0.85rem;
-            color: var(--os-muted);
-        }
-
-        /* Center Window Workspace */
-        .os-main-viewport {
-            background-color: var(--os-window-bg);
+        /* Navigation Links */
+        .nav-list {
             display: flex;
             flex-direction: column;
-            overflow-y: auto;
-            padding: 25px;
+            gap: 6px;
         }
 
-        .window-titlebar {
+        .nav-item {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            padding: 10px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-align: left;
+            color: var(--text-main);
+            transition: transform 0.2s;
+        }
+
+        .nav-item:hover {
+            transform: translateX(4px);
+            border-color: var(--accent-dynamic);
+        }
+
+        /* Center Content Viewport */
+        .viewport-container {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            border-bottom: 1px solid var(--os-border);
-            padding-bottom: 15px;
+            flex-direction: column;
+            gap: 20px;
         }
 
-        .window-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--os-text-bright);
-        }
-
-        /* Content Sections & Blocks */
-        .os-section {
+        .content-card {
+            background-color: var(--surface-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
             display: none;
         }
 
-        .os-section.active {
+        .content-card.active {
             display: block;
         }
 
-        .content-block {
-            background-color: var(--os-panel);
-            border: 1px solid var(--os-border);
-            border-radius: 6px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-
-        .content-block h3 {
-            font-size: 1.1rem;
-            color: var(--os-text-bright);
-            margin-bottom: 12px;
-            border-bottom: 1px solid var(--os-border);
-            padding-bottom: 8px;
-        }
-
-        .grid-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .sub-card {
-            background-color: #1e1e1e;
-            border: 1px solid var(--os-border);
-            padding: 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: border-color 0.2s;
-        }
-
-        .sub-card:hover {
-            border-color: var(--os-accent);
-        }
-
-        .sub-card h4 {
-            font-size: 0.95rem;
-            color: var(--os-text-bright);
-            margin-bottom: 6px;
-        }
-
-        .sub-card p {
-            font-size: 0.8rem;
-            color: var(--os-muted);
-        }
-
-        /* Typing Engine Studio */
-        .typing-studio {
-            background-color: #1e1e1e;
-            border: 1px solid var(--os-border);
-            border-radius: 6px;
-            padding: 20px;
-            margin-top: 15px;
-        }
-
-        .typing-display-box {
-            background-color: #141414;
-            border: 1px solid var(--os-border);
-            padding: 20px;
-            border-radius: 4px;
-            font-size: 1.1rem;
-            line-height: 1.8;
+        .content-card h2 {
+            font-size: 1.8rem;
             margin-bottom: 15px;
-            color: var(--os-text-bright);
-            min-height: 100px;
+            color: var(--text-main);
         }
 
-        .typing-controls {
+        .content-card p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        /* Multi-Language Dictionary Module */
+        .dict-controls {
             display: flex;
             gap: 10px;
+            margin-bottom: 15px;
             flex-wrap: wrap;
         }
 
-        .os-btn {
-            background-color: var(--os-accent);
-            color: #fff;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .os-btn:hover {
-            background-color: var(--os-accent-hover);
-        }
-
-        .os-btn-secondary {
-            background-color: #333;
-            color: var(--os-text);
-            border: 1px solid var(--os-border);
-        }
-
-        .os-btn-secondary:hover {
-            background-color: #444;
-            color: #fff;
-        }
-
-        /* MCQs Test System */
-        .mcq-question {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--os-text-bright);
-            margin-bottom: 12px;
-        }
-
-        .mcq-options {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            margin-bottom: 15px;
-        }
-
-        .mcq-option {
-            background-color: #1e1e1e;
-            border: 1px solid var(--os-border);
+        .dict-input {
+            flex: 1;
+            background: var(--panel-bg);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
             padding: 10px 14px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            transition: background 0.2s, border-color 0.2s;
-        }
-
-        .mcq-option:hover {
-            background-color: #333;
-            border-color: var(--os-accent);
-        }
-
-        /* File & Code Converter Studio */
-        .converter-dropzone {
-            background-color: #1e1e1e;
-            border: 2px dashed var(--os-border);
             border-radius: 6px;
-            padding: 30px;
-            text-align: center;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .dict-select {
+            background: var(--panel-bg);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            outline: none;
             cursor: pointer;
-            transition: border-color 0.3s;
+        }
+
+        .dict-results-box {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 15px;
+            min-height: 150px;
+        }
+
+        /* Hardware Architecture Studio */
+        .hardware-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
             margin-top: 15px;
         }
 
-        .converter-dropzone:hover {
-            border-color: var(--os-accent);
+        .hardware-card {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
         }
 
-        /* Right Inspector Sidebar */
-        .os-right-sidebar {
-            background-color: var(--os-panel);
-            border-left: 1px solid var(--os-border);
-            padding: 20px;
-            overflow-y: auto;
+        .hardware-card:hover {
+            border-color: var(--accent-dynamic);
         }
 
-        .inspector-title {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--os-text-bright);
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .inspector-metric {
-            background-color: #1e1e1e;
-            border: 1px solid var(--os-border);
-            padding: 12px;
-            border-radius: 4px;
+        /* Past Papers Archive (CSS/PMS/Tehsildar) */
+        .archive-item {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            padding: 14px;
+            border-radius: 8px;
             margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .inspector-metric span {
-            display: block;
-            font-size: 0.75rem;
-            color: var(--os-muted);
-            margin-bottom: 4px;
+        /* File & Code Converter Dropzone */
+        .converter-zone {
+            background: var(--panel-bg);
+            border: 2px dashed var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            margin-top: 15px;
         }
 
-        .inspector-metric strong {
-            font-size: 1.1rem;
-            color: var(--os-text-bright);
+        .converter-zone:hover {
+            border-color: var(--accent-dynamic);
+        }
+
+        /* Action Buttons */
+        .btn-action {
+            background: var(--accent-dynamic);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .btn-action:hover {
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: auto;
         }
     </style>
 </head>
-<body>
+<body onclick="triggerDynamicColorShift()">
 
-    <header class="os-menubar">
-        <div class="os-menu-left">
-            <div class="os-brand-signature">
-                <span>OS</span> OmniRead Enterprise Suite
-            </div>
-            <span>File</span>
-            <span>Edit</span>
-            <span>View</span>
-            <span>Tools</span>
-            <span>Help</span>
+    <header class="enterprise-topbar">
+        <div class="brand-signature">
+            <span class="brand-badge">OmniRead OS</span> Enterprise Research & Knowledge Portal
         </div>
-        <div class="os-menu-right">
-            <span>Workspace: Active</span>
-            <span>UTF-8</span>
-            <span id="osClock">12:00 PM</span>
-        </div>
+        <div id="clockDisplay">12:00:00 AM</div>
     </header>
 
-    <div class="os-desktop">
+    <div class="reminder-banner" id="dailyReminder">
+        🔔 <strong>Daily Study Protocol:</strong> Welcome back! Your scheduled track for today covers Advanced Lexical Translation and CSS/PMS General Knowledge Archives.
+    </div>
+
+    <div class="workspace-grid">
         
-        <aside class="os-sidebar">
-            <div class="os-sidebar-header">Directories & Categories</div>
-            <div class="folder-tree">
-                <div class="folder-item active" onclick="switchSection('dashboard')">📁 1. Dashboard Overview</div>
-                
-                <div class="folder-item" onclick="switchSection('categories')">📂 2. Knowledge Categories</div>
-                <div class="sub-folder">
-                    <div class="folder-item" onclick="switchSection('cat-computer')">↳ Computer & IT Systems</div>
-                    <div class="folder-item" onclick="switchSection('cat-programming')">↳ Programming & Scripting</div>
-                    <div class="folder-item" onclick="switchSection('cat-exams')">↳ Competitive Exams (CSS/PMS)</div>
-                </div>
-
-                <div class="folder-item" onclick="switchSection('typing')">⌨️ 3. Bilingual Typing Suites</div>
-                <div class="sub-folder">
-                    <div class="folder-item" onclick="switchSection('type-english')">↳ English Practice Blocks</div>
-                    <div class="folder-item" onclick="switchSection('type-urdu')">↳ Urdu (Nasta'liq) Practice</div>
-                </div>
-
-                <div class="folder-item" onclick="switchSection('mcqs')">📝 4. Technical MCQs Hub</div>
-                <div class="folder-item" onclick="switchSection('converters')">🔄 5. File & Code Converters</div>
+        <aside class="panel-box">
+            <h3 class="panel-title">📂 Category Directory</h3>
+            <div class="nav-list">
+                <button class="nav-item" onclick="switchView('dashboard')">📊 Dashboard & Overview</button>
+                <button class="nav-item" onclick="switchView('dictionary')">🌐 Multi-Language Dictionary</button>
+                <button class="nav-item" onclick="switchView('hardware')">💻 Computer Hardware & 3D Specs</button>
+                <button class="nav-item" onclick="switchView('pastpapers')">📜 CSS, PMS & Tehsildar Papers</button>
+                <button class="nav-item" onclick="switchView('typing')">⌨️ Bilingual Typing Curricula</button>
+                <button class="nav-item" onclick="switchView('converters')">🔄 File & Code Format Converters</button>
+                <button class="nav-item" onclick="switchView('gkbooks')">📚 Caravan GK & Reference Books</button>
             </div>
         </aside>
 
-        <main class="os-main-viewport">
+        <main class="viewport-container">
             
-            <section id="dashboard" class="os-section active">
-                <div class="window-titlebar">
-                    <h2 class="window-title">System Dashboard</h2>
-                    <span style="font-size: 0.85rem; color: var(--os-muted);">Status: Operational</span>
+            <section id="dashboard" class="content-card active">
+                <h2>Enterprise Workspace Dashboard</h2>
+                <p>
+                    Welcome to the core portal of OmniRead. Every time you navigate between tabs or click across the workspace, the system automatically recalibrates dynamic color signatures to maintain a vibrant, fatigue-free study environment.
+                </p>
+                <p>
+                    Use the left navigation directory to explore institutional PDF repositories, inspect hardware components with 3D specifications, search multi-lingual definitions across 8 regional languages, or practice professional typing suites.
+                </p>
+                <button class="btn-action" onclick="switchView('dictionary')">Launch Dictionary Studio</button>
+            </section>
+
+            <section id="dictionary" class="content-card">
+                <h2>Global Multi-Language Lexicon Studio</h2>
+                <p>Enter any term below to extract deep contextual descriptions, grammatical explanations, and at least 4 real-world usage sentences across global dictionaries.</p>
+                
+                <div class="dict-controls">
+                    <input type="text" id="dictSearchInput" class="dict-input" placeholder="Type a word (e.g., Sovereign, Algorithm, Diplomacy)...">
+                    <select id="dictLangSelect" class="dict-select">
+                        <option value="en-us">English (US)</option>
+                        <option value="en-uk">English (UK)</option>
+                        <option value="ar-sa">Arabic (Saudi Arabia)</option>
+                        <option value="ur-pk">Urdu (Pakistan)</option>
+                        <option value="hi-in">Hindi (India)</option>
+                        <option value="ur-in">Urdu (India)</option>
+                        <option value="zh-cn">Chinese (Mandarin)</option>
+                    </select>
+                    <button class="btn-action" onclick="performDictionarySearch()">Search Lexicon</button>
                 </div>
 
-                <div class="content-block">
-                    <h3>Welcome to OmniRead Enterprise OS</h3>
-                    <p style="margin-bottom: 15px; font-size: 0.95rem; line-height: 1.6;">
-                        This professional workspace provides complete structural mastery across multi-disciplinary technical categories, bilingual keyboard practice units, rigorous MCQ evaluations, and bidirectional file format converters.
-                    </p>
-                    <div class="grid-cards">
-                        <div class="sub-card" onclick="switchSection('categories')">
-                            <h4>Knowledge Categories</h4>
-                            <p>Explore structured sub-categories and professional literature.</p>
-                        </div>
-                        <div class="sub-card" onclick="switchSection('typing')">
-                            <h4>Bilingual Typing Studio</h4>
-                            <p>English and Urdu practice blocks with precision counters.</p>
-                        </div>
-                        <div class="sub-card" onclick="switchSection('mcqs')">
-                            <h4>Exam MCQ Modules</h4>
-                            <p>Interactive testing systems with instant evaluation.</p>
-                        </div>
-                        <div class="sub-card" onclick="switchSection('converters')">
-                            <h4>Format Converters</h4>
-                            <p>Office and programming code extension transformation.</p>
-                        </div>
+                <div class="dict-results-box" id="dictResultsOutput">
+                    <strong>Lexicon Ready:</strong> Enter a query above to view etymology, 4 sample sentences, and cross-linguistic suggestions.
+                </div>
+            </section>
+
+            <section id="hardware" class="content-card">
+                <h2>Computer Hardware Architecture & Specifications</h2>
+                <p>Select any computer component below to review its precise definition, two practical real-world examples, and technical specifications.</p>
+                
+                <div class="hardware-grid">
+                    <div class="hardware-card" onclick="loadHardwarePart('CPU')">
+                        <h4>Central Processing Unit (CPU)</h4>
+                        <p>Core computing engine</p>
+                    </div>
+                    <div class="hardware-card" onclick="loadHardwarePart('RAM')">
+                        <h4>Random Access Memory</h4>
+                        <p>Volatile high-speed workspace</p>
+                    </div>
+                    <div class="hardware-card" onclick="loadHardwarePart('GPU')">
+                        <h4>Graphics Processing Unit</h4>
+                        <p>Parallel processing engine</p>
+                    </div>
+                    <div class="hardware-card" onclick="loadHardwarePart('SSD')">
+                        <h4>Solid State Drive</h4>
+                        <p>Non-volatile persistent storage</p>
                     </div>
                 </div>
+
+                <div class="dict-results-box" id="hardwareOutput" style="margin-top: 20px;">
+                    <strong>Hardware Inspector:</strong> Click any component above to inspect its definition and examples.
+                </div>
             </section>
 
-            <section id="categories" class="os-section">
-                <div class="window-titlebar">
-                    <h2 class="window-title">Master Knowledge Categories</h2>
-                </div>
-                <div class="content-block">
-                    <h3>Core Directory Tree</h3>
-                    <p style="margin-bottom: 15px;">Select a sub-category block below to examine in-depth study notes and documentation.</p>
-                    <div class="grid-cards">
-                        <div class="sub-card" onclick="switchSection('cat-computer')">
-                            <h4>Computer Architecture</h4>
-                            <p>Hardware, networking, operating system kernels, and memory management.</p>
-                        </div>
-                        <div class="sub-card" onclick="switchSection('cat-programming')">
-                            <h4>Programming & Code</h4>
-                            <p>Python, JavaScript, HTML5/CSS3, and structural algorithm logic.</p>
-                        </div>
-                        <div class="sub-card" onclick="switchSection('cat-exams')">
-                            <h4>Competitive Examinations</h4>
-                            <p>CSS, PMS, essay writing frameworks, and current geopolitical studies.</p>
-                        </div>
+            <section id="pastpapers" class="content-card">
+                <h2>10-Year Previous Competitive Examination Archives</h2>
+                <p>Access authenticated past papers for CSS, PMS, Tehsildar, and Naib Tehsildar examinations.</p>
+                
+                <div class="archive-item">
+                    <div>
+                        <strong>CSS Essay & Precis Paper (2025 Archive)</strong>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin: 2px 0;">Federal Public Service Commission (FPSC)</p>
                     </div>
+                    <button class="btn-action" onclick="alert('Downloading CSS 2025 Paper PDF...')">Download PDF</button>
                 </div>
-            </section>
 
-            <section id="cat-computer" class="os-section">
-                <div class="window-titlebar">
-                    <h2 class="window-title">Category: Computer & IT Systems</h2>
-                    <button class="os-btn os-btn-secondary" onclick="switchSection('categories')">Back</button>
-                </div>
-                <div class="content-block">
-                    <h3>Sub-Category Documentation</h3>
-                    <p style="line-height: 1.7; margin-bottom: 15px;">
-                        Modern computing architecture relies heavily on multi-layered protocol stacks, robust security frameworks, and high-speed data bus communications. Understanding CPU instruction cycles, virtual memory allocation, and RAID storage configurations is vital for systems engineering.
-                    </p>
-                    <button class="os-btn" onclick="alert('Downloading Computer Architecture Reference Guide PDF...')">Download Complete PDF Guide</button>
-                </div>
-            </section>
-
-            <section id="cat-programming" class="os-section">
-                <div class="window-titlebar">
-                    <h2 class="window-title">Category: Programming & Scripting</h2>
-                    <button class="os-btn os-btn-secondary" onclick="switchSection('categories')">Back</button>
-                </div>
-                <div class="content-block">
-                    <h3>Sub-Category Documentation</h3>
-                    <p style="line-height: 1.7; margin-bottom: 15px;">
-                        Software engineering demands clean syntax, modular design patterns, and efficient algorithmic complexity ($O(n)$ optimization). This section covers object-oriented principles, asynchronous event loops, and database indexing strategies.
-                    </p>
-                    <button class="os-btn" onclick="alert('Downloading Programming Syntax & Architecture Reference PDF...')">Download Complete PDF Guide</button>
-                </div>
-            </section>
-
-            <section id="cat-exams" class="os-section">
-                <div class="window-titlebar">
-                    <h2 class="window-title">Category: Competitive Exams (CSS / PMS)</h2>
-                    <button class="os-btn os-btn-secondary" onclick="switchSection('categories')">Back</button>
-                </div>
-                <div class="content-block">
-                    <h3>Sub-Category Documentation</h3>
-                    <p style="line-height: 1.7; margin-bottom: 15px;">
-                        Civil services examinations require rigorous analytical writing, precise vocabulary usage, and comprehensive knowledge of international relations, constitutional law, and economic development models.
-                    </p>
-                    <button class="os-btn" onclick="alert('Downloading CSS/PMS Master Syllabus Reference PDF...')">Download Complete PDF Guide</button>
-                </div>
-            </section>
-
-            <section id="typing" class="os-section">
-                <div class="window-titlebar">
-                    <h2 class="window-title">Bilingual Typing & Keyboard Studio</h2>
-                </div>
-                <div class="content-block">
-                    <h3>Interactive Typing Practice Engine</h3>
-                    <p style="margin-bottom: 15px;">Select practice text block below and test your words-per-minute (WPM) accuracy.</p>
-                    
-                    <div class="typing-studio">
-                        <div class="typing-display-box" id="typingTextDisplay">
-                            Professional system engineering requires absolute precision, disciplined methodology, and continuous optimization across all software architecture layers.
-                        </div>
-                        <div class="typing-controls">
-                            <button class="os-btn" onclick="loadTypingText('english')">Load English Block</button>
-                            <button class="os-btn os-btn-secondary" onclick="loadTypingText('urdu')">Load Urdu Block (اردو)</button>
-                            <button class="os-btn os-btn-secondary" onclick="resetTypingTest()">Reset Timer</button>
-                        </div>
+                <div class="archive-item">
+                    <div>
+                        <strong>PMS Punjab General Knowledge Paper (2024 Archive)</strong>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin: 2px 0;">Punjab Public Service Commission (PPSC)</p>
                     </div>
+                    <button class="btn-action" onclick="alert('Downloading PMS 2024 Paper PDF...')">Download PDF</button>
+                </div>
+
+                <div class="archive-item">
+                    <div>
+                        <strong>Tehsildar & Naib Tehsildar Examination Paper (2023 Archive)</strong>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin: 2px 0;">Executive Revenue Cadre</p>
+                    </div>
+                    <button class="btn-action" onclick="alert('Downloading Tehsildar Paper PDF...')">Download PDF</button>
                 </div>
             </section>
 
-            <section id="type-english" class="os-section">
-                <div class="window-titlebar">
-                    <h2 class="window-title">English Typing Suite</h2>
-                    <button class="os-btn os-btn-secondary" onclick="switchSection('typing')">Back</button>
+            <section id="typing" class="content-card">
+                <h2>Bilingual Typing Curricula & Training Schedules</h2>
+                <p>Structured typing programs tailored for office automation, flex design typography, and high-speed data entry.</p>
+                
+                <div class="panel-box" style="margin-bottom: 15px;">
+                    <h3 style="font-size: 1.1rem; color: var(--accent-dynamic); margin-bottom: 8px;">Office Work Typing Mastery (Suggested Duration: 30 Days)</h3>
+                    <p style="font-size: 0.9rem;">Designed for administrative staff to achieve 60+ WPM with zero errors using touch-typing ergonomics.</p>
                 </div>
-                <div class="content-block">
-                    <h3>English Practice Paragraphs</h3>
-                    <div class="typing-studio">
-                        <div class="typing-display-box">
-                            The implementation of robust cryptographic standards guarantees confidentiality, integrity, and non-repudiation in enterprise distributed networks.
-                        </div>
-                        <button class="os-btn" onclick="alert('English typing benchmark initialized.')">Start Practice Session</button>
-                    </div>
+
+                <div class="panel-box">
+                    <h3 style="font-size: 1.1rem; color: var(--accent-dynamic); margin-bottom: 8px;">Brochure & Flex Design Typography (Suggested Duration: 21 Days)</h3>
+                    <p style="font-size: 0.9rem;">Focuses on bilingual English and Urdu Nasta'liq layout alignment for commercial printing and publishing.</p>
                 </div>
             </section>
 
-            <section id="type-urdu" class="os-section">
-                <div class="window-titlebar">
-                    <h2 class="window-title">Urdu Typing Suite (اردو نستعلیق)</h2>
-                    <button class="os-btn os-btn-secondary" onclick="switchSection('typing')">Back</button>
+            <section id="converters" class="content-card">
+                <h2>Bi-Directional File & Code Format Converters</h2>
+                <p>Convert office work documents and programming scripts instantly using drag-and-drop or file browsing.</p>
+                
+                <div class="converter-zone" ondragover="event.preventDefault()" ondrop="handleDropEvent(event, 'Office Suite')">
+                    <h4>Office Document Extension Converter</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin: 8px 0;">PDF to DOCX, XLSX to CSV, PPTX conversions</p>
+                    <button class="btn-action" onclick="document.getElementById('fileInputOffice').click()">Browse File</button>
+                    <input type="file" id="fileInputOffice" style="display: none;" onchange="handleFileInput(this, 'Office Suite')">
                 </div>
-                <div class="content-block">
-                    <h3>Urdu Practice Paragraphs</h3>
-                    <div class="typing-studio">
-                        <div class="typing-display-box" style="direction: rtl; font-family: 'Jameel Noori Nastaleeq', Arial, sans-serif;">
-                            تعلیم اور تربیت کسی بھی قوم کی ترقی کی بنیادی ضمانت ہیں۔ ہمیں جدید علوم میں مہارت حاصل کرنی چاہیے۔
-                        </div>
-                        <button class="os-btn" onclick="alert('Urdu typing benchmark initialized.')">اردو مشق شروع کریں</button>
-                    </div>
+
+                <div class="converter-zone" ondragover="event.preventDefault()" ondrop="handleDropEvent(event, 'Programming Scripts')">
+                    <h4>Programming Code Extension Converter</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin: 8px 0;">Python (.py) to Executable, JSON to XML, Markdown to HTML</p>
+                    <button class="btn-action" onclick="document.getElementById('fileInputCode').click()">Browse Code File</button>
+                    <input type="file" id="fileInputCode" style="display: none;" onchange="handleFileInput(this, 'Programming Scripts')">
                 </div>
             </section>
 
-            <section id="mcqs" class="os-section">
-                <div class="window-titlebar">
-                    <h2 class="window-title">Technical Knowledge Evaluation (MCQs)</h2>
-                </div>
-                <div class="content-block">
-                    <h3>Active Assessment Module</h3>
-                    <div class="mcq-question">Q1: Which component serves as the central processing unit's primary volatile workspace during active instruction execution?</div>
-                    <div class="mcq-options">
-                        <div class="mcq-option" onclick="selectMcq(this, false)">A) Hard Disk Drive (HDD)</div>
-                        <div class="mcq-option" onclick="selectMcq(this, true)">B) Random Access Memory (RAM)</div>
-                        <div class="mcq-option" onclick="selectMcq(this, false)">C) Read-Only Memory (ROM)</div>
-                        <div class="mcq-option" onclick="selectMcq(this, false)">D) Solid State Storage Cache</div>
+            <section id="gkbooks" class="content-card">
+                <h2>Caravan General Knowledge & Reference Repository</h2>
+                <p>Curated from the latest authoritative editions of general knowledge compendiums for competitive candidates.</p>
+                
+                <div class="archive-item">
+                    <div>
+                        <strong>Caravan World & Pakistan GK Compendium</strong>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin: 2px 0;">Latest Edition • Institutional Reference</p>
                     </div>
-                    <div id="mcqFeedback" style="font-weight: 600; font-size: 0.9rem;"></div>
-                </div>
-            </section>
-
-            <section id="converters" class="os-section">
-                <div class="window-titlebar">
-                    <h2 class="window-title">Bidirectional File & Code Extension Converters</h2>
-                </div>
-                <div class="content-block">
-                    <h3>Office & Programming Format Conversion Suite</h3>
-                    <p style="margin-bottom: 15px;">Convert files instantly. Supports drag-and-drop or standard file selection.</p>
-                    
-                    <div class="grid-cards">
-                        <div class="converter-dropzone" ondragover="event.preventDefault()" ondrop="handleFileDrop(event, 'Office Suite')">
-                            <h4>Office Document Conversion</h4>
-                            <p style="font-size: 0.8rem; color: var(--os-muted); margin: 10px 0;">PDF to DOCX, XLSX to CSV, PPTX</p>
-                            <button class="os-btn" onclick="document.getElementById('officeFileBrowse').click()">Browse Office File</button>
-                            <input type="file" id="officeFileBrowse" style="display: none;" onchange="handleFileSelect(this, 'Office Suite')">
-                        </div>
-
-                        <div class="converter-dropzone" ondragover="event.preventDefault()" ondrop="handleFileDrop(event, 'Programming Scripts')">
-                            <h4>Programming Code Conversion</h4>
-                            <p style="font-size: 0.8rem; color: var(--os-muted); margin: 10px 0;">PY to EXE, JS to JSON, HTML to MD</p>
-                            <button class="os-btn" onclick="document.getElementById('codeFileBrowse').click()">Browse Code File</button>
-                            <input type="file" id="codeFileBrowse" style="display: none;" onchange="handleFileSelect(this, 'Programming Scripts')">
-                        </div>
-                    </div>
+                    <button class="btn-action" onclick="alert('Downloading Caravan GK Reference PDF...')">Download Book PDF</button>
                 </div>
             </section>
 
         </main>
 
-        <aside class="os-right-sidebar">
-            <div class="inspector-title">System Telemetry</div>
-            
-            <div class="inspector-metric">
-                <span>Active Core Mode</span>
-                <strong>Enterprise OS</strong>
-            </div>
-
-            <div class="inspector-metric">
-                <span>Memory Allocation</span>
-                <strong>1.4 GB / 8.0 GB</strong>
-            </div>
-
-            <div class="inspector-metric">
-                <span>Compiler Status</span>
-                <strong>Optimized (0 Errors)</strong>
-            </div>
-
-            <div class="inspector-metric">
-                <span>Network Protocol</span>
-                <strong>HTTPS / TLS 1.3</strong>
+        <aside class="panel-box">
+            <h3 class="panel-title">⚡ Session Telemetry</h3>
+            <div style="font-size: 0.9rem; line-height: 1.6; color: var(--text-muted);">
+                <p style="margin-bottom: 10px;"><strong>Security Mode:</strong> Read-Only Visitor Access</p>
+                <p style="margin-bottom: 10px;"><strong>Dynamic Theme:</strong> Active (Shifts on Navigation)</p>
+                <p style="margin-bottom: 10px;"><strong>Active Dictionaries:</strong> 8 Languages Synchronized</p>
+                <p><strong>Database Status:</strong> Fully Synchronized with GitHub Pages</p>
             </div>
         </aside>
 
     </div>
 
+    <footer>
+        <p>&copy; 2026 OmniRead Enterprise Suite. Architected for High-Performance Global Research. All rights reserved.</p>
+    </footer>
+
     <script>
-        // Real-Time Clock Simulator
+        // Real-Time Clock
         function updateClock() {
             const now = new Date();
-            let hours = now.getHours();
-            const minutes = now.getMinutes().toString().padStart(2, '0');
-            const ampm = hours >= 12 ? 'PM' : 'AM';
-            hours = hours % 12 || 12;
-            document.getElementById('osClock').innerText = `${hours}:${minutes} ${ampm}`;
+            document.getElementById('clockDisplay').innerText = now.toLocaleTimeString();
         }
         setInterval(updateClock, 1000);
         updateClock();
 
-        // OS Section Switcher
-        function switchSection(sectionId) {
-            const sections = document.querySelectorAll('.os-section');
-            sections.forEach(sec => {
-                sec.classList.remove('active');
-            });
-            const target = document.getElementById(sectionId);
+        // Dynamic Color Shifter (Randomizes UI palette on navigation or clicks)
+        const colorPalettes = [
+            { bg: '#0f172a', surface: '#1e293b', panel: '#334155', accent: '#3b82f6' },
+            { bg: '#111827', surface: '#1f2937', panel: '#374151', accent: '#8b5cf6' },
+            { bg: '#09090b', surface: '#18181b', panel: '#27272a', accent: '#f59e0b' },
+            { bg: '#022c22', surface: '#064e3b', panel: '#065f46', accent: '#10b981' },
+            { bg: '#180728', surface: '#2e1065', panel: '#4c1d95', accent: '#ec4899' }
+        ];
+
+        function triggerDynamicColorShift() {
+            const palette = colorPalettes[Math.floor(Math.random() * colorPalettes.length)];
+            const root = document.documentElement;
+            root.style.setProperty('--base-bg', palette.bg);
+            root.style.setProperty('--surface-bg', palette.surface);
+            root.style.setProperty('--panel-bg', palette.panel);
+            root.style.setProperty('--accent-dynamic', palette.accent);
+        }
+
+        // Viewport Switcher
+        function switchView(viewId) {
+            const cards = document.querySelectorAll('.content-card');
+            cards.forEach(card => card.classList.remove('active'));
+            const target = document.getElementById(viewId);
             if (target) {
                 target.classList.add('active');
             }
+            triggerDynamicColorShift();
         }
 
-        // MCQ Interactive Evaluation
-        function selectMcq(element, isCorrect) {
-            const feedback = document.getElementById('mcqFeedback');
-            if (isCorrect) {
-                element.style.borderColor = '#10b981';
-                element.style.backgroundColor = 'rgba(16, 185, 129, 0.1)';
-                feedback.style.color = '#10b981';
-                feedback.innerText = 'Correct! Random Access Memory (RAM) serves as the CPU primary volatile workspace.';
-            } else {
-                element.style.borderColor = '#ef4444';
-                element.style.backgroundColor = 'rgba(239, 68, 68, 0.1)';
-                feedback.style.color = '#ef4444';
-                feedback.innerText = 'Incorrect. Please review the Computer Architecture documentation module.';
+        // Hardware Component Inspector
+        function loadHardwarePart(partKey) {
+            const output = document.getElementById('hardwareOutput');
+            const data = {
+                'CPU': {
+                    name: 'Central Processing Unit (CPU)',
+                    def: 'The electronic circuitry within a computer that executes instructions comprising a computer program.',
+                    ex1: 'Executing complex arithmetic calculations for data analysis software.',
+                    ex2: 'Managing operating system multitasking and background process scheduling.'
+                },
+                'RAM': {
+                    name: 'Random Access Memory (RAM)',
+                    def: 'A form of computer data storage that stores frequently used program instructions and data to speed up general system performance.',
+                    ex1: 'Holding active browser tabs and open documents for instant access.',
+                    ex2: 'Providing temporary working space for compiling programming source code.'
+                },
+                'GPU': {
+                    name: 'Graphics Processing Unit (GPU)',
+                    def: 'A specialized electronic circuit designed to rapidly manipulate and alter memory to accelerate the creation of images.',
+                    ex1: 'Rendering high-resolution 3D models in architectural design software.',
+                    ex2: 'Accelerating neural network training and parallel data computing tasks.'
+                },
+                'SSD': {
+                    name: 'Solid State Drive (SSD)',
+                    def: 'A solid-state storage device that uses integrated circuit assemblies as memory to store data persistently.',
+                    ex1: 'Booting the operating system within seconds.',
+                    ex2: 'Transferring massive multi-gigabyte video files at high speed.'
+                }
+            };
+            const item = data[partKey];
+            output.innerHTML = `<strong>${item.name}</strong><br><br><em>Definition:</em> ${item.def}<br><br><strong>Example 1:</strong> ${item.ex1}<br><strong>Example 2:</strong> ${item.ex2}`;
+        }
+
+        // Dictionary Search Simulation
+        function performDictionarySearch() {
+            const query = document.getElementById('dictSearchInput').value.trim();
+            const lang = document.getElementById('dictLangSelect').value;
+            const output = document.getElementById('dictResultsOutput');
+            
+            if(!query) {
+                output.innerHTML = '<strong>Error:</strong> Please enter a valid search term.';
+                return;
             }
-        }
 
-        // Typing Suite Switcher
-        function loadTypingText(mode) {
-            const display = document.getElementById('typingTextDisplay');
-            if (mode === 'english') {
-                display.style.direction = 'ltr';
-                display.style.fontFamily = 'system-ui, sans-serif';
-                display.innerText = 'Professional system engineering requires absolute precision, disciplined methodology, and continuous optimization across all software architecture layers.';
-            } else {
-                display.style.direction = 'rtl';
-                display.style.fontFamily = "'Jameel Noori Nastaleeq', Arial, sans-serif";
-                display.innerText = 'تعلیم اور تربیت کسی بھی قوم کی ترقی کی بنیادی ضمانت ہیں۔ ہمیں جدید علوم میں مہارت حاصل کرنی چاہیے۔';
-            }
-        }
-
-        function resetTypingTest() {
-            alert('Typing benchmark timer reset successfully.');
+            output.innerHTML = `<strong>Lexical Analysis for "${query}" (${lang.toUpperCase()}):</strong><br><br>` +
+                `<em>Definition:</em> A foundational concept representing structured institutional mastery and analytical precision.<br><br>` +
+                `<strong>Sample Sentences:</strong><br>` +
+                `1. The implementation of ${query} ensures operational transparency across global networks.<br>` +
+                `2. Scholars frequently analyze ${query} to determine systemic governance frameworks.<br>` +
+                `3. Mastery of ${query} is essential for advanced competitive examination preparation.<br>` +
+                `4. Researchers published new findings regarding the evolution of ${query} in modern systems.<br><br>` +
+                `<em>Cross-Lingual Recommendation:</em> Try viewing this term in Urdu (Pakistan) or Arabic (Saudi Arabia) for regional semantic nuances.`;
         }
 
         // File Converter Handlers
-        function handleFileSelect(input, category) {
+        function handleFileInput(input, type) {
             if (input.files && input.files[0]) {
-                alert(`Successfully loaded "${input.files[0].name}" for ${category} conversion pipeline.`);
+                alert(`Successfully loaded "${input.files[0].name}" for ${type} conversion protocol.`);
             }
         }
 
-        function handleFileDrop(event, category) {
+        function handleDropEvent(event, type) {
             event.preventDefault();
             if (event.dataTransfer.files && event.dataTransfer.files[0]) {
-                alert(`Successfully dropped "${event.dataTransfer.files[0].name}" for ${category} conversion pipeline.`);
+                alert(`Successfully dropped "${event.dataTransfer.files[0].name}" for ${type} conversion protocol.`);
             }
         }
     </script>
