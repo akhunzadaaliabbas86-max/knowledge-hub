@@ -1,3 +1,6 @@
-User-agent: *
-Allow: /
-Sitemap: https://akhunzadaaliabbas86-max.github.io/knowledge-hub/sitemap.xml
+Flask==3.0.2
+Werkzeug==3.0.1
+Pillow==10.2.0
+PyPDF2==3.0.1
+python-docx==1.1.0
+openpyxl==3.1.2
