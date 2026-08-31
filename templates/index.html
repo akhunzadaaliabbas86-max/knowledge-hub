@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omni-Portal Professional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans min-h-screen flex flex-col">
+
+    <!-- Top Navigation Header -->
+    <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center space-x-3">
+            <div class="h-9 w-9 bg-indigo-600 rounded-lg flex items-center justify-center font-bold text-xl">O</div>
+            <h1 class="text-xl font-bold tracking-wide">Omni-Portal <span class="text-xs px-2 py-0.5 bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 rounded">v2026</span></h1>
+        </div>
+
+        <!-- Live Clocks Subsystem -->
+        <div x-data="clockSystem()" x-init="startClocks()" class="flex items-center space-x-6 text-sm font-mono">
+            <div>
+                <span class="text-slate-400">Digital:</span>
+                <span x-text="digitalTime" class="text-indigo-400 font-bold"></span>
+            </div>
+            <div>
+                <span class="text-slate-400">Peshawar (PKT):</span>
+                <span x-text="pktTime" class="text-emerald-400 font-bold"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Workspace Dashboard -->
+    <main class="flex-1 grid grid-cols-1 md:grid-cols-12 gap-6 p-6">
+
+        <!-- Left Navigation Sidebar -->
+        <aside class="md:col-span-3 space-y-4">
+            <div class="bg-slate-800/50 border border-slate-700/50 rounded-xl p-4">
+                <h2 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Core Subsystems</h2>
+                <nav class="space-y-1">
+                    <a href="#calculator" class="block px-3 py-2 rounded-lg bg-indigo-600/20 text-indigo-300 font-medium border border-indigo-500/30">Computational Suite</a>
+                    <a href="#lexicon" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-700/50">5-Lang Lexicon</a>
+                    <a href="#exams" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-700/50">CSS/PMS Exam Hub</a>
+                    <a href="#converter" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-700/50">Universal Media Converter</a>
+                    <a href="#typing" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-700/50">Multilingual Typing Master</a>
+                </nav>
+            </div>
+
+            <!-- Weather Engine Box -->
+            <div x-data="weatherEngine()" x-init="fetchWeather()" class="bg-slate-800/50 border border-slate-700/50 rounded-xl p-4">
+                <h2 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Peshawar Weather Engine</h2>
+                <template x-for="item in forecast" :key="item.day">
+                    <div class="flex justify-between items-center py-1 text-sm border-b border-slate-700/30 last:border-0">
+                        <span x-text="item.day" class="text-slate-300"></span>
+                        <span x-text="item.condition" class="text-xs text-slate-400"></span>
+                        <span x-text="item.temp" class="font-mono text-emerald-400"></span>
+                    </div>
+                </template>
+            </div>
+        </aside>
+
+        <!-- Central Work Area -->
+        <section class="md:col-span-9 space-y-6">
+
+            <!-- Daily Dynamic Article -->
+            <div class="bg-gradient-to-r from-indigo-900/30 to-purple-900/30 border border-indigo-500/30 rounded-xl p-6">
+                <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">{{ article.category }}</span>
+                <h2 class="text-2xl font-bold mt-1 text-white">{{ article.title }}</h2>
+                <p class="text-slate-300 mt-2 text-sm leading-relaxed">{{ article.content }}</p>
+            </div>
+
+            <!-- Grid of Interactive Suites -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+                <!-- Calculator Subsystem -->
+                <div id="calculator" x-data="calcEngine()" class="bg-slate-800/50 border border-slate-700/50 rounded-xl p-5 space-y-4">
+                    <h3 class="text-base font-bold text-slate-200">Scientific & Physics Calculator</h3>
+                    <input type="text" x-model="expression" placeholder="e.g. sin(pi/4) + sqrt(16)" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm font-mono text-emerald-400 focus:outline-none focus:border-indigo-500">
+                    <div class="flex space-x-2">
+                        <button @click="evaluate()" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-xs font-bold rounded-lg transition">Compute</button>
+                        <span class="text-sm font-mono self-center text-slate-300" x-text="result"></span>
+                    </div>
+                </div>
+
+                <!-- 5-Lang Lexicon Engine -->
+                <div id="lexicon" x-data="lexiconEngine()" class="bg-slate-800/50 border border-slate-700/50 rounded-xl p-5 space-y-4">
+                    <h3 class="text-base font-bold text-slate-200">5-Language Lexicon (CSS/PMS Focus)</h3>
+                    <div class="flex space-x-2">
+                        <input type="text" x-model="query" placeholder="Type: education, governance..." class="flex-1 bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-indigo-500">
+                        <button @click="lookup()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-xs font-bold rounded-lg transition">Lookup</button>
+                    </div>
+                    <div x-show="output" class="text-xs space-y-1 font-mono bg-slate-900 p-3 rounded-lg border border-slate-700/50">
+                        <p class="text-indigo-400">Urdu (PK): <span x-text="output.ur_pk" class="text-slate-200"></span></p>
+                        <p class="text-indigo-400">Pashto (KPK): <span x-text="output.ps_kpk" class="text-slate-200"></span></p>
+                        <p class="text-indigo-400">Chinese: <span x-text="output.zh" class="text-slate-200"></span></p>
+                    </div>
+                </div>
+
+                <!-- Universal File Converter Engine -->
+                <div id="converter" class="bg-slate-800/50 border border-slate-700/50 rounded-xl p-5 space-y-4 lg:col-span-2">
+                    <h3 class="text-base font-bold text-slate-200">Universal File Converter (Image to PDF)</h3>
+                    <form action="/api/convert/image-to-pdf" method="POST" enctype="multipart/form-data" class="flex items-center space-x-4">
+                        <input type="file" name="file" accept="image/*" class="text-xs text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-indigo-600/20 file:text-indigo-300 hover:file:bg-indigo-600/30">
+                        <button type="submit" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-xs font-bold rounded-lg transition">Convert to PDF</button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Alpine.js Client-Side Logic -->
+    <script>
+        function clockSystem() {
+            return {
+                digitalTime: '',
+                pktTime: '',
+                startClocks() {
+                    setInterval(() => {
+                        const now = new Date();
+                        this.digitalTime = now.toLocaleTimeString();
+                        this.pktTime = new Date().toLocaleTimeString('en-US', { timeZone: 'Asia/Karachi' });
+                    }, 1000);
+                }
+            }
+        }
+
+        function weatherEngine() {
+            return {
+                forecast: [],
+                async fetchWeather() {
+                    let res = await fetch('/api/weather');
+                    let json = await res.json();
+                    this.forecast = json.data;
+                }
+            }
+        }
+
+        function calcEngine() {
+            return {
+                expression: '',
+                result: '',
+                async evaluate() {
+                    let res = await fetch('/api/calculate', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({ expression: this.expression })
+                    });
+                    let data = await res.json();
+                    this.result = data.status === 'success' ? 'Result: ' + data.result : data.message;
+                }
+            }
+        }
+
+        function lexiconEngine() {
+            return {
+                query: '',
+                output: null,
+                async lookup() {
+                    let res = await fetch('/api/lexicon/' + this.query);
+                    if (res.ok) {
+                        let json = await res.json();
+                        this.output = json.data;
+                    } else {
+                        this.output = null;
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
